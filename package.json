@@ -1,8 +1,9 @@
 {
   "name": "benchmarked-comparative-selection",
   "version": "0.0.0",
+  "private": true,
   "description": " Benchmarked comparative selection algorithm plugin for d-pac platform",
-  "main": "index.js",
+  "main": "lib/select.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -23,5 +24,12 @@
   "bugs": {
     "url": "https://github.com/d-pac/benchmarked-comparative-selection/issues"
   },
-  "homepage": "https://github.com/d-pac/benchmarked-comparative-selection"
+  "homepage": "https://github.com/d-pac/benchmarked-comparative-selection",
+  "d-pac": [
+    {
+      "name": "benchmarked-comparative-selection",
+      "description": "Two-phased benchmarked comparative selection algorithm",
+      "type": "select"
+    }
+  ]
 }
