@@ -31,5 +31,11 @@
       "description": "Two-phased benchmarked comparative selection algorithm",
       "type": "select"
     }
-  ]
+  ],
+  "devDependencies": {
+    "jscs": "^1.12.0",
+    "jshint": "^2.7.0",
+    "mocha": "^2.2.4",
+    "must": "^0.12.0"
+  }
 }
