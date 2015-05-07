@@ -7,26 +7,26 @@ var selectBM= require('../lib/selectBM.js');
 
 var representation = [{
     _id: "rep01",
-    type: "benchmark",
-    compared: ["rep02", "rep03", "rep04", "rep05"],
+    rankType: "benchmark",
+    compared: [ "rep02", "rep04", "rep05"],
     closeTo: null
 },{
     _id: "rep02",
-    type: "ranked",
+    rankType: "ranked",
   compared: ["rep01"],
   closeTo: "rep01"
 },{
     _id: "rep03",
-    type: "benchmark",
+    rankType: "benchmark",
   compared: ["rep01"],
     closeTo: "rep01"
 },{
     _id: "rep04",
-    type: "ranked",
+    rankType: "ranked",
     closeTo: "rep03"
 },{
     _id: "rep05",
-    type: "ranked",
+    rankType: "ranked",
     closeTo: null
 }];
 
@@ -38,7 +38,7 @@ var comparisons = [{
     a: "rep01",
     b: "rep02"
   },
-  data:{selection: undefined}
+  data:{selection: undefined }
 },{
   _id: "BBB",
   assessor: "user01",
@@ -54,7 +54,7 @@ var comparisons = [{
     a : "rep03",
     b :"rep02"
   },
-  data:{selection: undefined}
+  data:{selection: "rep02"}
 }];
 
 
