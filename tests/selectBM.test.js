@@ -3,32 +3,41 @@
  */
 var selectBM= require('../lib/selectBM.js');
 
-
-
 var representation = [{
-    _id: "rep01",
-    rankType: "benchmark",
-    compared: [ "rep02", "rep04", "rep05"],
-    closeTo: null
+  _id: "rep01",
+  rankType: "toRank",
+  compared: [ "rep04", "rep02", "rep06"],
+  closeTo: null
 },{
-    _id: "rep02",
-    rankType: "ranked",
-  compared: ["rep01"],
-  closeTo: "rep01"
+  _id: "rep02",
+  rankType: "ranked",
+  compared: [ "rep01"],
+  closeTo: "rep03"
 },{
-    _id: "rep03",
-    rankType: "benchmark",
-  compared: ["rep01"],
-    closeTo: "rep01"
+  _id: "rep03",
+  rankType: "benchmark",
+  closeTo: null
 },{
-    _id: "rep04",
-    rankType: "ranked",
-    closeTo: "rep03"
+  _id: "rep04",
+  rankType: "ranked",
+  compared: [ "rep01"],
+  closeTo: "rep05"
 },{
-    _id: "rep05",
-    rankType: "ranked",
-    closeTo: null
+  _id: "rep05",
+  rankType: "benchmark",
+  closeTo: null
+},{
+  _id: "rep06",
+  rankType: "ranked",
+  closeTo: "rep03"
+},{
+  _id: "rep07",
+  rankType: "ranked",
+  closeTo: "rep05"
 }];
+
+
+
 
 
 var comparisons = [{
@@ -36,26 +45,27 @@ var comparisons = [{
   assessor: "user01",
   representations : {
     a: "rep01",
-    b: "rep02"
+    b: "rep04"
   },
   data:{selection: undefined }
 },{
   _id: "BBB",
-  assessor: "user01",
+  assessor: "user04",
   representations : {
-    a : "rep02",
-    b :"rep03"
-  },
-  data:{selection: "rep02"}
-},{
-  _id: "DDD",
-  assessor: "user01",
-  representations : {
-    a : "rep03",
+    a : "rep01",
     b :"rep02"
   },
-  data:{selection: "rep02"}
+  data:{selection: undefined}
+},{
+  _id: "CCC",
+  assessor: "user11",
+  representations : {
+    a : "rep01",
+    b :"rep06"
+  },
+  data:{selection: undefined}
 }];
+
 
 
 selectBM(representation, comparisons);
