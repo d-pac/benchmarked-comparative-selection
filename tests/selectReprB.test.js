@@ -1,5 +1,5 @@
 
-var selectReprB = require('../lib/selectReprB');
+var selectReprB = require('../lib/Stage2/selectReprB');
 
 var CandidateOppos = [
   { _id: "reprA",

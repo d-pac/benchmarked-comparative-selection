@@ -1,5 +1,5 @@
 
-var subsetNComp = require('../lib/subsetNComp');
+var subsetNComp = require('../lib/Stage2/subsetNComp');
 
 var Representations = [
   { _id: "reprA",
