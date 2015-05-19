@@ -1,5 +1,5 @@
 'use strict';
-var select = require('../lib/Stage1/selectReprB');
+var select = require('../../lib/Stage1/selectReprB');
 var _ = require('lodash');
 var representations = [{
   _id: "rep01",
