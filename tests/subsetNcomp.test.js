@@ -1,37 +1,40 @@
 
 var subsetNComp = require('../lib/Stage2/subsetNComp');
+var _=require("lodash");
 
 var Representations = [
   { _id: "reprA",
-    comparedNum: 1,
+    compared: ["reprB"],
     closeTo:null
   },
   { _id: "reprB",
-    comparedNum: 2,
+    compared: ["reprA","reprD"],
     closeTo: "reprE"
   },
   { _id: "reprC",
-    comparedNum: 2,
+    compared: ["reprF","reprE"],
     closeTo: null
   },
   { _id: "reprD",
-    comparedNum: 1,
+    compared: ["reprB"],
     closeTo: "reprE"
   },
   { _id: "reprE",
-    comparedNum: 1,
+    compared: ["reprC"],
     closeTo: null
   },
   { _id: "reprF",
-    comparedNum: 5,
+    compared: ["reprC","reprH","reprH","reprH","reprH"],
     closeTo: "reprC"
   },
   { _id: "reprG",
-    comparedNum: 1,
+    compared: ["reprH","reprH","reprH","reprH"],
     closeTo: "reprE"
   }
 ];
 
-var candidateOpponents = subsetNComp(Representations, "reprE");
+var candidateOpponents = subsetNComp.subsetCloseTo(Representations, "reprE");
+console.log(_.pluck(candidateOpponents, "_id"));
+candidateOpponents = subsetNComp.subsetNcomp(candidateOpponents);
 
 console.log(candidateOpponents);
