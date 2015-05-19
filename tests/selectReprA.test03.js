@@ -1,10 +1,14 @@
 /**
+ * Created by lcoertje on 19/05/2015.
+ */
+
+/**
  * Created by lcoertje on 11/05/2015.
  */
 
 /**
-  */
-var selectBM= require('../lib/selectReprA.js');
+ */
+var selectA = require('../lib/selectReprA.js');
 
 var representation = [{
   _id: "rep01",
@@ -40,8 +44,11 @@ var representation = [{
 },{
   _id: "rep08",
   rankType: "to rank",
-  compared: ["rep04"] ,
-   closeTo: null
+  closeTo: null
+},{
+  _id: "rep09",
+  rankType: "to rank",
+  closeTo: null
 },{
 }];
 
@@ -53,7 +60,7 @@ var comparisons = [{
   _id: "AAA",
   assessor: "user01",
   representations : {
-    a: "rep08",
+    a: "rep09",
     b: "rep04"
   },
   data:{selection: undefined }
@@ -61,8 +68,8 @@ var comparisons = [{
   _id: "XXX",
   assessor: "user01",
   representations : {
-    a : "rep04",
-    b :"rep01"
+    a : "rep09",
+    b :"rep02"
   },
   data:{selection: undefined}
 },{
@@ -76,5 +83,6 @@ var comparisons = [{
 }];
 
 
-selectBM(representation, comparisons, "user01");
-//console.log(selected);
+selectA(representation, comparisons, "user01");
+
+

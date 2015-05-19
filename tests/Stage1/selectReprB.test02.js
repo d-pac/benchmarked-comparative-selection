@@ -26,6 +26,18 @@ var representations = [
     _id: "rep05",
     rankType: "benchmark",
     closeTo: null
+  }, {
+    _id: "rep06",
+    rankType: "ranked",
+    closeTo: "rep03"
+  }, {
+    _id: "rep07",
+    rankType: "benchmark",
+    closeTo: null
+  }, {
+    _id: "rep08",
+    rankType: "ranked",
+    closeTo: "rep07"
   }
 ];
 
