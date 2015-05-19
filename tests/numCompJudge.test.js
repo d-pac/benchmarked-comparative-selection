@@ -1,5 +1,5 @@
 
-var numCompJudge = require('../lib/numCompJudge');
+var numCompJudge = require('../lib/Stage1/numCompJudge');
 
 var comparisons = [
   {
