@@ -33,8 +33,8 @@ var Representations = [
   }
 ];
 
+//console.log(typeof "reprE")
+
 var candidateOpponents = subsetNComp.subsetCloseTo(Representations, "reprE");
-console.log(_.pluck(candidateOpponents, "_id"));
 candidateOpponents = subsetNComp.subsetNcomp(candidateOpponents);
 
-console.log(candidateOpponents);
