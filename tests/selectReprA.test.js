@@ -71,12 +71,12 @@ var comparisons = [{
   assessor: "user11",
   representations : {
     a : "rep08",
-    b :"rep06"
+    b :"rep01"
   },
   data:{selection: undefined}
 }];
 
 
 
-selectBM(representation, comparisons, "user01");
+selectBM(representation, comparisons, "user11");
 //console.log(selected);
