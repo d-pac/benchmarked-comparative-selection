@@ -55,34 +55,48 @@ describe( "nearest cutting point", function() {
       expect(CP).to.have.keys(["_id","ability","rankType"]);
       expect(CP.ability).to.have.property("value");
     });
-    it("should select the correct benchmark", function(){
+    describe("functionality", function(){
       //run though benchmark conditions
       _.forIn(fx.nearestCuttingPoint, function(bench_value, bench_key){
-        _.forIn(bench_value, function(rep_value, rep_key){
-          if(rep_key==/benchmarks/){
-            var Bench = rep_value;
-          } else if(rep_key==/repr/){
-            _.forIn(rep_value, function(rep_cond_value, rep_cond_key){
-              _.forIn(rep_cond_value, function(rep_case_value, rep_case_key){
-                if(!rep_case_value.answer){
-                  var CP_array=[];
-                  for(var i = 0 ; i <= 100 ; i++){
-                    CP_array.push(NCP(rep_case_value.value, Bench)._id);
-                  }
-                  expect(CP.indexOf("A")).to.be.least(0);
-                  expect(CP.indexOf("B")).to.be.least(0)
-                } else{
-                  CP = NCP(rep_case_value.value, Bench)._id;
-                  expect(CP).to.equal(rep_case_value.answer)
-                }
-              })
-            })
-          }
-        })
-      });
+        describe("benchmark condition ".concat(bench_key),function () {
+          var Bench;
+          _.forIn(bench_value, function(rep_value, rep_key){
+            if(/benchmarks/.test(rep_key)) {
+              Bench = rep_value;
+            } else {
+              _.forIn(rep_value, function(rep_cond_value, rep_cond_key){
+                describe("case ".concat(rep_cond_key), function () {
+                  _.forIn(rep_cond_value, function(rep_case_value, rep_case_key){
+                    var conditionText = "in condition ".concat(rep_case_key);
+                    conditionText = conditionText.concat(" the correct answer should be given");
+                    it(conditionText, function () {
+                      if(!rep_case_value.answer){
+                        var CP_array=[];
+                        for(var i = 0 ; i <= 100 ; i++){
+                          CP_array.push(NCP(rep_case_value.value, Bench)._id);
+                          console.log(CP_array);
+                        }
+                        expect(CP_array.indexOf("A")).to.be.least(0);
+                        expect(CP_array.indexOf("B")).to.be.least(0)
+                      } else{
+                        var CP = NCP(rep_case_value.value, Bench)._id;
+                        expect(CP).to.equal(rep_case_value.answer)
+                      }
+                    });
 
-      //do calculations
-      //do tests
+                  })
+                });
+
+              })
+            }
+            if(/repr/.test(rep_key)){
+              //console.log(Bench);
+
+            }
+          })
+        });
+
+      });
     });
   });
 });

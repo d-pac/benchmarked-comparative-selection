@@ -3,7 +3,7 @@
 module.exports = {
 
   posA_posB_highB:{
-    benchmarks:[ { _id:"A", ability:{value:0.2}}, { _id:"B", ability:{value:1.2 }} ],
+    benchmarks:[ { _id:"A", ability:{value:0.2}, rankType:"benchmark"}, { _id:"B", ability:{value:1.2 }, rankType:"benchmark"} ],
     repr: {
       negRep_lowA_lowB: {
         nearestA:{value:-0.1, answer:"A"}
@@ -25,7 +25,7 @@ module.exports = {
     }
   },
   posA_posB_highA:{
-    benchmarks:[ { _id:"A", ability:{value:1.2}}, { _id:"B", ability:{value:0.2 }} ],
+    benchmarks:[ { _id:"A", ability:{value:1.2}, rankType:"benchmark"}, { _id:"B", ability:{value:0.2 }, rankType:"benchmark"} ],
     repr:{
       negRep_lowA_lowB:{
         nearestB:{value:-0.1, answer:"B"}
@@ -47,7 +47,7 @@ module.exports = {
     }
   },
   negA_negB_highB:{
-    benchmarks:[ { _id:"A", ability:{value:-1.2}}, { _id:"B", ability:{value:-0.2 }} ],
+    benchmarks:[ { _id:"A", ability:{value:-1.2}, rankType:"benchmark"}, { _id:"B", ability:{value:-0.2 }, rankType:"benchmark"} ],
     repr:{
       negRep_lowA_lowB:{
         nearestA:{value:-1.3,answer:"A"}
@@ -69,7 +69,7 @@ module.exports = {
     }
   },
   negA_negB_highA:{
-    benchmarks:[ { _id:"A", ability:{value:-0.2}}, { _id:"B", ability:{value:-1.2 }} ],
+    benchmarks:[ { _id:"A", ability:{value:-0.2}, rankType:"benchmark"}, { _id:"B", ability:{value:-1.2 }, rankType:"benchmark"} ],
     repr:{
       negRep_lowA_lowB:{
         nearestB:{value:-1.3,answer:"B"}
@@ -91,7 +91,7 @@ module.exports = {
     }
   },
   negA_posB_highB:{
-    benchmarksA:[ { _id:"A", ability:{value:-0.2}}, { _id:"B", ability:{value:0.3 }} ],
+    benchmarksA:[ { _id:"A", ability:{value:-0.2}, rankType:"benchmark"}, { _id:"B", ability:{value:0.3 }, rankType:"benchmark"} ],
     reprA:{
       negRep_lowA_lowB:{
         nearestA:{value:-0.3,answer:"A"}
@@ -112,21 +112,21 @@ module.exports = {
         nearestA:{value:0,answer:"A"}
       }
     },
-    benchmarksB:[ { _id:"A", ability:{value:-0.1}}, { _id:"B", ability:{value:0.3 }} ],
+    benchmarksB:[ { _id:"A", ability:{value:-0.1}, rankType:"benchmark"}, { _id:"B", ability:{value:0.3 }, rankType:"benchmark"} ],
     reprBposRep_highA_lowB: {
       repMiddle: {value:0.1}
     },
-    benchmarksC:[ { _id:"A", ability:{value:-0.3}}, { _id:"B", ability:{value:0.1 }} ],
+    benchmarksC:[ { _id:"A", ability:{value:-0.3}, rankType:"benchmark"}, { _id:"B", ability:{value:0.1 }, rankType:"benchmark"} ],
     reprCzeroRep_highA_lowB:{
       nearestB:{value:0,answer:"B"}
     },
-    benchmarksD:[ { _id:"A", ability:{value:-0.3}}, { _id:"B", ability:{value:0.1 }} ],
+    benchmarksD:[ { _id:"A", ability:{value:-0.3}, rankType:"benchmark"}, { _id:"B", ability:{value:0.1 }, rankType:"benchmark"} ],
     reprDzeroRep_highA_lowB:{
       repMiddle:{value:0}
     }
   },
   posA_negB_highA: {
-    benchmarks: [{_id: "A", ability:{value: 0.1}}, {_id: "B", ability:{ value:-0.3}}],
+    benchmarks: [{_id: "A", ability:{value: 0.1}, rankType:"benchmark"}, {_id: "B", ability:{ value:-0.3}, rankType:"benchmark"}],
     repr: {
       negRep_lowA_lowB: {
         nearestB: {value:-0.4,answer:"B"}
@@ -146,7 +146,7 @@ module.exports = {
         nearestA: {value:0,answer:"A"}
       }
     },
-    benchmarksB: [{_id: "A", ability: {value:0.3}}, {_id: "B", ability: {value:-0.1}}],
+    benchmarksB: [{_id: "A", ability: {value:0.3}, rankType:"benchmark"}, {_id: "B", ability: {value:-0.1}, rankType:"benchmark"}],
     reprB: {
       posRep_lowA_highB: {
         nearestB: {value:0.05,answer:"B"},
@@ -156,7 +156,7 @@ module.exports = {
         nearestB: {value:0,answer:"B"}
       }
     },
-    benchmarksC: [{_id: "A", ability: {value:0.1}}, {_id: "B", ability: {value:-0.1}}],
+    benchmarksC: [{_id: "A", ability: {value:0.1}, rankType:"benchmark"}, {_id: "B", ability: {value:-0.1}, rankType:"benchmark"}],
     reprCzeroRep_lowA_highB: {
       repMiddle: {value:0}
     }

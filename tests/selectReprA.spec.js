@@ -1,7 +1,7 @@
 var selectReprA = require( '../lib/selectReprA' );
 var _ = require( 'lodash' );
 var expect = require( 'must' );
-var fx = require('./fixtures');
+var fx = require('./../specs/fixtures/index');
 
 describe( "select representation A", function(){
   describe( "spec file", function(){
