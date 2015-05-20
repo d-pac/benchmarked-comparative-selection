@@ -74,7 +74,7 @@ describe( "nearest cutting point", function() {
                         var CP_array=[];
                         for(var i = 0 ; i <= 100 ; i++){
                           CP_array.push(NCP(rep_case_value.value, Bench)._id);
-                          console.log(CP_array);
+                          //console.log(CP_array);
                         }
                         expect(CP_array.indexOf("A")).to.be.least(0);
                         expect(CP_array.indexOf("B")).to.be.least(0)
