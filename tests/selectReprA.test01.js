@@ -6,7 +6,8 @@
   */
 var selectA = require('../lib/selectReprA.js');
 
-var representation = [{
+var representation = [
+  {
   _id: "rep01",
   rankType: "to rank",
   closeTo: null
@@ -47,7 +48,8 @@ var representation = [{
 
 
 
-var comparisons = [{
+var comparisons = [
+  {
   _id: "AAA",
   assessor: "user01",
   representations : {
@@ -63,7 +65,8 @@ var comparisons = [{
     b :"rep02"
   },
   data:{selection: undefined}
-}];
+}
+];
 
 
 

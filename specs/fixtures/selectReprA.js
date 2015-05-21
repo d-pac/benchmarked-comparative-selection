@@ -1,34 +1,62 @@
 'use strict';
 
 module.exports = {
-  twoEqual: {
-    comparisons: [
+      comparisons: [
       {
+        _id: "AAA",
         assessor: "user01",
-        representations: [ "rep01", "rep02" ]
-      }, {
+        representations : {
+          a: "rep09",
+          b: "rep04"
+        },
+        data:{selection: undefined }
+      },{
+        _id: "XXX",
         assessor: "user01",
-        representations: [ "rep02", "rep03" ]
-      }, {
-        assessor: "user01",
-        representations: [ "rep03", "rep01" ]
+        representations : {
+          a : "rep09",
+          b :"rep02"
+        },
+        data:{selection: undefined}
       }
     ],
     representations: [
       {
         _id: "rep01",
-        comparedNum: 2
-      }, {
+        rankType: "to rank",
+        closeTo: null
+      },{
         _id: "rep02",
-        comparedNum: 4
-      }, {
+        rankType: "ranked",
+        compared: [ "rep01"],
+        closeTo: "rep03"
+      },{
         _id: "rep03",
-        comparedNum: 2
+        rankType: "benchmark",
+        closeTo: null
+      },{
+        _id: "rep04",
+        rankType: "ranked",
+        compared: [ "rep01"],
+        closeTo: "rep05"
+      },{
+        _id: "rep05",
+        rankType: "benchmark",
+        closeTo: null
+      },{
+        _id: "rep06",
+        rankType: "ranked",
+        closeTo: "rep03"
+      },{
+        _id: "rep07",
+        rankType: "ranked",
+        closeTo: "rep05"
+      }, {
+        _id: "rep08",
+        rankType: "to rank",
+        closeTo: null
       }
     ]
-  },
-  allEqual: {
-    comparisons: [/* todo */],
-    representations: [/* todo */]
-  }
+
+
 };
