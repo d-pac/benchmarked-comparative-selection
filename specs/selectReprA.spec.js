@@ -27,6 +27,7 @@ describe( "select representation A", function(){
         selectReprA([{}], 0,0);
       }).to.throw(inputErrorA);
     });
+   //werkt nog niet
     it("should throw an error when reprToRank has length < 2", function () {
       expect(function () {
         selectReprA(reprToRank([]));
