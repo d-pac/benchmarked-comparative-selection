@@ -52,6 +52,13 @@ describe( "subset number of comparisons", function() {
       }).to.throw(inputErrorB);
     });
     describe("functionality", function () {
+      var subset = subsetNcomp.subsetCloseTo(fx.subsetNComp.twoRepr.allCP.Repr, fx.subsetNComp.CP);
+      it("should return an array", function () {
+        expect(subset).to.be.array();
+      });
+      it("should return an array with at least 1 object", function () {
+        expect(subset[0]).to.be.an.object();
+      });
       _.forIn(fx.subsetNComp, function(repres_value, repres_key){
         if(repres_key!='CP'){
           describe("case ".concat(repres_key), function () {
@@ -65,7 +72,6 @@ describe( "subset number of comparisons", function() {
                     expect(typeof whatComesOut).not.equal('undefined');
                     expect(whatComesOut.length).to.be.equal(0);
                   } else {
-
                     _.each(whatComesOut, function (someResponse, index) {
                       expect(someResponse).to.equal(cond_value.answer[index]);
                     });

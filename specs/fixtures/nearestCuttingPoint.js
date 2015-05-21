@@ -102,7 +102,6 @@ module.exports = {
         repMiddle:{value:-0.05}
       },
       posRep_highA_lowB:{
-        nearestA:{value:0.1,answer:"A"},
         nearestB:{value:0.2,answer:"B"}
       },
       posRep_highA_highB:{
@@ -113,16 +112,23 @@ module.exports = {
       }
     },
     benchmarksB:[ { _id:"A", ability:{value:-0.1}, rankType:"benchmark"}, { _id:"B", ability:{value:0.3 }, rankType:"benchmark"} ],
-    reprBposRep_highA_lowB: {
-      repMiddle: {value:0.1}
+    reprB: {
+      BposRep_highA_lowB: {
+        nearestA: {value: 0.1, answer: "A"},
+        repMiddle: {value: 0.1}
+      }
     },
     benchmarksC:[ { _id:"A", ability:{value:-0.3}, rankType:"benchmark"}, { _id:"B", ability:{value:0.1 }, rankType:"benchmark"} ],
-    reprCzeroRep_highA_lowB:{
-      nearestB:{value:0,answer:"B"}
+    reprC:{
+      zeroRep_highA_lowB:{
+        nearestB:{value:0,answer:"B"}
+      }
     },
     benchmarksD:[ { _id:"A", ability:{value:-0.3}, rankType:"benchmark"}, { _id:"B", ability:{value:0.1 }, rankType:"benchmark"} ],
-    reprDzeroRep_highA_lowB:{
-      repMiddle:{value:0}
+    reprD:{
+      zeroRep_highA_lowB:{
+        repMiddle:{value:0}
+      }
     }
   },
   posA_negB_highA: {
@@ -157,8 +163,10 @@ module.exports = {
       }
     },
     benchmarksC: [{_id: "A", ability: {value:0.1}, rankType:"benchmark"}, {_id: "B", ability: {value:-0.1}, rankType:"benchmark"}],
-    reprCzeroRep_lowA_highB: {
-      repMiddle: {value:0}
+    reprC:{
+      zeroRep_lowA_highB: {
+        repMiddle: {value:0}
+      }
     }
   }
 };

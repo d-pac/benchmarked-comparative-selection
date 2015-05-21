@@ -55,13 +55,13 @@ describe( "nearest cutting point", function() {
       expect(CP).to.have.keys(["_id","ability","rankType"]);
       expect(CP.ability).to.have.property("value");
     });
-    describe("functionality", function(){
+    describe("functionality", function(){ // SOME TESTS PROBABLY FAIL DUE TO ASYCHRONOUS CODE!
       //run though benchmark conditions
       _.forIn(fx.nearestCuttingPoint, function(bench_value, bench_key){
         describe("benchmark condition ".concat(bench_key),function () {
           var Bench;
           _.forIn(bench_value, function(rep_value, rep_key){
-            if(/benchmarks/.test(rep_key)) {
+            if(/benchmarks/.test(rep_key) || /^benchmarks/.test(rep_key)) {
               Bench = rep_value;
             } else {
               _.forIn(rep_value, function(rep_cond_value, rep_cond_key){
@@ -74,7 +74,6 @@ describe( "nearest cutting point", function() {
                         var CP_array=[];
                         for(var i = 0 ; i <= 100 ; i++){
                           CP_array.push(NCP(rep_case_value.value, Bench)._id);
-                          //console.log(CP_array);
                         }
                         expect(CP_array.indexOf("A")).to.be.least(0);
                         expect(CP_array.indexOf("B")).to.be.least(0)
@@ -88,10 +87,6 @@ describe( "nearest cutting point", function() {
                 });
 
               })
-            }
-            if(/repr/.test(rep_key)){
-              //console.log(Bench);
-
             }
           })
         });
