@@ -59,38 +59,33 @@ describe( "nearest cutting point", function() {
       //run though benchmark conditions
       _.forIn(fx.nearestCuttingPoint, function(bench_value, bench_key){
         describe("benchmark condition ".concat(bench_key),function () {
-          var Bench;
-          _.forIn(bench_value, function(rep_value, rep_key){
-            if(/benchmarks/.test(rep_key) || /^benchmarks/.test(rep_key)) {
-              Bench = rep_value;
-            } else {
-              _.forIn(rep_value, function(rep_cond_value, rep_cond_key){
-                describe("case ".concat(rep_cond_key), function () {
-                  _.forIn(rep_cond_value, function(rep_case_value, rep_case_key){
-                    var conditionText = "in condition ".concat(rep_case_key);
-                    conditionText = conditionText.concat(" the correct answer should be given");
-                    it(conditionText, function () {
-                      if(!rep_case_value.answer){
-                        var CP_array=[];
-                        for(var i = 0 ; i <= 100 ; i++){
-                          CP_array.push(NCP(rep_case_value.value, Bench)._id);
-                        }
-                        expect(CP_array.indexOf("A")).to.be.least(0);
-                        expect(CP_array.indexOf("B")).to.be.least(0)
-                      } else{
-                        var CP = NCP(rep_case_value.value, Bench)._id;
-                        expect(CP).to.equal(rep_case_value.answer)
+          _.forIn(bench_value, function(value, key){
+            _.forIn(value.repr, function(rep_cond_value, rep_cond_key){
+              describe("case " + rep_cond_key, function () {
+                _.forIn(rep_cond_value, function(rep_case_value, rep_case_key){
+                  it("in condition " + rep_case_key + "the correct answer should be given", function (done){
+                    var bench;
+                    if(!rep_case_value.answer){
+                      bench = value.benchmarks;
+                      var CP_array=[];
+                      for(var i = 0 ; i <= 100 ; i++){
+                        CP_array.push(NCP(rep_case_value.value, bench)._id);
                       }
-                    });
-
-                  })
+                      expect(CP_array.indexOf("A")).to.be.least(0);
+                      expect(CP_array.indexOf("B")).to.be.least(0)
+                    } else{
+                      bench = value.benchmarks;
+                      //console.log(rep_case_value.value, bench);
+                      var CP = NCP(rep_case_value.value, bench)._id;
+                      expect(CP).to.equal(rep_case_value.answer)
+                    }
+                    done();
+                  });
                 });
-
-              })
-            }
-          })
+              });
+            });
+          });
         });
-
       });
     });
   });

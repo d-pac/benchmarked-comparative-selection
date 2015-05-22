@@ -18,21 +18,20 @@ describe( "select representation A", function(){
     var inputErrorA = /should be an array/;
     var inputErrorB = /reprToRank should be an array/;
     it("should throw an error when representation is undefined", function() {
-      expect(function() {
-        selectReprA();
-      }).to.throw(inputErrorA);
+      expect(function(){selectReprA();}).to.throw(inputErrorA);
     });
-    it("should throw an error when representation has length < 3", function() {
-      expect(function() {
-        selectReprA([{}], 0,0);
-      }).to.throw(inputErrorA);
+
+    it("should throw an error when representation has length < 2", function() {
+      expect(function(){selectReprA([]);}).to.throw(inputErrorA);
     });
-   //werkt nog niet
+
     it("should throw an error when reprToRank has length < 2", function () {
-      expect(function () {
-        selectReprA(reprToRank([]));
-      }).to.throw(inputErrorB);
+      expect(function(){
+          selectReprA([{_id: "0", rankType: ""},{_id: "0", rankType: ""}]);
+        }
+      ).to.throw(inputErrorB);
     });
+
     it("should return an object that is not a vector and contains the keys '_id', 'closeTo' and 'rankType'", function() {
       var ReprA = selectReprA(fx.selectReprA.representations, fx.selectReprA.comparisons, "user01");
       expect(ReprA).to.be.an.object();
@@ -40,9 +39,15 @@ describe( "select representation A", function(){
       expect(ReprA).to.have.keys(["_id","closeTo","rankType"]);
     });
 
-
-
-
+    it("should throw an error when a commonCount of a repToRank is higher than the compared length", function() {
+      var error = /commonCount cannot be higher/;
+      expect(function(){
+        selectReprA(fx.selectReprA.repsCommonCountIsHigherThenCompLength1, fx.selectReprA.comparisons, fx.selectReprA.asserorId1);
+      }).to.throw(error);
+      expect(function(){
+        selectReprA(fx.selectReprA.repsCommonCountIsHigherThenCompLength2, fx.selectReprA.comparisons, fx.selectReprA.asserorId1);
+      }).to.throw(error);
+    });
 
 
    /*
