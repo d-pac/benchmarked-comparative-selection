@@ -1,0 +1,37 @@
+module.exports = {
+  tenOppos:{
+    repr:[
+      {_id:"skip",
+        ability:{value:4}
+      },
+      {_id:"skip",
+        ability:{value:-4}
+      },
+      {_id:"select",
+        ability:{value:0.2}
+      },
+      {_id:"skip",
+        ability:{value:1}
+      },
+      {_id:"skip",
+        ability:{value:-1}
+      },
+      {_id:"skip",
+        ability:{value:1.5}
+      },
+      {_id:"skip",
+        ability:{value:1.1}
+      },
+      {_id:"skip",
+        ability:{value:-1.5}
+      },
+      {_id:"skip",
+        ability:{value:2}
+      },
+      {_id:"skip",
+        ability:{value:-2.5}
+      }
+    ],
+    abil:0.1
+  }
+}

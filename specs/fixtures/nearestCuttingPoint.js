@@ -166,7 +166,7 @@ module.exports = {
           repMiddle: {value:-0.1}
         },
         posRep_lowA_highB: {
-          nearestA: {valus:0.05,answer:"A"}
+          nearestA: {value:0.05,answer:"A"}
         },
         posRep_highA_highB: {
           nearestA: {value:0.2,answer:"A"}
