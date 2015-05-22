@@ -18,9 +18,8 @@ describe( "select representation A", function(){
     var inputErrorA = /should be an array/;
     var inputErrorB = /reprToRank should be an array/;
     it("should throw an error when representation is undefined", function() {
-      expect(function() {
-        selectReprA();
-      }).to.throw(inputErrorA);
+      expect(
+        selectReprA()).to.throw(inputErrorA);
     });
     it("should throw an error when representation has length < 3", function() {
       expect(function() {
@@ -29,9 +28,9 @@ describe( "select representation A", function(){
     });
    //werkt nog niet
     it("should throw an error when reprToRank has length < 2", function () {
-      expect(function () {
-        selectReprA(reprToRank([]));
-      }).to.throw(inputErrorB);
+      expect(
+        selectReprA([])
+      ).to.throw(inputErrorB);
     });
     it("should return an object that is not a vector and contains the keys '_id', 'closeTo' and 'rankType'", function() {
       var ReprA = selectReprA(fx.selectReprA.representations, fx.selectReprA.comparisons, "user01");
