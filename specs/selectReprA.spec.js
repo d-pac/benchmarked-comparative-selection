@@ -49,26 +49,23 @@ describe( "select representation A", function(){
       }).to.throw(error);
     });
 
-
-   /*
-
-
-
-
-
-
-  describe( "functionality", function(){
-    it( "should select a representation", function(){
+    it( "should randomly select a toRank representation if no toRank representation has already been selected", function(){
       var results = [];
       for( var i = 0; i < 2000; i++ ){
-        results.push( selectReprA( fx.selectReprA.twoEqual.representations, fx.selectReprA.twoEqual.comparisons ) );
+        results.push( selectReprA( fx.selectReprA.nonComparedRepresentations, fx.selectReprA.comparisons, fx.selectReprA.asserorId1 ) );
       }
       var ids = _.pluck( results, "_id" );
       expect( ids.indexOf( 'rep02' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep03' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep04' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep05' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep06' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep07' ) ).to.be.below( 0 );
       expect( ids.indexOf( 'rep01' ) ).to.be.least( 0 );
-      expect( ids.indexOf( 'rep03' ) ).to.be.least( 0 );
+      expect( ids.indexOf( 'rep08' ) ).to.be.least( 0 );
+      console.log(ids);
     } );
-    */
+
   } );
 
 } );
