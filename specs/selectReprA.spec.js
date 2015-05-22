@@ -39,9 +39,15 @@ describe( "select representation A", function(){
       expect(ReprA).to.have.keys(["_id","closeTo","rankType"]);
     });
 
-
-
-
+    it("should throw an error when a commonCount of a repToRank is higher than the compared length", function() {
+      var error = /commonCount cannot be higher/;
+      expect(function(){
+        selectReprA(fx.selectReprA.repsCommonCountIsHigherThenCompLength1, fx.selectReprA.comparisons, fx.selectReprA.asserorId1);
+      }).to.throw(error);
+      expect(function(){
+        selectReprA(fx.selectReprA.repsCommonCountIsHigherThenCompLength2, fx.selectReprA.comparisons, fx.selectReprA.asserorId1);
+      }).to.throw(error);
+    });
 
 
    /*
