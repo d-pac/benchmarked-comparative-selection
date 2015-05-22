@@ -63,20 +63,23 @@ describe( "nearest cutting point", function() {
             _.forIn(value.repr, function(rep_cond_value, rep_cond_key){
               describe("case " + rep_cond_key, function () {
                 _.forIn(rep_cond_value, function(rep_case_value, rep_case_key){
-                  it("in condition " + rep_case_key + "the correct answer should be given", function (){
+                  it("in condition " + rep_case_key + "the correct answer should be given", function (done){
+                    var bench;
                     if(!rep_case_value.answer){
-                      var Bench = value.benchmarks;
+                      bench = value.benchmarks;
                       var CP_array=[];
                       for(var i = 0 ; i <= 100 ; i++){
-                        CP_array.push(NCP(rep_case_value.value, Bench)._id);
+                        CP_array.push(NCP(rep_case_value.value, bench)._id);
                       }
                       expect(CP_array.indexOf("A")).to.be.least(0);
                       expect(CP_array.indexOf("B")).to.be.least(0)
                     } else{
-                      var Bench = value.benchmarks;
-                      var CP = NCP(rep_case_value.value, Bench)._id;
+                      bench = value.benchmarks;
+                      //console.log(rep_case_value.value, bench);
+                      var CP = NCP(rep_case_value.value, bench)._id;
                       expect(CP).to.equal(rep_case_value.answer)
                     }
+                    done();
                   });
                 });
               });
