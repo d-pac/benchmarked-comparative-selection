@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = {
+      asserorId1: "user01",
       comparisons: [
       {
         _id: "AAA",
@@ -53,6 +54,31 @@ module.exports = {
         closeTo: "rep05"
       }, {
         _id: "rep08",
+        rankType: "to rank",
+        closeTo: null
+      }
+    ],
+    repsCommonCountIsHigherThenCompLength1: [
+      {
+        _id: "rep09",
+        rankType: "to rank",
+        closeTo: null
+      },
+      {
+        _id: "rep10",
+        rankType: "to rank",
+        closeTo: null
+      }
+    ],
+    repsCommonCountIsHigherThenCompLength2: [
+      {
+        _id: "rep09",
+        rankType: "to rank",
+        closeTo: null,
+        compared: ["rep02"]
+      },
+      {
+        _id: "rep10",
         rankType: "to rank",
         closeTo: null
       }
