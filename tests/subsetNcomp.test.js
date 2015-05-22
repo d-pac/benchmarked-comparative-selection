@@ -8,7 +8,7 @@ var Representations = [
     closeTo:null
   },
   { _id: "reprB",
-    compared: ["reprA","reprD"],
+    compared: null,
     closeTo: "reprE"
   },
   { _id: "reprC",
@@ -16,7 +16,7 @@ var Representations = [
     closeTo: null
   },
   { _id: "reprD",
-    compared: ["reprB"],
+    compared: null,
     closeTo: "reprE"
   },
   { _id: "reprE",
@@ -28,7 +28,7 @@ var Representations = [
     closeTo: "reprC"
   },
   { _id: "reprG",
-    compared: ["reprH","reprH","reprH","reprH"],
+    compared: null,
     closeTo: "reprE"
   }
 ];
@@ -36,6 +36,7 @@ var Representations = [
 
 
 var candidateOpponents = subsetNComp.subsetCloseTo(Representations, "reprE");
-candidateOpponents = subsetNComp.subsetNcomp(candidateOpponents);
 console.log(candidateOpponents);
-console.log([{},{}].length)
+candidateOpponents = subsetNComp.subsetNcomp(candidateOpponents);
+
+console.log(candidateOpponents);
