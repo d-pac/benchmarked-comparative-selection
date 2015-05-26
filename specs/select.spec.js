@@ -2,7 +2,8 @@
 
 var expect = require( 'must' );
 var select = require( '../lib/select' );
-var _ = require('lodash');
+var _ = require('lodash'),
+    fx = require('./fixtures/index');
 
 describe( "select", function(){
 
@@ -92,14 +93,18 @@ describe( "select", function(){
       }).to.throw(inputErrorF);
     });
     it( "should return a message when all comparisons have been made", function(){
-      var result = select.select();
-      expect(result).to.not.be.an.null();
+      var result = select.select(fx.select.reprNoMoreComparisons, fx.select.comparisons, fx.select.assessment, fx.select.assessor);
+      var message = "All comparisons have been made";
+      expect(result).to.not.be.null();
       expect(result).to.be.an.object();
       expect(result.messages).to.be.an.array();
-      expect(result.messages[0]).to.equal(/All comparisons have been made/);
+      expect(result.messages[0]).to.equal(message);
     });
     it( "should return an array with 2 different representations", function(){
-      expect( select.select() ).to.be.an.array();
+      var result = select.select(fx.select.representations, fx.select.comparisons, fx.select.assessment, fx.select.assessor);
+      expect(result).to.not.be.null();
+      expect(result).to.be.an.array();
+      expect(result).must.have.length(2);
     } );
   } );
 } );
