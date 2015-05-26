@@ -52,7 +52,10 @@ module.exports = {
     {
       _id: "rep04",
       rankType: "benchmark",
-      closeTo: null
+      closeTo: null,
+      ability: {
+        value: 2
+      }
     },
     {
       _id: "rep05",
@@ -67,7 +70,10 @@ module.exports = {
     {
       _id: "rep07",
       rankType: "benchmark",
-      closeTo: null
+      closeTo: null,
+      ability: {
+        value: 0.4
+      }
     }
   ],
   reprNoMoreComparisons: [
