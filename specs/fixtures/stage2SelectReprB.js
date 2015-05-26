@@ -28,7 +28,7 @@ module.exports = {
         },
         {
           _id:"2",
-          ability:{value:Number(0)}
+          ability:{value:0}
         }
 
       ]
