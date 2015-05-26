@@ -9,6 +9,13 @@ module.exports = {
       stage: [5]
     }
   },
+  assessment2: {
+    _id: "assessment01",
+    stage: 2,
+    comparisonsNum: {
+      stage: [5]
+    }
+  },
   comparisons: [
     {
       _id: "AAA",
