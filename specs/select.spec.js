@@ -2,7 +2,8 @@
 
 var expect = require( 'must' );
 var select = require( '../lib/select' );
-var _ = require('lodash');
+var _ = require('lodash'),
+    fx = require('./fixtures/index');
 
 describe( "select", function(){
 
@@ -24,13 +25,13 @@ describe( "select", function(){
   });
 
   describe( "#select", function(){
-    var inputErrorA=/parameters should be defined/
+    var inputErrorA=/parameters should be defined/;
     var inputErrorB=/should be an array/;
     var inputErrorC=/one representation that is to rank/;
     var inputErrorD=/least one benchmark/;
     var inputErrorE=/2 objects that are ranked and close to a benchmark/;
     var inputErrorF=/only contain the numerical value/;
-    it("should throw a error when one of the parrameters is undefined", function () {
+    it("should throw a error when one of the parameters is undefined", function () {
       expect(function(){select.select()}).to.throw(inputErrorA);
       expect(function(){select.select()}).to.throw(inputErrorA);
     });
@@ -43,7 +44,7 @@ describe( "select", function(){
           {_id:"assessment"},{_id:"assessor"})
       }).to.throw(inputErrorB);
     });
-    it("should throw an error when representations doe not contain a representation to rank", function(){
+    it("should throw an error when representations does not contain a representation to rank", function(){
       expect(function(){
         select.select([{_id:"representations: invalid input"},{_id:"invalid input"},{_id:"invalid input"}],
           [{_id:"comparisons"}],{_id:"assessment"},{_id:"assessor"})
@@ -77,25 +78,43 @@ describe( "select", function(){
     it("should throw an error when assessment does not contain a stage field strictly equal to 1 or 2", function(){
       expect(function(){
         select.select([{_id:"to rank", rankType:"to rank"},{_id:"benchmark", rankType:"benchmark"},
-          {_id:"ranked", rankType:"ranked", closeTo:"benchmark"}],
+          {_id:"ranked", rankType:"ranked", closeTo:"benchmark"},{_id:"ranked2", rankType:"ranked", closeTo:"benchmark"}],
         [{_id:"comparisons"}],{_id:"assessment"},{_id:"assessor"});
       }).to.throw(inputErrorF);
       expect(function(){
         select.select([{_id:"to rank", rankType:"to rank"},{_id:"benchmark", rankType:"benchmark"},
-           {_id:"ranked", rankType:"ranked", closeTo:"benchmark"}],
+           {_id:"ranked", rankType:"ranked", closeTo:"benchmark"},{_id:"ranked2", rankType:"ranked", closeTo:"benchmark"}],
           [{_id:"comparisons"}],{_id:"assessment", stage:0},{_id:"assessor"});
       }).to.throw(inputErrorF);
       expect(function(){
         select.select([{_id:"to rank", rankType:"to rank"},{_id:"benchmark", rankType:"benchmark"},
-            {_id:"ranked", rankType:"ranked", closeTo:"benchmark"}],
+            {_id:"ranked", rankType:"ranked", closeTo:"benchmark"},{_id:"ranked2", rankType:"ranked", closeTo:"benchmark"}],
           [{_id:"comparisons"}],{_id:"assessment", stage:3},{_id:"assessor"});
       }).to.throw(inputErrorF);
     });
-    it( "should throw an error when all comparisons have been made", function(){ //SHOULD IT THROW AN ERROR??
-      expect(select.select()).to.throw(Error);
+    it( "should return a message when all comparisons have been made", function(){
+      var result = select.select(fx.select.reprNoMoreComparisons, fx.select.comparisons, fx.select.assessment, fx.select.assessor);
+      var message = "All comparisons have been made";
+      expect(result).to.not.be.null();
+      expect(result).to.be.an.object();
+      expect(result.messages).to.be.an.array();
+      expect(result.messages[0]).to.equal(message);
     });
-    it( "should return an array", function(){
-      expect( select.select() ).to.be.an.array();
-    } );
+    it( "should return an array with 2 different representations in stage 1", function(){
+      var result = select.select(fx.select.representations, fx.select.comparisons, fx.select.assessment, fx.select.assessor);
+      console.log("Result: "+ JSON.stringify(result));
+      expect(result).to.not.be.null();
+      expect(result).to.be.an.array();
+      expect(result.length).to.equal(2);
+      expect(_.get(result[0], "_id")).must.not.equal(_.get(result[1], "_id"));
+    });
+    it( "should return an array with 2 different representations in stage 2", function(){
+      var result = select.select(fx.select.representations, fx.select.comparisons, fx.select.assessment2, fx.select.assessor);
+      console.log("Result: "+ JSON.stringify(result));
+      expect(result).to.not.be.null();
+      expect(result).to.be.an.array();
+      expect(result.length).to.equal(2);
+      expect(_.get(result[0], "_id")).must.not.equal(_.get(result[1], "_id"));
+    });
   } );
 } );
