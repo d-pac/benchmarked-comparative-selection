@@ -17,7 +17,7 @@ describe( "nearest cutting point", function() {
   describe( "#nearestCuttingPoint", function() {
     var inputErrorA = /should be an array/;
     var inputErrorB = /should have rankType benchmark/;
-    it("should thow an error when benchmarks is undefined", function() {
+    it("should throw an error when benchmarks is undefined", function() {
       expect(function() {
         NCP();
       }).to.throw(inputErrorA);

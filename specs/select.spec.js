@@ -24,7 +24,74 @@ describe( "select", function(){
   });
 
   describe( "#select", function(){
-    it( "should throw an error when all comparisons have been made", function(){
+    var inputErrorA=/parameters should be defined/
+    var inputErrorB=/should be an array/;
+    var inputErrorC=/one representation that is to rank/;
+    var inputErrorD=/least one benchmark/;
+    var inputErrorE=/2 objects that are ranked and close to a benchmark/;
+    var inputErrorF=/only contain the numerical value/;
+    it("should throw a error when one of the parrameters is undefined", function () {
+      expect(function(){select.select()}).to.throw(inputErrorA);
+      expect(function(){select.select()}).to.throw(inputErrorA);
+    });
+    it("should throw a error when representations is not a array and does not contain 4 elements", function () {
+      expect(function(){
+        select.select({_id:"representations: invalid input"},[{_id:"comparisons"}],{_id:"assessment"},{_id:"assessor"})
+      }).to.throw(inputErrorB);
+      expect(function(){
+        select.select([{_id:"representations: invalid input"},{_id:"invalid input"}],[{_id:"comparisons"}],
+          {_id:"assessment"},{_id:"assessor"})
+      }).to.throw(inputErrorB);
+    });
+    it("should throw an error when representations doe not contain a representation to rank", function(){
+      expect(function(){
+        select.select([{_id:"representations: invalid input"},{_id:"invalid input"},{_id:"invalid input"}],
+          [{_id:"comparisons"}],{_id:"assessment"},{_id:"assessor"})
+      }).to.throw(inputErrorC );
+    });
+    it("should throw an error when representations does not contain a benchmark", function(){
+      expect(function(){
+        select.select([{_id:"to rank", rankType:"to rank"}, {_id:"to rank", rankType:"to rank"},
+            {_id:"to rank", rankType:"to rank"}],
+          [{_id:"comparisons"}],{_id:"assessment"},{_id:"assessor"});
+      }).to.throw(inputErrorD);
+    });
+    it("should throw an error when representations does not contain an object that is ranked and close to benchmark",
+      function(){
+      expect(function(){
+        select.select([{_id:"to rank", rankType:"to rank"}, {_id:"benchmark", rankType:"benchmark"},
+            {_id:"to rank", rankType:"to rank"}],[{_id:"comparisons"}],
+          {_id:"assessment"},{_id:"assessor"});
+      }).to.throw(inputErrorE);
+      expect(function(){
+        select.select([{_id:"to rank", rankType:"to rank"}, {_id:"benchmark", rankType:"benchmark"},
+            {_id:"ranked", rankType:"ranked"}],[{_id:"comparisons"}],
+          {_id:"assessment"},{_id:"assessor"});
+      }).to.throw(inputErrorE);
+      expect(function(){
+        select.select([{_id:"to rank", rankType:"to rank"},{_id:"benchmark", rankType:"benchmark"},
+            {_id:"ranked", rankType:"ranked", closeTo:"invalid"}],
+          [{_id:"comparisons"}],{_id:"assessment"},{_id:"assessor"});
+      }).to.throw(inputErrorE);
+    });
+    it("should throw an error when assessment does not contain a stage field strictly equal to 1 or 2", function(){
+      expect(function(){
+        select.select([{_id:"to rank", rankType:"to rank"},{_id:"benchmark", rankType:"benchmark"},
+          {_id:"ranked", rankType:"ranked", closeTo:"benchmark"}],
+        [{_id:"comparisons"}],{_id:"assessment"},{_id:"assessor"});
+      }).to.throw(inputErrorF);
+      expect(function(){
+        select.select([{_id:"to rank", rankType:"to rank"},{_id:"benchmark", rankType:"benchmark"},
+           {_id:"ranked", rankType:"ranked", closeTo:"benchmark"}],
+          [{_id:"comparisons"}],{_id:"assessment", stage:0},{_id:"assessor"});
+      }).to.throw(inputErrorF);
+      expect(function(){
+        select.select([{_id:"to rank", rankType:"to rank"},{_id:"benchmark", rankType:"benchmark"},
+            {_id:"ranked", rankType:"ranked", closeTo:"benchmark"}],
+          [{_id:"comparisons"}],{_id:"assessment", stage:3},{_id:"assessor"});
+      }).to.throw(inputErrorF);
+    });
+    it( "should throw an error when all comparisons have been made", function(){ //SHOULD IT THROW AN ERROR??
       expect(select.select()).to.throw(Error);
     });
     it( "should return an array", function(){
