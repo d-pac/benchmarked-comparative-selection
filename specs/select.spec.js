@@ -30,7 +30,7 @@ describe( "select", function(){
     var inputErrorD=/least one benchmark/;
     var inputErrorE=/2 objects that are ranked and close to a benchmark/;
     var inputErrorF=/only contain the numerical value/;
-    it("should throw a error when one of the parrameters is undefined", function () {
+    it("should throw a error when one of the parameters is undefined", function () {
       expect(function(){select.select()}).to.throw(inputErrorA);
       expect(function(){select.select()}).to.throw(inputErrorA);
     });
@@ -43,7 +43,7 @@ describe( "select", function(){
           {_id:"assessment"},{_id:"assessor"})
       }).to.throw(inputErrorB);
     });
-    it("should throw an error when representations doe not contain a representation to rank", function(){
+    it("should throw an error when representations does not contain a representation to rank", function(){
       expect(function(){
         select.select([{_id:"representations: invalid input"},{_id:"invalid input"},{_id:"invalid input"}],
           [{_id:"comparisons"}],{_id:"assessment"},{_id:"assessor"})
@@ -91,10 +91,10 @@ describe( "select", function(){
           [{_id:"comparisons"}],{_id:"assessment", stage:3},{_id:"assessor"});
       }).to.throw(inputErrorF);
     });
-    it( "should throw an error when all comparisons have been made", function(){ //SHOULD IT THROW AN ERROR??
+    it( "should return a message when all comparisons have been made", function(){
       expect(select.select()).to.throw(Error);
     });
-    it( "should return an array", function(){
+    it( "should return an array with 2 different representations", function(){
       expect( select.select() ).to.be.an.array();
     } );
   } );
