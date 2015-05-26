@@ -77,17 +77,17 @@ describe( "select", function(){
     it("should throw an error when assessment does not contain a stage field strictly equal to 1 or 2", function(){
       expect(function(){
         select.select([{_id:"to rank", rankType:"to rank"},{_id:"benchmark", rankType:"benchmark"},
-          {_id:"ranked", rankType:"ranked", closeTo:"benchmark"}],
+          {_id:"ranked", rankType:"ranked", closeTo:"benchmark"},{_id:"ranked2", rankType:"ranked", closeTo:"benchmark"}],
         [{_id:"comparisons"}],{_id:"assessment"},{_id:"assessor"});
       }).to.throw(inputErrorF);
       expect(function(){
         select.select([{_id:"to rank", rankType:"to rank"},{_id:"benchmark", rankType:"benchmark"},
-           {_id:"ranked", rankType:"ranked", closeTo:"benchmark"}],
+           {_id:"ranked", rankType:"ranked", closeTo:"benchmark"},{_id:"ranked2", rankType:"ranked", closeTo:"benchmark"}],
           [{_id:"comparisons"}],{_id:"assessment", stage:0},{_id:"assessor"});
       }).to.throw(inputErrorF);
       expect(function(){
         select.select([{_id:"to rank", rankType:"to rank"},{_id:"benchmark", rankType:"benchmark"},
-            {_id:"ranked", rankType:"ranked", closeTo:"benchmark"}],
+            {_id:"ranked", rankType:"ranked", closeTo:"benchmark"},{_id:"ranked2", rankType:"ranked", closeTo:"benchmark"}],
           [{_id:"comparisons"}],{_id:"assessment", stage:3},{_id:"assessor"});
       }).to.throw(inputErrorF);
     });
