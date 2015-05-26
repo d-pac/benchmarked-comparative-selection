@@ -60,7 +60,10 @@ module.exports = {
     {
       _id: "rep05",
       rankType: "ranked",
-      closeTo: "rep04"
+      closeTo: "rep04",
+      ability: {
+        value: 0.3
+      }
     },
     {
       _id: "rep06",
@@ -73,6 +76,24 @@ module.exports = {
       closeTo: null,
       ability: {
         value: 0.4
+      }
+    },
+    {
+      _id: "rep10",
+      rankType: "ranked",
+      closeTo: "rep07"
+    },
+    {
+      _id: "rep08",
+      rankType: "to rank",
+      closeTo: "rep03"
+    },
+    {
+      _id: "rep09",
+      rankType: "to rank",
+      closeTo: "rep04",
+      ability: {
+        value: 2.2
       }
     }
   ],
