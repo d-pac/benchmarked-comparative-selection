@@ -24,7 +24,7 @@ describe( "select", function(){
   });
 
   describe( "#select", function(){
-    var inputErrorA=/parameters should be defined/
+    var inputErrorA=/parameters should be defined/;
     var inputErrorB=/should be an array/;
     var inputErrorC=/one representation that is to rank/;
     var inputErrorD=/least one benchmark/;
@@ -92,7 +92,11 @@ describe( "select", function(){
       }).to.throw(inputErrorF);
     });
     it( "should return a message when all comparisons have been made", function(){
-      expect(select.select()).to.throw(Error);
+      var result = select.select();
+      expect(result).to.not.be.an.null();
+      expect(result).to.be.an.object();
+      expect(result.messages).to.be.an.array();
+      expect(result.messages[0]).to.equal(/All comparisons have been made/);
     });
     it( "should return an array with 2 different representations", function(){
       expect( select.select() ).to.be.an.array();
