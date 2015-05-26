@@ -102,9 +102,11 @@ describe( "select", function(){
     });
     it( "should return an array with 2 different representations", function(){
       var result = select.select(fx.select.representations, fx.select.comparisons, fx.select.assessment, fx.select.assessor);
+      console.log("Result: "+ JSON.stringify(result));
       expect(result).to.not.be.null();
       expect(result).to.be.an.array();
-      expect(result).must.have.length(2);
+      expect(result.length).to.equal(2);
+      expect(_.get(result[0], "_id")).must.not.equal(_.get(result[1], "_id"));
     } );
   } );
 } );

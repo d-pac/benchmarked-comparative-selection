@@ -14,21 +14,55 @@ module.exports = {
       _id: "AAA",
       assessor: "user01",
       representations : {
-        a: "rep09",
-        b: "rep04"
+        a: "rep02",
+        b: "rep03"
       },
       data:{selection: undefined }
-    },{
-      _id: "XXX",
+    },
+    {
+      _id: "ZZZ",
       assessor: "user01",
       representations : {
-        a : "rep09",
-        b :"rep02"
+        a: "rep02",
+        b: "rep03"
       },
-      data:{selection: undefined}
+      data:{selection: undefined }
     }
   ],
-  representations: [],
+  representations: [
+    {
+      _id: "rep02",
+      rankType: "to rank",
+      closeTo: null,
+      compared: ["rep03"]
+    },
+    {
+      _id: "rep03",
+      rankType: "to rank",
+      closeTo: null,
+      compared: ["rep02"]
+    },
+    {
+      _id: "rep04",
+      rankType: "benchmark",
+      closeTo: null
+    },
+    {
+      _id: "rep05",
+      rankType: "ranked",
+      closeTo: "rep04"
+    },
+    {
+      _id: "rep06",
+      rankType: "ranked",
+      closeTo: "rep07"
+    },
+    {
+      _id: "rep07",
+      rankType: "benchmark",
+      closeTo: null
+    }
+  ],
   reprNoMoreComparisons: [
     {
       _id: "rep02",
