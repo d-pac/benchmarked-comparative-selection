@@ -158,6 +158,15 @@ describe( "select", function(){
           return _.get(result.result[0], "_id")!=="rep08";
       })).to.be.undefined();
 
+      for( var i = 0; i < 2000; i++ ) {
+        results.push(select.select(fx.selectStage1Situation.representations, fx.selectStage1Situation.comparisons, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId2));
+      }
+      expect(_.find(results,function(result){
+        return _.get(result.result[1], "_id")!=="rep02" && _.get(result.result[1], "_id")!=="rep04";
+      })).to.be.undefined();
+      expect(_.find(results,function(result){
+        return _.get(result.result[0], "_id")!=="rep08";
+      })).to.be.undefined();
     } );
 
     // testing situation 2 stage 0
@@ -199,5 +208,22 @@ describe( "select", function(){
 
     });
 
+    it( "should give rep08 as A and rep02 or rep09 as B for user11", function() {
+      var results =[];
+      for (var i = 0; i < 2000; i++) {
+        results.push(select.select(fx.selectStage1Situation.representations3, fx.selectStage1Situation.comparisons3, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId2));
+      }
+
+      console.log("Count B: "+ JSON.stringify(_.countBy(results, function(rep){
+          return rep.result[1]._id;
+        })));
+
+      expect(_.find(results, function (result) {
+        return _.get(result.result[0], "_id") !== "rep08";
+      })).to.be.undefined();
+      expect(_.find(results, function (result) {
+        return _.get(result.result[1], "_id") !== "rep02" && _.get(result.result[1], "_id") !== "rep09";
+      })).to.be.undefined();
+    });
   } );
 } );

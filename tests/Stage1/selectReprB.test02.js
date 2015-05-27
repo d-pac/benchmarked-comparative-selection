@@ -37,7 +37,7 @@ var representations = [
   }, {
     _id: "rep08",
     rankType: "ranked",
-    closeTo: "rep07"
+    closeTo: "rep05"
   }
 ];
 
