@@ -31,6 +31,7 @@ describe( "select", function(){
     var inputErrorD=/least one benchmark/;
     var inputErrorE=/2 objects that are ranked and close to a benchmark/;
     var inputErrorF=/only contain the numerical value/;
+    var inputErrorG=/should have an ability.value/;
     it("should throw a error when one of the parameters is undefined", function () {
       expect(function(){select.select()}).to.throw(inputErrorA);
       expect(function(){select.select()}).to.throw(inputErrorA);
@@ -107,6 +108,18 @@ describe( "select", function(){
       expect(result).to.be.an.array();
       expect(result.length).to.equal(2);
       expect(_.get(result[0], "_id")).must.not.equal(_.get(result[1], "_id"));
+    });
+    it("should throw an error in stage 2 when at least one representation does not have an ability field", function(){
+      expect(function(){select.select(fx.select.reprMissingAbility, fx.select.comparisons,
+        fx.select.assessment2,fx.select.assessor)}).to.throw(inputErrorG);
+    });
+    it("should throw an error in stage 2 when at least one representation does not have an ability.value field", function(){
+      expect(function(){select.select(fx.select.reprMissingAbilityValue, fx.select.comparisons,
+        fx.select.assessment2,fx.select.assessor)}).to.throw(inputErrorG);
+    });
+    it("should throw an error in stage 2 when at least one representation has an ability value NaN", function(){
+      expect(function(){select.select(fx.select.reprMissingAbility, fx.select.comparisons,
+        fx.select.assessment2,fx.select.assessor)}).to.throw(inputErrorG);
     });
     it( "should return an array with 2 different representations in stage 2", function(){
       var result = select.select(fx.select.representations, fx.select.comparisons, fx.select.assessment2, fx.select.assessor);

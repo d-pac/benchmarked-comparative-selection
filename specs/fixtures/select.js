@@ -41,13 +41,19 @@ module.exports = {
       _id: "rep02",
       rankType: "to rank",
       closeTo: null,
-      compared: ["rep03"]
+      compared: ["rep03"],
+      ability: {
+        value: 1
+      }
     },
     {
       _id: "rep03",
       rankType: "to rank",
       closeTo: null,
-      compared: ["rep02"]
+      compared: ["rep02"],
+      ability: {
+        value: 1
+      }
     },
     {
       _id: "rep04",
@@ -68,7 +74,10 @@ module.exports = {
     {
       _id: "rep06",
       rankType: "ranked",
-      closeTo: "rep07"
+      closeTo: "rep07",
+      ability: {
+        value: 1
+      }
     },
     {
       _id: "rep07",
@@ -81,12 +90,241 @@ module.exports = {
     {
       _id: "rep10",
       rankType: "ranked",
-      closeTo: "rep07"
+      closeTo: "rep07",
+      ability: {
+        value: 1
+      }
     },
     {
       _id: "rep08",
       rankType: "to rank",
-      closeTo: "rep03"
+      closeTo: "rep03",
+      ability: {
+        value: 1
+      }
+    },
+    {
+      _id: "rep09",
+      rankType: "to rank",
+      closeTo: "rep04",
+      ability: {
+        value: 2.2
+      }
+    }
+  ],
+  reprMissingAbility: [
+    {
+      _id: "rep02",
+      rankType: "to rank",
+      closeTo: null,
+      ability: {
+      value: 1
+    },
+      compared: ["rep03"]
+    },
+    {
+      _id: "rep03",
+      rankType: "to rank",
+      closeTo: null,
+      compared: ["rep02"],
+      ability: {
+        value: 3
+      }
+    },
+    {
+      _id: "rep04",
+      rankType: "benchmark",
+      closeTo: null
+    },
+    {
+      _id: "rep05",
+      rankType: "ranked",
+      closeTo: "rep04",
+      ability: {
+        value: 0.3
+      }
+    },
+    {
+      _id: "rep06",
+      rankType: "ranked",
+      closeTo: "rep07",
+      ability: {
+        value: 0.5
+      }
+    },
+    {
+      _id: "rep07",
+      rankType: "benchmark",
+      closeTo: null,
+      ability: {
+        value: 0.4
+      }
+    },
+    {
+      _id: "rep10",
+      rankType: "ranked",
+      closeTo: "rep07",
+      ability: {
+        value: 0.5
+      }
+    },
+    {
+      _id: "rep08",
+      rankType: "to rank",
+      closeTo: "rep03",
+      ability: {
+        value: 0.6
+      }
+    },
+    {
+      _id: "rep09",
+      rankType: "to rank",
+      closeTo: "rep04",
+      ability: {
+        value: 2.2
+      }
+    }
+  ],
+  reprMissingAbilityValue: [
+    {
+      _id: "rep02",
+      rankType: "to rank",
+      closeTo: null,
+      ability: {
+        value: 1
+      },
+      compared: ["rep03"]
+    },
+    {
+      _id: "rep03",
+      rankType: "to rank",
+      closeTo: null,
+      compared: ["rep02"],
+      ability: {
+        value: 3
+      }
+    },
+    {
+      _id: "rep04",
+      rankType: "benchmark",
+      closeTo: null,
+      ability: {
+        value: 2
+      }
+    },
+    {
+      _id: "rep05",
+      rankType: "ranked",
+      closeTo: "rep04",
+      ability: {
+        value: 0.3
+      }
+    },
+    {
+      _id: "rep06",
+      rankType: "ranked",
+      closeTo: "rep07",
+      ability: 0.5
+    },
+    {
+      _id: "rep07",
+      rankType: "benchmark",
+      closeTo: null,
+      ability: {
+        value: 0.4
+      }
+    },
+    {
+      _id: "rep10",
+      rankType: "ranked",
+      closeTo: "rep07",
+      ability: {
+        value: 0.5
+      }
+    },
+    {
+      _id: "rep08",
+      rankType: "to rank",
+      closeTo: "rep03",
+      ability: {
+        value: 0.6
+      }
+    },
+    {
+      _id: "rep09",
+      rankType: "to rank",
+      closeTo: "rep04",
+      ability: {
+        value: 2.2
+      }
+    }
+  ],
+  reprAbilityValueNA: [
+    {
+      _id: "rep02",
+      rankType: "to rank",
+      closeTo: null,
+      ability: {
+        value: 1
+      },
+      compared: ["rep03"]
+    },
+    {
+      _id: "rep03",
+      rankType: "to rank",
+      closeTo: null,
+      compared: ["rep02"],
+      ability: {
+        value: 3
+      }
+    },
+    {
+      _id: "rep04",
+      rankType: "benchmark",
+      closeTo: null,
+      ability: {
+        value: 2
+      }
+    },
+    {
+      _id: "rep05",
+      rankType: "ranked",
+      closeTo: "rep04",
+      ability: {
+        value: 0.3
+      }
+    },
+    {
+      _id: "rep06",
+      rankType: "ranked",
+      closeTo: "rep07",
+      ability: {
+        value: 0.5
+      }
+    },
+    {
+      _id: "rep07",
+      rankType: "benchmark",
+      closeTo: null,
+      ability: {
+        value: NaN
+      }
+    },
+    {
+      _id: "rep10",
+      rankType: "ranked",
+      closeTo: "rep07",
+      ability: {
+        value: 0.5
+      }
+    },
+    {
+      _id: "rep08",
+      rankType: "to rank",
+      closeTo: "rep03",
+      ability: {
+        value: 0.6
+      }
     },
     {
       _id: "rep09",
