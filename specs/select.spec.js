@@ -225,5 +225,64 @@ describe( "select", function(){
         return _.get(result.result[1], "_id") !== "rep02" && _.get(result.result[1], "_id") !== "rep09";
       })).to.be.undefined();
     });
+
+
+    //testing situations stage 1
+    describe("condition benchmarkA<0, benchmarkB>0, selectedA close to bmA and selectedB>0", function(){
+      it("should give selectA as first and selectB as second", function(){
+        var results = select.select(fx.selectStage2Situation.reprNegAPosB.closeA.pos,fx.selectStage2Situation.comparisonsA, fx.selectStage2Situation.assessment2,fx.selectStage2Situation.assessor);
+        expect(results.result[0]._id).to.equal("selectA");
+        expect(results.result[1]._id).to.equal("selectB");
+      });
+    });
+    describe("condition benchmarkA<0, benchmarkB>0, selectedA<0 and close to and > bmA and selectedB<0", function(){
+      it("should give selectA as first and selectB as second", function(){
+        var results = select.select(fx.selectStage2Situation.reprNegAPosB.closeA.neg.above.negAbil,fx.selectStage2Situation.comparisonsA, fx.selectStage2Situation.assessment2,fx.selectStage2Situation.assessor);
+        expect(results.result[0]._id).to.equal("selectA");
+        expect(results.result[1]._id).to.equal("selectB");
+      });
+    });
+    describe("condition benchmarkA<0, benchmarkB>0, selectedA<0 and close to and < bmA, selectedB<0 and different number of comparisons", function(){
+      it("should give selectA as first and selectB as second", function(){
+        var results = select.select(fx.selectStage2Situation.reprNegAPosB.closeA.neg.below.negAbil.diffComp,fx.selectStage2Situation.comparisonsA, fx.selectStage2Situation.assessment2,fx.selectStage2Situation.assessor);
+        expect(results.result[0]._id).to.equal("selectA");
+        expect(results.result[1]._id).to.equal("selectB");
+      });
+    });
+    describe("condition benchmarkA<0, benchmarkB>0, selectedA<0 and close to and < bmA and selectedB<0, and equal number of comparisons", function(){
+      it("should give selectA as first and selectB to selectB4 as second", function(){
+        var results1 = [], results2 = [];
+        for(var i = 0 ; i < 100 ; i++){
+          var tempStore = select.select(fx.selectStage2Situation.reprNegAPosB.closeA.neg.below.negAbil.equalComp,fx.selectStage2Situation.comparisonsA, fx.selectStage2Situation.assessment2,fx.selectStage2Situation.assessor);
+          results1.push(tempStore.result[0]._id);
+          results2.push(tempStore.result[1]._id)
+        };
+        var counted = _.sum(results1, function(result){
+          if(result==="selectA"){
+            return 1
+          }
+        });
+        expect(counted).to.equal(results1.length);
+        expect(results2.indexOf("selectB1")).to.be.least(0);
+        expect(results2.indexOf("selectB2")).to.be.least(0);
+        expect(results2.indexOf("selectB3")).to.be.least(0);
+        expect(results2.indexOf("selectB4")).to.be.least(0);
+      });
+    });
+    describe("condition benchmarkA<0, benchmarkB>0, selectedA>0 and close to and > bmA, selectedB<0", function(){
+      it("should give selectA as first and selectB as second", function(){
+        var results = select.select(fx.selectStage2Situation.reprNegAPosB.closeA.neg.above.posAbil,fx.selectStage2Situation.comparisonsA, fx.selectStage2Situation.assessment2,fx.selectStage2Situation.assessor);
+        expect(results.result[0]._id).to.equal("selectA");
+        expect(results.result[1]._id).to.equal("selectB");
+      });
+    });
+    describe("condition benchmarkA<0, benchmarkB>0, selectedA<0 and close to and > bmA, selectedB=0", function(){
+      it("should give selectA as first and selectB as second", function(){  // test fails because input check still can't handle literal 0!!!
+        var results = select.select(fx.selectStage2Situation.reprNegAPosB.closeA.neg.above.zero,fx.selectStage2Situation.comparisonsA, fx.selectStage2Situation.assessment2,fx.selectStage2Situation.assessor);
+        expect(results.result[0]._id).to.equal("selectA");
+        expect(results.result[1]._id).to.equal("selectB");
+      });
+    });
+
   } );
 } );
