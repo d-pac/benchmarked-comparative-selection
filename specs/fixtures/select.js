@@ -6,6 +6,7 @@ module.exports = {
     _id: "assessment01",
     stage: 0,
     comparisonsNum: {
+      total: 10,
       stage: [5]
     }
   },
@@ -13,6 +14,7 @@ module.exports = {
     _id: "assessment01",
     stage: 1,
     comparisonsNum: {
+      total: 10,
       stage: [5]
     }
   },
