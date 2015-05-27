@@ -49,27 +49,109 @@ describe( "select representation A", function(){
       }).to.throw(error);
     });
 
-
-   /*
-
-
-
-
-
-
-  describe( "functionality", function(){
-    it( "should select a representation", function(){
+    it( "should randomly select a toRank representation if no toRank representation has already been selected", function(){
       var results = [];
       for( var i = 0; i < 2000; i++ ){
-        results.push( selectReprA( fx.selectReprA.twoEqual.representations, fx.selectReprA.twoEqual.comparisons ) );
+        results.push( selectReprA( fx.selectReprA.nonComparedRepresentations, fx.selectReprA.comparisons, fx.selectReprA.asserorId1 ) );
       }
       var ids = _.pluck( results, "_id" );
       expect( ids.indexOf( 'rep02' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep03' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep04' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep05' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep06' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep07' ) ).to.be.below( 0 );
       expect( ids.indexOf( 'rep01' ) ).to.be.least( 0 );
-      expect( ids.indexOf( 'rep03' ) ).to.be.least( 0 );
+      expect( ids.indexOf( 'rep08' ) ).to.be.least( 0 );
+      console.log(ids);
     } );
-    */
+
+    it( "should select other toRank if one is already sent out", function(){
+      var results = [];
+      for( var i = 0; i < 2000; i++ ){
+        results.push( selectReprA( fx.selectReprA.oneSentOutRepresentation, fx.selectReprA.oneSentOutComparisons, fx.selectReprA.asserorId1 ) );
+      }
+      var ids = _.pluck( results, "_id" );
+      expect( ids.indexOf( 'rep02' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep03' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep04' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep05' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep06' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep07' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep01' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep08' ) ).to.be.least( 0 );
+      console.log(ids);
+    } );
+
+    it( "when >2 toRank, should randomly select another toRank if one is already sent out", function(){
+      var results = [];
+      for( var i = 0; i < 2000; i++ ){
+        results.push( selectReprA( fx.selectReprA.oneSentOutRepresentation3toRank, fx.selectReprA.oneSentOutComparisons, fx.selectReprA.asserorId1 ) );
+      }
+      var ids = _.pluck( results, "_id" );
+      expect( ids.indexOf( 'rep02' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep03' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep04' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep05' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep06' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep07' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep01' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep08' ) ).to.be.least( 0 );
+      expect( ids.indexOf( 'rep09' ) ).to.be.least( 0 );
+      console.log(ids);
+    } );
+
+    it( "when toRank representation have been sent out in an equal amount but one is seen less often by this judge, this should be selected", function(){
+      var results = [];
+      for( var i = 0; i < 2000; i++ ){
+        results.push( selectReprA( fx.selectReprA.equalSentOutButSeenMoreRepresentation, fx.selectReprA.equalSentOutButSeenMoreComparisons, fx.selectReprA.asserorId2 ) );
+      }
+      var ids = _.pluck( results, "_id" );
+      expect( ids.indexOf( 'rep02' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep03' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep04' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep05' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep06' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep07' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep01' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep08' ) ).to.be.least( 0 );
+      console.log(ids);
+    } );
+
+    it( "when toRank representation have been sent out in an equal amount but one is seen less often by this judge, this should be selected", function(){
+      var results = [];
+      for( var i = 0; i < 2000; i++ ){
+        results.push( selectReprA( fx.selectReprA.equalSentOutButSeenMoreRepresentation, fx.selectReprA.equalSentOutButSeenMoreComparisons, fx.selectReprA.asserorId1 ) );
+      }
+      var ids = _.pluck( results, "_id" );
+      expect( ids.indexOf( 'rep02' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep03' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep04' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep05' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep06' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep07' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep08' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep01' ) ).to.be.least( 0 );
+      console.log(ids);
+    } );
+
+    it( "when toRank representation have been sent out & seen by judge, randomly select", function(){
+      var results = [];
+      for( var i = 0; i < 2000; i++ ){
+        results.push( selectReprA( fx.selectReprA.equalSentOutButSeenMoreRepresentation, fx.selectReprA.equalSentOutAndSeenComparisons, fx.selectReprA.asserorId1 ) );
+      }
+      var ids = _.pluck( results, "_id" );
+      expect( ids.indexOf( 'rep02' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep03' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep04' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep05' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep06' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep07' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep08' ) ).to.be.least( 0 );
+      expect( ids.indexOf( 'rep01' ) ).to.be.least( 0 );
+      console.log(ids);
+    } );
+
   } );
 
 } );
-
