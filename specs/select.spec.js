@@ -109,14 +109,6 @@ describe( "select", function(){
       expect(result.messages).to.be.an.array();
       expect(result.messages[0]).to.equal(message);
     });
-    it( "should return an array with 2 different representations in stage 1", function(){
-      var result = select.select(fx.select.representations, fx.select.comparisons, fx.select.assessment, fx.select.assessor);
-      console.log("Result: "+ JSON.stringify(result));
-      expect(result).to.not.be.null();
-      expect(result).to.be.an.array();
-      expect(result.length).to.equal(2);
-      expect(_.get(result[0], "_id")).must.not.equal(_.get(result[1], "_id"));
-    });
     it("should throw an error in stage 2 when at least one representation does not have an ability field", function(){
       expect(function(){select.select(fx.select.reprMissingAbility, fx.select.comparisons,
         fx.select.assessment2,fx.select.assessor)}).to.throw(inputErrorG);
@@ -128,6 +120,14 @@ describe( "select", function(){
     it("should throw an error in stage 2 when at least one representation has an ability value NaN", function(){
       expect(function(){select.select(fx.select.reprMissingAbility, fx.select.comparisons,
         fx.select.assessment2,fx.select.assessor)}).to.throw(inputErrorG);
+    });
+    it( "should return an array with 2 different representations in stage 1", function(){
+      var result = select.select(fx.select.representations, fx.select.comparisons, fx.select.assessment, fx.select.assessor);
+      console.log("Result: "+ JSON.stringify(result));
+      expect(result).to.not.be.null();
+      expect(result).to.be.an.array();
+      expect(result.length).to.equal(2);
+      expect(_.get(result[0], "_id")).must.not.equal(_.get(result[1], "_id"));
     });
     it( "should return an array with 2 different representations in stage 2", function(){
       var result = select.select(fx.select.representations, fx.select.comparisons, fx.select.assessment2, fx.select.assessor);

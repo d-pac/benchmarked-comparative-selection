@@ -4,14 +4,14 @@ module.exports = {
   assessor: "user01",
   assessment: {
     _id: "assessment01",
-    stage: 1,
+    stage: 0,
     comparisonsNum: {
       stage: [5]
     }
   },
   assessment2: {
     _id: "assessment01",
-    stage: 2,
+    stage: 1,
     comparisonsNum: {
       stage: [5]
     }
