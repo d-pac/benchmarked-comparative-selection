@@ -146,25 +146,28 @@ describe( "select", function(){
 
 
     // testing situaties stage0
-    it( "should give rep08 as A & rep02 or rep05 as B, regardless of which user", function(){
+    it( "should give rep08 as A & rep02 or rep04 as B, regardless of which user", function(){
       var results = [];
       for( var i = 0; i < 2000; i++ ) {
         results.push(select.select(fx.selectStage1Situation.representations, fx.selectStage1Situation.comparisons, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId1));
       }
-
       var ids = _.reduce( results, function(memo, result){
-        memo.concat(result.result);
+        memo.push(result.result[0]._id);
+        memo.push(result.result[1]._id);
         return memo;
       }, [] );
       expect( ids.indexOf( 'rep01' ) ).to.be.below( 0 );
       expect( ids.indexOf( 'rep03' ) ).to.be.below( 0 );
-      expect( ids.indexOf( 'rep05' ) ).to.be.least( 0 );
+      expect( ids.indexOf( 'rep05' ) ).to.be.below( 0 );
       expect( ids.indexOf( 'rep02' ) ).to.be.least( 0 );
-      expect( ids.indexOf( 'rep04' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep04' ) ).to.be.least( 0 );
       expect( ids.indexOf( 'rep08' ) ).to.be.least( 0 );
-      //expect(_.find(results,function(representations){
-      //    return _.get(representations[1], "_id")==="rep08";
-      //  })).to.be.false();
+      expect(_.find(results,function(result){
+        return _.get(result.result[0], "_id")==="rep02" || _.get(result.result[0], "_id")==="rep04";
+      })).to.be.undefined();
+      expect(_.find(results,function(result){
+          return _.get(result.result[1], "_id")==="rep08";
+      })).to.be.undefined();
 
       console.log(ids);
     } );
