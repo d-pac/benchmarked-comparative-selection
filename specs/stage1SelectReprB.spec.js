@@ -45,8 +45,13 @@ describe( "select representation B", function(){
   it( "should select other BM if one BMcomparison has been sent out, ie rep02", function(){
     var results = [];
     for( var i = 0; i < 2000; i++ ){
-      results.push( selectBM( fx.stage1SelectReprB.representations2, fx.stage1SelectReprB.comparisons, "rep01") );
+      results.push( selectBM( fx.stage1SelectReprB.representations2, fx.stage1SelectReprB.comparisons, fx.stage1SelectReprB.representationA2 ) );
     }
+
+    console.log("Count B: "+ JSON.stringify(_.countBy(results, function(rep){
+      return rep._id;
+    })));
+
     var ids = _.pluck( results, "_id" );
     expect( ids.indexOf( 'rep01' ) ).to.be.below( 0 );
     expect( ids.indexOf( 'rep02' ) ).to.be.least( 0 );

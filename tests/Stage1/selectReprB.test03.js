@@ -3,7 +3,7 @@ var select = require('../../lib/Stage1/selectReprB');
 var _ = require('lodash');
 var representations = [{
   _id: "rep01",
-  rankType: "toRank",
+  rankType: "to rank",
   compared: [ "rep04", "rep02", "rep06"],
     closeTo: null
 },{

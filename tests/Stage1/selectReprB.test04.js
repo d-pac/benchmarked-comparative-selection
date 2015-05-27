@@ -5,7 +5,7 @@ var select = require('../../lib/Stage1/selectReprB');
 
 var representations = [{
   _id: "rep01",
-  rankType: "toRank",
+  rankType: "to rank",
   compared: [ "rep04"],
   closeTo: null
 },{

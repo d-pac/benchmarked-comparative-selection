@@ -5,7 +5,7 @@ var selectBM= require('../lib/selectBM.js');
 
 var representation = [{
   _id: "rep01",
-  rankType: "toRank",
+  rankType: "to rank",
   compared: [ "rep04", "rep02", "rep06"],
   closeTo: null
 },{
