@@ -167,8 +167,8 @@ module.exports = {
       rankType: "to rank",
       closeTo: null,
       ability: {
-      value: 1
-    },
+        value: 1
+      },
       compared: ["rep03"]
     },
     {
