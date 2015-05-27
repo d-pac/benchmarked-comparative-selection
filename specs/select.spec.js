@@ -162,34 +162,42 @@ describe( "select", function(){
 
     // testing situation 2 stage 0
 
-    it( "should give rep08 as A and rep02 as B for user11, rep01 as A and rep04 as B for user01", function(){
+    it( "rep01 as A and rep04 as B for user01", function() {
       var results = [];
-      for( var i = 0; i < 2000; i++ ) {
+      for (var i = 0; i < 2000; i++) {
         results.push(select.select(fx.selectStage1Situation.representations2, fx.selectStage1Situation.comparisons2, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId1));
       }
 
-      expect(_.find(results,function(result){
-        return _.get(result.result[0], "_id")!=="rep01";
+      console.log("Count B: "+ JSON.stringify(_.countBy(results, function(rep){
+        return rep.result[1]._id;
+      })));
+
+      expect(_.find(results, function (result) {
+        return _.get(result.result[0], "_id") !== "rep01";
       })).to.be.undefined();
-      expect(_.find(results,function(result){
-        return _.get(result.result[1], "_id")!=="rep04";
+      expect(_.find(results, function (result) {
+        return _.get(result.result[1], "_id") !== "rep04";
       })).to.be.undefined();
+    });
 
-
-
-      for( var i = 0; i < 2000; i++ ) {
+    it( "should give rep08 as A and rep02 as B for user11", function() {
+      var results =[];
+      for (var i = 0; i < 2000; i++) {
         results.push(select.select(fx.selectStage1Situation.representations2, fx.selectStage1Situation.comparisons2, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId2));
       }
 
-      expect(_.find(results,function(result){
-        return _.get(result.result[0], "_id")!=="rep08";
+      console.log("Count B: "+ JSON.stringify(_.countBy(results, function(rep){
+        return rep.result[1]._id;
+      })));
+
+      expect(_.find(results, function (result) {
+        return _.get(result.result[0], "_id") !== "rep08";
       })).to.be.undefined();
-      expect(_.find(results,function(result){
-        return _.get(result.result[1], "_id")!=="rep02";
+      expect(_.find(results, function (result) {
+        return _.get(result.result[1], "_id") !== "rep02";
       })).to.be.undefined();
 
-
-    } );
+    });
 
   } );
 } );
