@@ -101,6 +101,14 @@ describe( "select", function(){
       expect(result.messages).to.be.an.array();
       expect(result.messages[0]).to.equal(message);
     });
+    it( "should return a message the assessor has reached the max comparisons for the stage", function(){
+      var result = select.select(fx.select.representations, fx.select.maxComparisons, fx.select.assessment, fx.select.assessor);
+      var message = "You can't make any more comparisons at the moment.";
+      expect(result).to.not.be.null();
+      expect(result).to.be.an.object();
+      expect(result.messages).to.be.an.array();
+      expect(result.messages[0]).to.equal(message);
+    });
     it( "should return an array with 2 different representations in stage 1", function(){
       var result = select.select(fx.select.representations, fx.select.comparisons, fx.select.assessment, fx.select.assessor);
       console.log("Result: "+ JSON.stringify(result));

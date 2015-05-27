@@ -36,6 +36,53 @@ module.exports = {
       data:{selection: undefined }
     }
   ],
+  maxComparisons: [
+    {
+      _id: "AAA",
+      assessor: "user01",
+      representations : {
+        a: "rep02",
+        b: "rep03"
+      },
+      data:{selection: undefined }
+    },
+    {
+      _id: "ZZZ",
+      assessor: "user01",
+      representations : {
+        a: "rep02",
+        b: "rep03"
+      },
+      data:{selection: undefined }
+    },
+    {
+      _id: "BBB",
+      assessor: "user01",
+      representations : {
+        a: "rep02",
+        b: "rep03"
+      },
+      data:{selection: undefined }
+    },
+    {
+      _id: "CCC",
+      assessor: "user01",
+      representations : {
+        a: "rep02",
+        b: "rep03"
+      },
+      data:{selection: undefined }
+    },
+    {
+      _id: "DDD",
+      assessor: "user01",
+      representations : {
+        a: "rep02",
+        b: "rep03"
+      },
+      data:{selection: undefined }
+    }
+  ],
   representations: [
     {
       _id: "rep02",
