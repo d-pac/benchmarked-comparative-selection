@@ -17,7 +17,7 @@ describe( "nearest cutting point", function() {
   describe( "#nearestCuttingPoint", function() {
     var inputErrorA = /should be an array/;
     var inputErrorB = /should have rankType benchmark/;
-    it("should thow an error when benchmarks is undefined", function() {
+    it("should throw an error when benchmarks is undefined", function() {
       expect(function() {
         NCP();
       }).to.throw(inputErrorA);
@@ -75,7 +75,6 @@ describe( "nearest cutting point", function() {
                       expect(CP_array.indexOf("B")).to.be.least(0)
                     } else{
                       bench = value.benchmarks;
-                      //console.log(rep_case_value.value, bench);
                       var CP = NCP(rep_case_value.value, bench)._id;
                       expect(CP).to.equal(rep_case_value.answer)
                     }
