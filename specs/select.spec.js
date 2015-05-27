@@ -131,7 +131,6 @@ describe( "select", function(){
     });
     it( "should return an array with 2 different representations in stage 2", function(){
       var result = select.select(fx.select.representations, fx.select.comparisons, fx.select.assessment2, fx.select.assessor);
-      console.log("Result: "+ JSON.stringify(result));
       expect(result).to.not.be.null();
       expect(result).to.be.an.array();
       expect(result.length).to.equal(2);

@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  assessor: {_id: "user01"},
+  assessor: "user01",
   assessment: {
     _id: "assessment01",
     stage: 1,
