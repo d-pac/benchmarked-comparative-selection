@@ -5,6 +5,7 @@
 'use strict';
 
 module.exports = {
+
   assessorId1: "user01",
   assessorId2: "user11",
   assessment1:{
