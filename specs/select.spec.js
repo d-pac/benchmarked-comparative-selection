@@ -136,5 +136,30 @@ describe( "select", function(){
       expect(result.length).to.equal(2);
       expect(_.get(result[0], "_id")).must.not.equal(_.get(result[1], "_id"));
     });
+
+
+    // testing situaties stage0
+    it( "should give rep08 as A & rep02 or rep05 as B, regardless of which user", function(){
+      var results = [];
+      for( var i = 0; i < 2000; i++ ) {
+        results.push(select.select(fx.selectStage1Situation.representations, fx.selectStage1Situation.comparisons, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId1));
+      }
+
+      var ids = _.reduce( results, function(memo, result){
+        memo.concat(result.result);
+        return memo;
+      }, [] );
+      expect( ids.indexOf( 'rep01' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep03' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep05' ) ).to.be.least( 0 );
+      expect( ids.indexOf( 'rep02' ) ).to.be.least( 0 );
+      expect( ids.indexOf( 'rep04' ) ).to.be.below( 0 );
+      expect( ids.indexOf( 'rep08' ) ).to.be.least( 0 );
+      //expect(_.find(results,function(representations){
+      //    return _.get(representations[1], "_id")==="rep08";
+      //  })).to.be.false();
+
+      console.log(ids);
+    } );
   } );
 } );
