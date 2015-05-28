@@ -227,6 +227,29 @@ describe( "select", function(){
     });
 
 
+//stage0 should be done
+    it( "should not give any more give representations if all stage0representations are done", function() {
+      var results =[];
+      for (var i = 0; i < 2000; i++) {
+        results.push(select.select(fx.selectStage1Situation.representations4, fx.selectStage1Situation.comparisons4, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId2));
+      }
+
+      console.log("Count B: "+ JSON.stringify(_.countBy(results, function(rep){
+          return rep.result[1]._id;
+        })));
+
+      expect(_.find(results, function (result) {
+        return _.get(result.result[0], "_id") !== "rep08" && _.get(result.result[0], "_id") !== "rep01";
+      })).to.be.undefined();
+      expect(_.find(results, function (result) {
+        return _.get(result.result[1], "_id") !== "rep06" && _.get(result.result[1], "_id") !== "rep02"&& _.get(result.result[1], "_id") !== "rep04";
+      })).to.be.undefined();
+    });
+
+
+
+
+
     //testing situations stage 1
     describe("condition benchmarkA<0, benchmarkB>0, selectedA close to bmA and selectedB>0", function(){
       it("should give selectA as first and selectB as second", function(){
