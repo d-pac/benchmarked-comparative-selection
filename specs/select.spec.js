@@ -145,7 +145,10 @@ describe( "select", function(){
     });
 
 
-    // testing situation 1 stage 0
+    // testing stage 0
+
+       //situation 1: one comparison sent out for one to Rank, none for the other
+    //should select other toRank if one is already sent out
     it( "should give rep08 as A & rep02 or rep04 as B, regardless of which user", function(){
       var results = [];
       for( var i = 0; i < 2000; i++ ) {
@@ -168,6 +171,86 @@ describe( "select", function(){
         return _.get(result.result[0], "_id")!=="rep08";
       })).to.be.undefined();
     } );
+
+   //when >2 toRank, should randomly select another toRank if one is already sent out
+
+
+    it( "should give rep08 or rep09 as A & rep02 or rep04 as B, regardless of which user", function(){
+      var results = [];
+      for( var i = 0; i < 2000; i++ ) {
+        results.push(select.select(fx.selectStage1Situation.oneSentOutRepresentation3toRank, fx.selectStage1Situation.comparisons, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId1));
+      }
+      expect(_.find(results,function(result){
+        return _.get(result.result[0], "_id")!=="rep08" && _.get(result.result[0], "_id")!=="rep09";
+      })).to.be.undefined();
+      expect(_.find(results,function(result){
+        return _.get(result.result[1], "_id")!=="rep02" && _.get(result.result[1], "_id")!=="rep04";
+      })).to.be.undefined();
+
+      for( var i = 0; i < 2000; i++ ) {
+        results.push(select.select(fx.selectStage1Situation.oneSentOutRepresentation3toRank, fx.selectStage1Situation.comparisons, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId2));
+      }
+      expect(_.find(results,function(result){
+        return _.get(result.result[0], "_id")!=="rep08" && _.get(result.result[0], "_id")!=="rep09";
+      })).to.be.undefined();
+      expect(_.find(results,function(result){
+        return _.get(result.result[1], "_id")!=="rep02" && _.get(result.result[1], "_id")!=="rep04";
+      })).to.be.undefined();
+
+    } );
+
+    //when toRank representation have been sent out in an equal amount but one is seen less often by this judge, this should be selected, for this A the non-selected benchmark should be used
+
+
+    it( "should give rep08  as A & rep02 as B for assessorId2 & rep01 as A & rep04  as B for assessorId1", function(){
+      var results = [];
+      for( var i = 0; i < 2000; i++ ) {
+        results.push(select.select(fx.selectStage1Situation.equalSentOutButSeenMoreRepresentation, fx.selectStage1Situation.equalSentOutButSeenMoreComparisons, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId2));
+      }
+      expect(_.find(results,function(result){
+        return _.get(result.result[0], "_id")!=="rep08" ;
+      })).to.be.undefined();
+      expect(_.find(results,function(result){
+        return _.get(result.result[1], "_id")!=="rep02" ;
+      })).to.be.undefined();
+
+      for( var i = 0; i < 2000; i++ ) {
+        results.push(select.select(fx.selectStage1Situation.equalSentOutButSeenMoreRepresentation, fx.selectStage1Situation.equalSentOutButSeenMoreComparisons, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId1));
+      }
+      expect(_.find(results,function(result){
+        return _.get(result.result[0], "_id")!=="rep01" ;
+      })).to.be.undefined();
+      expect(_.find(results,function(result){
+        return _.get(result.result[1], "_id")!=="rep04"  ;
+      })).to.be.undefined();
+
+    } );
+
+    //when toRank representation has been sent out less, this should be selected, for this A  all benchmarks have been selected, it should select paper from BM least chosen, ie rep07, regardless of user
+
+    it( "should give rep01 as A & rep07 as B", function(){
+      var results = [];
+      for( var i = 0; i < 2000; i++ ) {
+        results.push(select.select(fx.selectStage1Situation.representations5, fx.selectStage1Situation.comparisons5, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId1));
+      }
+      expect(_.find(results,function(result){
+        return _.get(result.result[0], "_id")!=="rep01" ;
+      })).to.be.undefined();
+      expect(_.find(results,function(result){
+        return _.get(result.result[1], "_id")!=="rep07" ;
+      })).to.be.undefined();
+
+      for( var i = 0; i < 2000; i++ ) {
+        results.push(select.select(fx.selectStage1Situation.representations5, fx.selectStage1Situation.comparisons5, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId2));
+      }
+      expect(_.find(results,function(result){
+        return _.get(result.result[0], "_id")!=="rep01" ;
+      })).to.be.undefined();
+      expect(_.find(results,function(result){
+        return _.get(result.result[1], "_id")!=="rep07" ;
+      })).to.be.undefined();
+    } );
+
 
     // testing situation 2 stage 0
 
@@ -227,7 +310,26 @@ describe( "select", function(){
     });
 
 
-//stage0 should be done
+//stage 0 situation 3
+    it( "should give rep08 as A and rep02 or rep09 as B for user11", function() {
+      var results =[];
+      for (var i = 0; i < 2000; i++) {
+        results.push(select.select(fx.selectStage1Situation.representations3, fx.selectStage1Situation.comparisons3, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId2));
+      }
+
+      console.log("Count B: "+ JSON.stringify(_.countBy(results, function(rep){
+          return rep.result[1]._id;
+        })));
+
+      expect(_.find(results, function (result) {
+        return _.get(result.result[0], "_id") !== "rep08";
+      })).to.be.undefined();
+      expect(_.find(results, function (result) {
+        return _.get(result.result[1], "_id") !== "rep02" && _.get(result.result[1], "_id") !== "rep09";
+      })).to.be.undefined();
+    });
+
+//stage0 should be done, but keeps on generating pairs?
     it( "should not give any more give representations if all stage0representations are done", function() {
       var results =[];
       for (var i = 0; i < 2000; i++) {
