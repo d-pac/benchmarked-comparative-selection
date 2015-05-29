@@ -63,7 +63,7 @@ describe( "select representation A", function(){
       expect( ids.indexOf( 'rep07' ) ).to.be.below( 0 );
       expect( ids.indexOf( 'rep01' ) ).to.be.least( 0 );
       expect( ids.indexOf( 'rep08' ) ).to.be.least( 0 );
-      console.log(ids);
+      //console.log(ids);
     } );
 
     it( "should select other toRank if one is already sent out", function(){
@@ -80,7 +80,7 @@ describe( "select representation A", function(){
       expect( ids.indexOf( 'rep07' ) ).to.be.below( 0 );
       expect( ids.indexOf( 'rep01' ) ).to.be.below( 0 );
       expect( ids.indexOf( 'rep08' ) ).to.be.least( 0 );
-      console.log(ids);
+      //console.log(ids);
     } );
 
     it( "when >2 toRank, should randomly select another toRank if one is already sent out", function(){
@@ -98,7 +98,7 @@ describe( "select representation A", function(){
       expect( ids.indexOf( 'rep01' ) ).to.be.below( 0 );
       expect( ids.indexOf( 'rep08' ) ).to.be.least( 0 );
       expect( ids.indexOf( 'rep09' ) ).to.be.least( 0 );
-      console.log(ids);
+      //console.log(ids);
     } );
 
     it( "when toRank representation have been sent out in an equal amount but one is seen less often by this judge, this should be selected", function(){
@@ -115,7 +115,7 @@ describe( "select representation A", function(){
       expect( ids.indexOf( 'rep07' ) ).to.be.below( 0 );
       expect( ids.indexOf( 'rep01' ) ).to.be.below( 0 );
       expect( ids.indexOf( 'rep08' ) ).to.be.least( 0 );
-      console.log(ids);
+      //console.log(ids);
     } );
 
     it( "when toRank representation have been sent out in an equal amount but one is seen less often by this judge, this should be selected", function(){

@@ -198,7 +198,7 @@ data:{selection: "rep04" }
   representations4: [
     {
       _id: "rep01",
-      rankType: "toRank",
+      rankType: "to rank",
       compared: [ "rep04", "rep02"],
       closeTo: null
     },{

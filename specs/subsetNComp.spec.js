@@ -133,7 +133,6 @@ describe( "subset number of comparisons", function() {
         results = subsetNcomp.subsetNcomp(fx.subsetNComp_Ncomp.noneCompared.Representations);
         resultsIds=_.pluck(results, '_id');
         it("it should return an array", function () {
-          //console.log(results);
           expect(results).to.be.an.array();
         });
         it("should return all representations", function () {
@@ -146,7 +145,6 @@ describe( "subset number of comparisons", function() {
         results = subsetNcomp.subsetNcomp(fx.subsetNComp_Ncomp.oneCompared.Representations);
         resultsIds=_.pluck(results, '_id');
         it("it should return an array", function () {
-          //console.log(results);
           expect(results).to.be.an.array();
         });
         it("should return all representations but one", function () {
@@ -162,7 +160,6 @@ describe( "subset number of comparisons", function() {
         results = subsetNcomp.subsetNcomp(fx.subsetNComp_Ncomp.fiveCompared.Representations);
         resultsIds=_.pluck(results, '_id');
         it("it should return an array", function () {
-          //console.log(results);
           expect(results).to.be.an.array();
         });
         it("should return all representations but five", function () {
@@ -178,7 +175,6 @@ describe( "subset number of comparisons", function() {
         results = subsetNcomp.subsetNcomp(fx.subsetNComp_Ncomp.allCompared.Representations);
         resultsIds=_.pluck(results, '_id');
         it("it should return an array", function () {
-          //console.log(results);
           expect(results).to.be.an.array();
         });
         it("should return all representation", function () {
@@ -194,7 +190,6 @@ describe( "subset number of comparisons", function() {
         results = subsetNcomp.subsetNcomp(fx.subsetNComp_Ncomp.nineDifferent.Representations);
         resultsIds=_.pluck(results, '_id');
         it("it should return an array", function () {
-          //console.log(results);
           expect(results).to.be.an.array();
         });
         it("should return one representation", function () {
@@ -225,7 +220,6 @@ describe( "subset number of comparisons", function() {
         results = subsetNcomp.subsetNcomp(fx.subsetNComp_Ncomp.fiveCompared9v10.Representations);
         resultsIds=_.pluck(results, '_id');
         it("it should return an array", function () {
-          //console.log(results);
           expect(results).to.be.an.array();
         });
         it("should return five representations", function () {
