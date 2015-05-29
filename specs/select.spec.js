@@ -101,7 +101,7 @@ describe( "select", function(){
       expect(result.messages).to.be.an.array();
       expect(result.messages[0]).to.equal(message);
     });
-    it( "should return a message the assessor has reached the max comparisons for stage 1", function(){
+    it( "should return a message the assessor has reached the max comparisons for stage 0", function(){
       var result = select.select(fx.select.representations, fx.select.maxComparisons, fx.select.assessment, fx.select.assessor);
       var message = "You can't make any more comparisons at the moment.";
       expect(result).to.not.be.null();
@@ -214,6 +214,7 @@ describe( "select", function(){
         return _.get(result.result[1], "_id")!=="rep02" ;
       })).to.be.undefined();
 
+      results = [];
       for( var i = 0; i < 2000; i++ ) {
         results.push(select.select(fx.selectStage1Situation.equalSentOutButSeenMoreRepresentation, fx.selectStage1Situation.equalSentOutButSeenMoreComparisons, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId1));
       }
@@ -240,6 +241,7 @@ describe( "select", function(){
         return _.get(result.result[1], "_id")!=="rep07" ;
       })).to.be.undefined();
 
+      results = [];
       for( var i = 0; i < 2000; i++ ) {
         results.push(select.select(fx.selectStage1Situation.representations5, fx.selectStage1Situation.comparisons5, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId2));
       }
@@ -249,11 +251,11 @@ describe( "select", function(){
       expect(_.find(results,function(result){
         return _.get(result.result[1], "_id")!=="rep07" ;
       })).to.be.undefined();
-    } );
+          } );
 
     //when toRank representation has been sent out less (rep01), this should be selected, for this A  if a benchmark comp is completed, it should select paper from the other BM, ie rep07, regardless of user
 
-    it( "should give rep01 as A & rep07 as B", function(){
+    it( "situation B: should give rep01 as A & rep07 as B", function(){
       var results = [];
      for( var i = 0; i < 2000; i++ ) {
         results.push(select.select(fx.selectStage1Situation.representations6, fx.selectStage1Situation.comparisons6, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId1));
@@ -265,7 +267,8 @@ describe( "select", function(){
         return _.get(result.result[1], "_id")!=="rep07" ;
       })).to.be.undefined();
 
-     for( var i = 0; i < 2000; i++ ) {
+      results = [];
+      for( var i = 0; i < 2000; i++ ) {
         results.push(select.select(fx.selectStage1Situation.representations5, fx.selectStage1Situation.comparisons6, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId2));
       }
       expect(_.find(results,function(result){

@@ -103,6 +103,7 @@ describe( "select representation B", function(){
     console.log(ids);
   } );
 
+  // not the correct test yet
   it( "if one comparison is completed, then the other one should be selected but not the same closeTorepresentation, ie rep06", function(){
     var results = [];
     for( var i = 0; i < 2000; i++ ){
@@ -119,21 +120,7 @@ describe( "select representation B", function(){
     console.log(ids);
   } );
 
-  it( "if all stage0 comparison are completed, then it should given an error", function(){
-    var results = [];
-    for( var i = 0; i < 2000; i++ ){
-      results.push( selectBM( fx.stage1SelectReprB.representations6, fx.stage1SelectReprB.comparisons4, fx.stage1SelectReprB.representationA4) );
-    }
-    var ids = _.pluck( results, "_id" );
-    expect( ids.indexOf( 'rep01' ) ).to.be.below( 0 );
-    expect( ids.indexOf( 'rep02' ) ).to.be.below( 0 );
-    expect( ids.indexOf( 'rep03' ) ).to.be.below( 0 );
-    expect( ids.indexOf( 'rep04' ) ).to.be.below( 0 );
-    expect( ids.indexOf( 'rep05' ) ).to.be.below( 0 );
-    expect( ids.indexOf( 'rep06' ) ).to.be.least( 0 );
-    expect( ids.indexOf( 'rep07' ) ).to.be.below( 0 );
-    console.log(ids);
-  } );
+
 } );
 
 

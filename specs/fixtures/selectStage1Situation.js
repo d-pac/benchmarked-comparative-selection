@@ -322,7 +322,7 @@ data:{selection: "rep04" }
 
   representations5: [
   { _id: "rep01",
-    rankType: "toRank",
+    rankType: "to rank",
     compared: [ "rep04", "rep02", "rep06"],
     closeTo: null
   },{
@@ -364,7 +364,7 @@ data:{selection: "rep04" }
 
   comparisons5: [{
   _id: "AAA",
-  assessor: "user11",
+  assessor: "user01",
   representations: {
     a: "rep08",
     b: "rep04"
@@ -381,7 +381,7 @@ data:{selection: "rep04" }
 }
     , {
       _id: "CCC",
-      assessor: "user11",
+      assessor: "user01",
       representations: {
         a: "rep01",
         b: "rep04"
@@ -399,7 +399,7 @@ data:{selection: "rep04" }
     }
     , {
       _id: "EEE",
-      assessor: "user11",
+      assessor: "user01",
       representations: {
         a: "rep08",
         b: "rep02"
@@ -416,7 +416,7 @@ data:{selection: "rep04" }
       data: {selection: undefined}
     }, {
       _id: "GGG",
-      assessor: "user11",
+      assessor: "user01",
       representations: {
         a: "rep08",
         b: "rep07"
@@ -429,7 +429,7 @@ data:{selection: "rep04" }
 
   representations6: [
   { _id: "rep01",
-    rankType: "toRank",
+    rankType: "to rank",
     compared: [ "rep02", "rep06", "rep04"],
     closeTo: null
   },{
@@ -471,7 +471,7 @@ data:{selection: "rep04" }
 
   comparisons6: [{
   _id: "AAA",
-  assessor: "user11",
+  assessor: "user01",
   representations: {
     a: "rep08",
     b: "rep04"
@@ -488,7 +488,7 @@ data:{selection: "rep04" }
 }
   , {
     _id: "CCC",
-    assessor: "user11",
+    assessor: "user01",
     representations: {
       a: "rep01",
       b: "rep04"
@@ -506,7 +506,7 @@ data:{selection: "rep04" }
   }
   , {
     _id: "EEE",
-    assessor: "user11",
+    assessor: "user01",
     representations: {
       a: "rep08",
       b: "rep02"
@@ -523,7 +523,7 @@ data:{selection: "rep04" }
     data: {selection: undefined}
   }, {
     _id: "GGG",
-    assessor: "user11",
+    assessor: "user01",
     representations: {
       a: "rep08",
       b: "rep07"
