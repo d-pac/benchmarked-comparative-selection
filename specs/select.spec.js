@@ -133,7 +133,7 @@ describe( "select", function(){
       expect(_.get(reps.result[0], "_id")).must.not.equal(_.get(reps.result[1], "_id"));
     });
     it( "should return an object with a result property with 2 different representations in stage 2", function(){
-      var reps = select.select(fx.select.representations, fx.select.comparisons, fx.select.assessment2, fx.select.assessor);
+      var reps = select.select(fx.selectStage2Situation.reprNegAPosB.closeA.pos,fx.selectStage2Situation.comparisonsA, fx.selectStage2Situation.assessment2,fx.selectStage2Situation.assessor);
       expect(reps).to.not.be.null();
       expect(reps).to.be.an.object();
       expect(reps.result).to.be.an.array();
