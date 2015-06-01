@@ -367,10 +367,6 @@ describe( "select", function(){
       expect(result.messages[0]).to.equal(message);
     });
 
-
-
-
-
     //testing situations stage 1
     describe("condition benchmarkA<0, benchmarkB>0, selectedA close to bmA and selectedB>0", function(){
       it("should give selectA as first and selectB as second", function(){
@@ -388,7 +384,7 @@ describe( "select", function(){
     });
     describe("condition benchmarkA<0, benchmarkB>0, selectedA<0 and close to and < bmA, selectedB<0 and different number of comparisons", function(){
       it("should give selectA as first and selectB as second", function(){
-        var results = select.select(fx.selectStage2Situation.reprNegAPosB.closeA.neg.below.negAbil.diffComp,fx.selectStage2Situation.comparisonsA, fx.selectStage2Situation.assessment2,fx.selectStage2Situation.assessor);
+        var results = select.select(fx.selectStage2Situation.reprNegAPosB.closeA.neg.below.negAbil.diffComp,fx.selectStage2Situation.comparisonsC, fx.selectStage2Situation.assessment2,fx.selectStage2Situation.assessor);
         expect(results.result[0]._id).to.equal("selectA");
         expect(results.result[1]._id).to.equal("selectB");
       });
@@ -397,7 +393,7 @@ describe( "select", function(){
       it("should give selectA as first and selectB1 to selectB4 as second", function(){
         var results1 = [], results2 = [];
         for(var i = 0 ; i < 100 ; i++){
-          var tempStore = select.select(fx.selectStage2Situation.reprNegAPosB.closeA.neg.below.negAbil.equalComp,fx.selectStage2Situation.comparisonsA, fx.selectStage2Situation.assessment2,fx.selectStage2Situation.assessor);
+          var tempStore = select.select(fx.selectStage2Situation.reprNegAPosB.closeA.neg.below.negAbil.equalComp,fx.selectStage2Situation.comparisonsD, fx.selectStage2Situation.assessment2,fx.selectStage2Situation.assessor);
           results1.push(tempStore.result[0]._id);
           results2.push(tempStore.result[1]._id)
         };
@@ -438,7 +434,7 @@ describe( "select", function(){
       it("should give selectA as first and selectB1 to selectB2 as second", function(){
         var results1 = [], results2 = [];
         for(var i = 0 ; i < 100 ; i++){
-          var tempStore = select.select(fx.selectStage2Situation.reprNegAPosB.closeA.neg.above.twoEqual,fx.selectStage2Situation.comparisonsA, fx.selectStage2Situation.assessment2,fx.selectStage2Situation.assessor);
+          var tempStore = select.select(fx.selectStage2Situation.reprNegAPosB.closeA.neg.above.twoEqual,fx.selectStage2Situation.comparisonsB, fx.selectStage2Situation.assessment2,fx.selectStage2Situation.assessor);
           results1.push(tempStore.result[0]._id);
           results2.push(tempStore.result[1]._id)
         };
@@ -470,7 +466,7 @@ describe( "select", function(){
       it("should give selectA as first and selectB1 to selectB2 as second", function(){
         var results1 = [], results2 = [];
         for(var i = 0 ; i < 100 ; i++){
-          var tempStore = select.select(fx.selectStage2Situation.reprNegAPosB.middle.pos,fx.selectStage2Situation.comparisonsA, fx.selectStage2Situation.assessment2,fx.selectStage2Situation.assessor);
+          var tempStore = select.select(fx.selectStage2Situation.reprNegAPosB.middle.pos,fx.selectStage2Situation.comparisonsE, fx.selectStage2Situation.assessment2,fx.selectStage2Situation.assessor);
           results1.push(tempStore.result[0]._id);
           results2.push(tempStore.result[1]._id)
         };
@@ -488,7 +484,7 @@ describe( "select", function(){
       it("should give selectA as first and selectB1 to selectB2 as second", function(){
         var results1 = [], results2 = [];
         for(var i = 0 ; i < 100 ; i++){
-          var tempStore = select.select(fx.selectStage2Situation.reprNegAPosB.middle.neg,fx.selectStage2Situation.comparisonsA, fx.selectStage2Situation.assessment2,fx.selectStage2Situation.assessor);
+          var tempStore = select.select(fx.selectStage2Situation.reprNegAPosB.middle.neg,fx.selectStage2Situation.comparisonsE, fx.selectStage2Situation.assessment2,fx.selectStage2Situation.assessor);
           results1.push(tempStore.result[0]._id);
           results2.push(tempStore.result[1]._id)
         };
