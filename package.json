@@ -1,7 +1,6 @@
 {
   "name": "benchmarked-comparative-selection",
   "version": "1.0.0",
-  "private": true,
   "description": " Benchmarked comparative selection algorithm plugin for d-pac platform",
   "main": "lib/select.js",
   "scripts": {
