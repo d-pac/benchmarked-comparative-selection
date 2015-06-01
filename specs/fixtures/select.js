@@ -361,5 +361,644 @@ module.exports = {
       rankType: "benchmark",
       closeTo: null
     }
-  ]
+  ],
+  notFinishedNoMessage:{
+    representations: [
+      {
+        _id: "repr01",
+        rankType: "to rank",
+        closeTo: null,
+        ability: {
+          value: 0.1
+        },
+        compared: ["repr05","repr07"]
+      },
+      {
+        _id: "repr02",
+        rankType: "benchmark",
+        closeTo: null,
+        ability: {
+          value: -1
+        },
+        compared: undefined
+      },
+      {
+        _id: "repr03",
+        rankType: "benchmark",
+        closeTo: null,
+        ability: {
+          value: 2.5
+        },
+        compared: undefined
+      },
+      {
+        _id: "repr04",
+        rankType: "ranked",
+        closeTo: "repr02",
+        ability: {
+          value: 0.01
+        },
+        compared: ["repr13"]
+      },
+      {
+        _id: "repr05",
+        rankType: "ranked",
+        closeTo: "repr03",
+        ability: {
+          value: 3
+        },
+        compared: ["repr01", "repr12"]
+      },
+      {
+        _id: "repr06",
+        rankType: "ranked",
+        closeTo: "repr02",
+        ability: {
+          value: -6
+        },
+        compared: ["repr14"]
+      },
+      {
+        _id: "repr07",
+        rankType: "ranked",
+        closeTo: "repr02",
+        ability: {
+          value: -2.5
+        },
+        compared: ["repr12", "repr14", "repr01"]
+      },
+      {
+        _id: "repr08",
+        rankType: "ranked",
+        closeTo: "repr02",
+        ability: {
+          value: 0.05
+        },
+        compared: ["repr12","repr13"]
+      },
+      {
+        _id: "repr09",
+        rankType: "ranked",
+        closeTo: "repr03",
+        ability: {
+          value: 2.9
+        },
+        compared: ["repr13"]
+      },
+      {
+        _id: "repr10",
+        rankType: "ranked",
+        closeTo: "repr03",
+        ability: {
+          value: 1
+        },
+        compared: ["repr13"]
+      },
+      {
+        _id: "repr11",
+        rankType: "ranked",
+        closeTo: "repr03",
+        ability: {
+          value: 1.5
+        },
+        compared: ["repr14", "repr12"]
+      },
+      {
+        _id: "repr12",
+        rankType: "to rank",
+        closeTo: null,
+        ability: {
+          value: 3.5
+        },
+        compared: ["repr05", "repr08"]
+      },
+      {
+        _id: "repr13",
+        rankType: "to rank",
+        closeTo: null,
+        ability: {
+          value: -3
+        },
+        compared: ["repr09", "repr04"]
+      },
+      {
+        _id: "repr14",
+        rankType: "to rank",
+        closeTo: null,
+        ability: {
+          value: -3.4
+        },
+        compared: ["repr11", "repr06"]
+      }
+    ],
+    comparisons: [
+      {
+        _id: "AAA",
+        assessor: "user01",
+        representations : {
+          a: "repr01",
+          b: "repr05"
+        },
+        data:{selection: undefined }
+      },
+      {
+        _id: "BBB",
+        assessor: "user01",
+        representations : {
+          a: "repr13",
+          b: "repr09"
+        },
+        data:{selection: undefined }
+      },
+      {
+        _id: "CCC",
+        assessor: "user01",
+        representations : {
+          a: "repr13",
+          b: "repr04"
+        },
+        data:{selection: undefined }
+      },
+      {
+        _id: "EEE",
+        assessor: "user01",
+        representations : {
+          a: "repr12",
+          b: "repr05"
+        },
+        data:{selection: undefined }
+      },
+      {
+        _id: "EEE",
+        assessor: "user01",
+        representations : {
+          a: "repr12",
+          b: "repr08"
+        },
+        data:{selection: undefined }
+      },
+      {
+        _id: "EEE",
+        assessor: "user01",
+        representations : {
+          a: "repr14",
+          b: "repr11"
+        },
+        data:{selection: undefined }
+      },
+      {
+        _id: "EEE",
+        assessor: "user01",
+        representations : {
+          a: "repr14",
+          b: "repr06"
+        },
+        data:{selection: undefined }
+      },
+      {
+        _id: "EEE",
+        assessor: "user01",
+        representations : {
+          a: "repr01",
+          b: "repr07"
+        },
+        data:{selection: undefined }
+      }
+    ],
+    assessor: "user02",
+    assessment: {
+      _id: "assessment01",
+      stage: 0,
+      comparisonsNum: {
+        total: 10,
+        stage: [5]
+      }
+    }
+  },
+  oneNotFinishedNoMessage:{
+    representations: [
+      {
+        _id: "repr01",
+        rankType: "to rank",
+        closeTo: null,
+        ability: {
+          value: 0.1
+        },
+        compared: ["repr05","repr07"]
+      },
+      {
+        _id: "repr02",
+        rankType: "benchmark",
+        closeTo: null,
+        ability: {
+          value: -1
+        },
+        compared: undefined
+      },
+      {
+        _id: "repr03",
+        rankType: "benchmark",
+        closeTo: null,
+        ability: {
+          value: 2.5
+        },
+        compared: undefined
+      },
+      {
+        _id: "repr04",
+        rankType: "ranked",
+        closeTo: "repr02",
+        ability: {
+          value: 0.01
+        },
+        compared: ["repr13"]
+      },
+      {
+        _id: "repr05",
+        rankType: "ranked",
+        closeTo: "repr03",
+        ability: {
+          value: 3
+        },
+        compared: ["repr01", "repr12"]
+      },
+      {
+        _id: "repr06",
+        rankType: "ranked",
+        closeTo: "repr02",
+        ability: {
+          value: -6
+        },
+        compared: ["repr14"]
+      },
+      {
+        _id: "repr07",
+        rankType: "ranked",
+        closeTo: "repr02",
+        ability: {
+          value: -2.5
+        },
+        compared: ["repr12", "repr14", "repr01"]
+      },
+      {
+        _id: "repr08",
+        rankType: "ranked",
+        closeTo: "repr02",
+        ability: {
+          value: 0.05
+        },
+        compared: ["repr12","repr13"]
+      },
+      {
+        _id: "repr09",
+        rankType: "ranked",
+        closeTo: "repr03",
+        ability: {
+          value: 2.9
+        },
+        compared: ["repr13"]
+      },
+      {
+        _id: "repr10",
+        rankType: "ranked",
+        closeTo: "repr03",
+        ability: {
+          value: 1
+        },
+        compared: ["repr13"]
+      },
+      {
+        _id: "repr11",
+        rankType: "ranked",
+        closeTo: "repr03",
+        ability: {
+          value: 1.5
+        },
+        compared: ["repr14", "repr12"]
+      },
+      {
+        _id: "repr12",
+        rankType: "to rank",
+        closeTo: null,
+        ability: {
+          value: 3.5
+        },
+        compared: ["repr05", "repr08"]
+      },
+      {
+        _id: "repr13",
+        rankType: "to rank",
+        closeTo: null,
+        ability: {
+          value: -3
+        },
+        compared: ["repr09", "repr04"]
+      },
+      {
+        _id: "repr14",
+        rankType: "to rank",
+        closeTo: null,
+        ability: {
+          value: -3.4
+        },
+        compared: ["repr11", "repr06"]
+      }
+    ],
+    comparisons: [
+      {
+        _id: "AAA",
+        assessor: "user01",
+        representations : {
+          a: "repr01",
+          b: "repr05"
+        },
+        data:{selection: "repr01" }
+      },
+      {
+        _id: "BBB",
+        assessor: "user01",
+        representations : {
+          a: "repr13",
+          b: "repr09"
+        },
+        data:{selection: "repr09" }
+      },
+      {
+        _id: "CCC",
+        assessor: "user01",
+        representations : {
+          a: "repr13",
+          b: "repr04"
+        },
+        data:{selection: "repr13" }
+      },
+      {
+        _id: "EEE",
+        assessor: "user01",
+        representations : {
+          a: "repr12",
+          b: "repr05"
+        },
+        data:{selection: "repr05" }
+      },
+      {
+        _id: "EEE",
+        assessor: "user01",
+        representations : {
+          a: "repr12",
+          b: "repr08"
+        },
+        data:{selection: "repr12" }
+      },
+      {
+        _id: "EEE",
+        assessor: "user01",
+        representations : {
+          a: "repr14",
+          b: "repr11"
+        },
+        data:{selection: "repr11" }
+      },
+      {
+        _id: "EEE",
+        assessor: "user01",
+        representations : {
+          a: "repr14",
+          b: "repr06"
+        },
+        data:{selection: "repr14" }
+      },
+      {
+        _id: "EEE",
+        assessor: "user01",
+        representations : {
+          a: "repr01",
+          b: "repr07"
+        },
+        data:{selection: undefined }
+      }
+    ],
+    assessor: "user02",
+    assessment: {
+      _id: "assessment01",
+      stage: 0,
+      comparisonsNum: {
+        total: 10,
+        stage: [5]
+      }
+    }
+  },
+  stage1NoMessage:{
+    representations: [
+      {
+        _id: "repr01",
+        rankType: "to rank",
+        closeTo: null,
+        ability: {
+          value: 0.1
+        },
+        compared: ["repr05","repr07"]
+      },
+      {
+        _id: "repr02",
+        rankType: "benchmark",
+        closeTo: null,
+        ability: {
+          value: -1
+        },
+        compared: undefined
+      },
+      {
+        _id: "repr03",
+        rankType: "benchmark",
+        closeTo: null,
+        ability: {
+          value: 2.5
+        },
+        compared: undefined
+      },
+      {
+        _id: "repr04",
+        rankType: "ranked",
+        closeTo: "repr02",
+        ability: {
+          value: 0.01
+        },
+        compared: ["repr13"]
+      },
+      {
+        _id: "repr05",
+        rankType: "ranked",
+        closeTo: "repr03",
+        ability: {
+          value: 3
+        },
+        compared: ["repr01", "repr12"]
+      },
+      {
+        _id: "repr06",
+        rankType: "ranked",
+        closeTo: "repr02",
+        ability: {
+          value: -6
+        },
+        compared: ["repr14"]
+      },
+      {
+        _id: "repr07",
+        rankType: "ranked",
+        closeTo: "repr02",
+        ability: {
+          value: -2.5
+        },
+        compared: ["repr12", "repr14", "repr01"]
+      },
+      {
+        _id: "repr08",
+        rankType: "ranked",
+        closeTo: "repr02",
+        ability: {
+          value: 0.05
+        },
+        compared: ["repr12","repr13"]
+      },
+      {
+        _id: "repr09",
+        rankType: "ranked",
+        closeTo: "repr03",
+        ability: {
+          value: 2.9
+        },
+        compared: ["repr13"]
+      },
+      {
+        _id: "repr10",
+        rankType: "ranked",
+        closeTo: "repr03",
+        ability: {
+          value: 1
+        },
+        compared: ["repr13"]
+      },
+      {
+        _id: "repr11",
+        rankType: "ranked",
+        closeTo: "repr03",
+        ability: {
+          value: 1.5
+        },
+        compared: ["repr14", "repr12"]
+      },
+      {
+        _id: "repr12",
+        rankType: "to rank",
+        closeTo: null,
+        ability: {
+          value: 3.5
+        },
+        compared: ["repr05", "repr08"]
+      },
+      {
+        _id: "repr13",
+        rankType: "to rank",
+        closeTo: null,
+        ability: {
+          value: -3
+        },
+        compared: ["repr09", "repr04"]
+      },
+      {
+        _id: "repr14",
+        rankType: "to rank",
+        closeTo: null,
+        ability: {
+          value: -3.4
+        },
+        compared: ["repr11", "repr06"]
+      }
+    ],
+    comparisons: [
+      {
+        _id: "AAA",
+        assessor: "user01",
+        representations : {
+          a: "repr01",
+          b: "repr05"
+        },
+        data:{selection: "repr01" }
+      },
+      {
+        _id: "BBB",
+        assessor: "user01",
+        representations : {
+          a: "repr13",
+          b: "repr09"
+        },
+        data:{selection: "repr09" }
+      },
+      {
+        _id: "CCC",
+        assessor: "user01",
+        representations : {
+          a: "repr13",
+          b: "repr04"
+        },
+        data:{selection: "repr13" }
+      },
+      {
+        _id: "EEE",
+        assessor: "user01",
+        representations : {
+          a: "repr12",
+          b: "repr05"
+        },
+        data:{selection: "repr05" }
+      },
+      {
+        _id: "EEE",
+        assessor: "user01",
+        representations : {
+          a: "repr12",
+          b: "repr08"
+        },
+        data:{selection: "repr12" }
+      },
+      {
+        _id: "EEE",
+        assessor: "user01",
+        representations : {
+          a: "repr14",
+          b: "repr11"
+        },
+        data:{selection: "repr11" }
+      },
+      {
+        _id: "EEE",
+        assessor: "user01",
+        representations : {
+          a: "repr14",
+          b: "repr06"
+        },
+        data:{selection: "repr14" }
+      },
+      {
+        _id: "EEE",
+        assessor: "user01",
+        representations : {
+          a: "repr01",
+          b: "repr07"
+        },
+        data:{selection: undefined }
+      }
+    ],
+    assessor: "user01",
+    assessment: {
+      _id: "assessment01",
+      stage: 1,
+      comparisonsNum: {
+        total: 10,
+        stage: [5]
+      }
+    }
+  }
 };

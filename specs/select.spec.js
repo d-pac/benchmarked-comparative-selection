@@ -99,17 +99,14 @@ describe( "select", function(){
       var message = "All comparisons have been made";
       expect(result).to.not.be.null();
       expect(result).to.be.an.object();
-      expect(result.messages).to.be.an.array();
-      expect(result.messages[0]).to.not.equal(message);
+      expect(result.messages).to.be.undefined();
     });
     it("should not return a message when all comparisons but one have been finished in stage0", function(){
       var result = select.select(fx.select.oneNotFinishedNoMessage.representations,fx.select.oneNotFinishedNoMessage.comparisons,
         fx.select.oneNotFinishedNoMessage.assessment, fx.select.oneNotFinishedNoMessage.assessor);
-      var message = "All comparisons have been made";
       expect(result).to.not.be.null();
       expect(result).to.be.an.object();
-      expect(result.messages).to.be.an.array();
-      expect(result.messages[0]).to.not.equal(message);
+      expect(result.messages).to.be.undefined();
     });
     it( "should return a message when all comparisons have been made", function(){
       var result = select.select(fx.select.reprNoMoreComparisons, fx.select.comparisons, fx.select.assessment, fx.select.assessor);
@@ -127,14 +124,13 @@ describe( "select", function(){
       expect(result.messages).to.be.an.array();
       expect(result.messages[0]).to.equal(message);
     });
-    it("should not return a message when all comparisons have been finished but we started stage1", function(){
-      var result = select.select(fx.select.stage1NoMessage.representations,fx.select.stage1dNoMessage.comparisons,
+    it("should not return a message when all comparisons have been finished because we started stage1", function(){
+      var result = select.select(fx.select.stage1NoMessage.representations,fx.select.stage1NoMessage.comparisons,
         fx.select.stage1NoMessage.assessment, fx.select.stage1NoMessage.assessor);
       var message = "All comparisons have been made";
       expect(result).to.not.be.null();
       expect(result).to.be.an.object();
-      expect(result.messages).to.be.an.array();
-      expect(result.messages[0]).to.not.equal(message);
+      expect(result.messages).to.be.undefined();
     });
     it("should throw an error in stage 2 when at least one representation does not have an ability field", function(){
       expect(function(){select.select(fx.select.reprMissingAbility, fx.select.comparisons,
