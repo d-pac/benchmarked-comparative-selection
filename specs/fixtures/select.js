@@ -7,7 +7,7 @@ module.exports = {
     stage: 0,
     comparisonsNum: {
       total: 10,
-      stage: [5]
+      stage: [ 5 ]
     }
   },
   assessment2: {
@@ -15,7 +15,7 @@ module.exports = {
     stage: 1,
     comparisonsNum: {
       total: 10,
-      stage: [5]
+      stage: [ 5 ]
     }
   },
   comparisons: [
@@ -26,66 +26,66 @@ module.exports = {
         a: "rep01",
         b: "rep02"
       },
-      data: {selection: undefined}
+      data: { selection: undefined }
     }
   ],
   maxComparisons: [
     {
       _id: "AAA",
       assessor: "user01",
-      representations : {
+      representations: {
         a: "rep02",
         b: "rep03"
       },
-      data:{selection: undefined }
+      data: { selection: undefined }
     },
     {
       _id: "ZZZ",
       assessor: "user01",
-      representations : {
+      representations: {
         a: "rep02",
         b: "rep03"
       },
-      data:{selection: undefined }
+      data: { selection: undefined }
     },
     {
       _id: "BBB",
       assessor: "user01",
-      representations : {
+      representations: {
         a: "rep02",
         b: "rep03"
       },
-      data:{selection: undefined }
+      data: { selection: undefined }
     },
     {
       _id: "CCC",
       assessor: "user01",
-      representations : {
+      representations: {
         a: "rep02",
         b: "rep03"
       },
-      data:{selection: undefined }
+      data: { selection: undefined }
     },
     {
       _id: "DDD",
       assessor: "user01",
-      representations : {
+      representations: {
         a: "rep02",
         b: "rep03"
       },
-      data:{selection: undefined }
+      data: { selection: undefined }
     }
   ],
   representations: [
     {
       _id: "rep01",
       rankType: "to rank",
-      compared: ["rep02"],
+      compared: [ "rep02" ],
       closeTo: null
     }, {
       _id: "rep02",
       rankType: "ranked",
-      compared: ["rep01"],
+      compared: [ "rep01" ],
       closeTo: "rep03"
     }, {
       _id: "rep03",
@@ -113,13 +113,13 @@ module.exports = {
       ability: {
         value: 1
       },
-      compared: ["rep03"]
+      compared: [ "rep03" ]
     },
     {
       _id: "rep03",
       rankType: "to rank",
       closeTo: null,
-      compared: ["rep02"],
+      compared: [ "rep02" ],
       ability: {
         value: 3
       }
@@ -186,13 +186,13 @@ module.exports = {
       ability: {
         value: 1
       },
-      compared: ["rep03"]
+      compared: [ "rep03" ]
     },
     {
       _id: "rep03",
       rankType: "to rank",
       closeTo: null,
-      compared: ["rep02"],
+      compared: [ "rep02" ],
       ability: {
         value: 3
       }
@@ -260,13 +260,13 @@ module.exports = {
       ability: {
         value: 1
       },
-      compared: ["rep03"]
+      compared: [ "rep03" ]
     },
     {
       _id: "rep03",
       rankType: "to rank",
       closeTo: null,
-      compared: ["rep02"],
+      compared: [ "rep02" ],
       ability: {
         value: 3
       }
@@ -333,13 +333,13 @@ module.exports = {
       _id: "rep02",
       rankType: "to rank",
       closeTo: null,
-      compared: ["bla","bla","bla","bla","bla","bla","bla","bla","bla","bla"]
+      compared: [ "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla" ]
     },
     {
       _id: "rep03",
       rankType: "to rank",
       closeTo: null,
-      compared: ["bla","bla","bla","bla","bla","bla","bla","bla","bla","bla"]
+      compared: [ "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla" ]
     },
     {
       _id: "rep04",
@@ -362,7 +362,7 @@ module.exports = {
       closeTo: null
     }
   ],
-  notFinishedNoMessage:{
+  notFinishedNoMessage: {
     representations: [
       {
         _id: "repr01",
@@ -371,7 +371,7 @@ module.exports = {
         ability: {
           value: 0.1
         },
-        compared: ["repr05","repr07"]
+        compared: [ "repr05", "repr07" ]
       },
       {
         _id: "repr02",
@@ -398,7 +398,7 @@ module.exports = {
         ability: {
           value: 0.01
         },
-        compared: ["repr13"]
+        compared: [ "repr13" ]
       },
       {
         _id: "repr05",
@@ -407,7 +407,7 @@ module.exports = {
         ability: {
           value: 3
         },
-        compared: ["repr01", "repr12"]
+        compared: [ "repr01", "repr12" ]
       },
       {
         _id: "repr06",
@@ -416,7 +416,7 @@ module.exports = {
         ability: {
           value: -6
         },
-        compared: ["repr14"]
+        compared: [ "repr14" ]
       },
       {
         _id: "repr07",
@@ -425,7 +425,7 @@ module.exports = {
         ability: {
           value: -2.5
         },
-        compared: ["repr12", "repr14", "repr01"]
+        compared: [ "repr12", "repr14", "repr01" ]
       },
       {
         _id: "repr08",
@@ -434,7 +434,7 @@ module.exports = {
         ability: {
           value: 0.05
         },
-        compared: ["repr12","repr13"]
+        compared: [ "repr12", "repr13" ]
       },
       {
         _id: "repr09",
@@ -443,7 +443,7 @@ module.exports = {
         ability: {
           value: 2.9
         },
-        compared: ["repr13"]
+        compared: [ "repr13" ]
       },
       {
         _id: "repr10",
@@ -452,7 +452,7 @@ module.exports = {
         ability: {
           value: 1
         },
-        compared: ["repr13"]
+        compared: [ "repr13" ]
       },
       {
         _id: "repr11",
@@ -461,7 +461,7 @@ module.exports = {
         ability: {
           value: 1.5
         },
-        compared: ["repr14", "repr12"]
+        compared: [ "repr14", "repr12" ]
       },
       {
         _id: "repr12",
@@ -470,7 +470,7 @@ module.exports = {
         ability: {
           value: 3.5
         },
-        compared: ["repr05", "repr08"]
+        compared: [ "repr05", "repr08" ]
       },
       {
         _id: "repr13",
@@ -479,7 +479,7 @@ module.exports = {
         ability: {
           value: -3
         },
-        compared: ["repr09", "repr04"]
+        compared: [ "repr09", "repr04" ]
       },
       {
         _id: "repr14",
@@ -488,81 +488,81 @@ module.exports = {
         ability: {
           value: -3.4
         },
-        compared: ["repr11", "repr06"]
+        compared: [ "repr11", "repr06" ]
       }
     ],
     comparisons: [
       {
         _id: "AAA",
         assessor: "user01",
-        representations : {
+        representations: {
           a: "repr01",
           b: "repr05"
         },
-        data:{selection: undefined }
+        data: { selection: undefined }
       },
       {
         _id: "BBB",
         assessor: "user01",
-        representations : {
+        representations: {
           a: "repr13",
           b: "repr09"
         },
-        data:{selection: undefined }
+        data: { selection: undefined }
       },
       {
         _id: "CCC",
         assessor: "user01",
-        representations : {
+        representations: {
           a: "repr13",
           b: "repr04"
         },
-        data:{selection: undefined }
+        data: { selection: undefined }
       },
       {
         _id: "EEE",
         assessor: "user01",
-        representations : {
+        representations: {
           a: "repr12",
           b: "repr05"
         },
-        data:{selection: undefined }
+        data: { selection: undefined }
       },
       {
         _id: "EEE",
         assessor: "user01",
-        representations : {
+        representations: {
           a: "repr12",
           b: "repr08"
         },
-        data:{selection: undefined }
+        data: { selection: undefined }
       },
       {
         _id: "EEE",
         assessor: "user01",
-        representations : {
+        representations: {
           a: "repr14",
           b: "repr11"
         },
-        data:{selection: undefined }
+        data: { selection: undefined }
       },
       {
         _id: "EEE",
         assessor: "user01",
-        representations : {
+        representations: {
           a: "repr14",
           b: "repr06"
         },
-        data:{selection: undefined }
+        data: { selection: undefined }
       },
       {
         _id: "EEE",
         assessor: "user01",
-        representations : {
+        representations: {
           a: "repr01",
           b: "repr07"
         },
-        data:{selection: undefined }
+        data: { selection: undefined }
       }
     ],
     assessor: "user02",
@@ -571,11 +571,11 @@ module.exports = {
       stage: 0,
       comparisonsNum: {
         total: 10,
-        stage: [5]
+        stage: [ 5 ]
       }
     }
   },
-  oneNotFinishedNoMessage:{
+  oneNotFinishedNoMessage: {
     representations: [
       {
         _id: "repr01",
@@ -584,7 +584,7 @@ module.exports = {
         ability: {
           value: 0.1
         },
-        compared: ["repr05","repr07"]
+        compared: [ "repr05", "repr07" ]
       },
       {
         _id: "repr02",
@@ -611,7 +611,7 @@ module.exports = {
         ability: {
           value: 0.01
         },
-        compared: ["repr13"]
+        compared: [ "repr13" ]
       },
       {
         _id: "repr05",
@@ -620,7 +620,7 @@ module.exports = {
         ability: {
           value: 3
         },
-        compared: ["repr01", "repr12"]
+        compared: [ "repr01", "repr12" ]
       },
       {
         _id: "repr06",
@@ -629,7 +629,7 @@ module.exports = {
         ability: {
           value: -6
         },
-        compared: ["repr14"]
+        compared: [ "repr14" ]
       },
       {
         _id: "repr07",
@@ -638,7 +638,7 @@ module.exports = {
         ability: {
           value: -2.5
         },
-        compared: ["repr12", "repr14", "repr01"]
+        compared: [ "repr12", "repr14", "repr01" ]
       },
       {
         _id: "repr08",
@@ -647,7 +647,7 @@ module.exports = {
         ability: {
           value: 0.05
         },
-        compared: ["repr12","repr13"]
+        compared: [ "repr12", "repr13" ]
       },
       {
         _id: "repr09",
@@ -656,7 +656,7 @@ module.exports = {
         ability: {
           value: 2.9
         },
-        compared: ["repr13"]
+        compared: [ "repr13" ]
       },
       {
         _id: "repr10",
@@ -665,7 +665,7 @@ module.exports = {
         ability: {
           value: 1
         },
-        compared: ["repr13"]
+        compared: [ "repr13" ]
       },
       {
         _id: "repr11",
@@ -674,7 +674,7 @@ module.exports = {
         ability: {
           value: 1.5
         },
-        compared: ["repr14", "repr12"]
+        compared: [ "repr14", "repr12" ]
       },
       {
         _id: "repr12",
@@ -683,7 +683,7 @@ module.exports = {
         ability: {
           value: 3.5
         },
-        compared: ["repr05", "repr08"]
+        compared: [ "repr05", "repr08" ]
       },
       {
         _id: "repr13",
@@ -692,7 +692,7 @@ module.exports = {
         ability: {
           value: -3
         },
-        compared: ["repr09", "repr04"]
+        compared: [ "repr09", "repr04" ]
       },
       {
         _id: "repr14",
@@ -701,81 +701,81 @@ module.exports = {
         ability: {
           value: -3.4
         },
-        compared: ["repr11", "repr06"]
+        compared: [ "repr11", "repr06" ]
       }
     ],
     comparisons: [
       {
         _id: "AAA",
         assessor: "user01",
-        representations : {
+        representations: {
           a: "repr01",
           b: "repr05"
         },
-        data:{selection: "repr01" }
+        data: { selection: "repr01" }
       },
       {
         _id: "BBB",
         assessor: "user01",
-        representations : {
+        representations: {
           a: "repr13",
           b: "repr09"
         },
-        data:{selection: "repr09" }
+        data: { selection: "repr09" }
       },
       {
         _id: "CCC",
         assessor: "user01",
-        representations : {
+        representations: {
           a: "repr13",
           b: "repr04"
         },
-        data:{selection: "repr13" }
+        data: { selection: "repr13" }
       },
       {
         _id: "EEE",
         assessor: "user01",
-        representations : {
+        representations: {
           a: "repr12",
           b: "repr05"
         },
-        data:{selection: "repr05" }
+        data: { selection: "repr05" }
       },
       {
         _id: "EEE",
         assessor: "user01",
-        representations : {
+        representations: {
           a: "repr12",
           b: "repr08"
         },
-        data:{selection: "repr12" }
+        data: { selection: "repr12" }
       },
       {
         _id: "EEE",
         assessor: "user01",
-        representations : {
+        representations: {
           a: "repr14",
           b: "repr11"
         },
-        data:{selection: "repr11" }
+        data: { selection: "repr11" }
       },
       {
         _id: "EEE",
         assessor: "user01",
-        representations : {
+        representations: {
           a: "repr14",
           b: "repr06"
         },
-        data:{selection: "repr14" }
+        data: { selection: "repr14" }
       },
       {
         _id: "EEE",
         assessor: "user01",
-        representations : {
+        representations: {
           a: "repr01",
           b: "repr07"
         },
-        data:{selection: undefined }
+        data: { selection: undefined }
       }
     ],
     assessor: "user02",
@@ -784,11 +784,11 @@ module.exports = {
       stage: 0,
       comparisonsNum: {
         total: 10,
-        stage: [5]
+        stage: [ 5 ]
       }
     }
   },
-  stage1NoMessage:{
+  stage1NoMessage: {
     representations: [
       {
         _id: "repr01",
@@ -797,7 +797,7 @@ module.exports = {
         ability: {
           value: 0.1
         },
-        compared: ["repr05","repr07"]
+        compared: [ "repr05", "repr07" ]
       },
       {
         _id: "repr02",
@@ -824,7 +824,7 @@ module.exports = {
         ability: {
           value: 0.01
         },
-        compared: ["repr13"]
+        compared: [ "repr13" ]
       },
       {
         _id: "repr05",
@@ -833,7 +833,7 @@ module.exports = {
         ability: {
           value: 3
         },
-        compared: ["repr01", "repr12"]
+        compared: [ "repr01", "repr12" ]
       },
       {
         _id: "repr06",
@@ -842,7 +842,7 @@ module.exports = {
         ability: {
           value: -6
         },
-        compared: ["repr14"]
+        compared: [ "repr14" ]
       },
       {
         _id: "repr07",
@@ -851,7 +851,7 @@ module.exports = {
         ability: {
           value: -2.5
         },
-        compared: ["repr12", "repr14", "repr01"]
+        compared: [ "repr12", "repr14", "repr01" ]
       },
       {
         _id: "repr08",
@@ -860,7 +860,7 @@ module.exports = {
         ability: {
           value: 0.05
         },
-        compared: ["repr12","repr13"]
+        compared: [ "repr12", "repr13" ]
       },
       {
         _id: "repr09",
@@ -869,7 +869,7 @@ module.exports = {
         ability: {
           value: 2.9
         },
-        compared: ["repr13"]
+        compared: [ "repr13" ]
       },
       {
         _id: "repr10",
@@ -878,7 +878,7 @@ module.exports = {
         ability: {
           value: 1
         },
-        compared: ["repr13"]
+        compared: [ "repr13" ]
       },
       {
         _id: "repr11",
@@ -887,7 +887,7 @@ module.exports = {
         ability: {
           value: 1.5
         },
-        compared: ["repr14", "repr12"]
+        compared: [ "repr14", "repr12" ]
       },
       {
         _id: "repr12",
@@ -896,7 +896,7 @@ module.exports = {
         ability: {
           value: 3.5
         },
-        compared: ["repr05", "repr08"]
+        compared: [ "repr05", "repr08" ]
       },
       {
         _id: "repr13",
@@ -905,7 +905,7 @@ module.exports = {
         ability: {
           value: -3
         },
-        compared: ["repr09", "repr04"]
+        compared: [ "repr09", "repr04" ]
       },
       {
         _id: "repr14",
@@ -914,81 +914,81 @@ module.exports = {
         ability: {
           value: -3.4
         },
-        compared: ["repr11", "repr06"]
+        compared: [ "repr11", "repr06" ]
       }
     ],
     comparisons: [
       {
         _id: "AAA",
         assessor: "user01",
-        representations : {
+        representations: {
           a: "repr01",
           b: "repr05"
         },
-        data:{selection: "repr01" }
+        data: { selection: "repr01" }
       },
       {
         _id: "BBB",
         assessor: "user01",
-        representations : {
+        representations: {
           a: "repr13",
           b: "repr09"
         },
-        data:{selection: "repr09" }
+        data: { selection: "repr09" }
       },
       {
         _id: "CCC",
         assessor: "user01",
-        representations : {
+        representations: {
           a: "repr13",
           b: "repr04"
         },
-        data:{selection: "repr13" }
+        data: { selection: "repr13" }
       },
       {
         _id: "EEE",
         assessor: "user01",
-        representations : {
+        representations: {
           a: "repr12",
           b: "repr05"
         },
-        data:{selection: "repr05" }
+        data: { selection: "repr05" }
       },
       {
         _id: "EEE",
         assessor: "user01",
-        representations : {
+        representations: {
           a: "repr12",
           b: "repr08"
         },
-        data:{selection: "repr12" }
+        data: { selection: "repr12" }
       },
       {
         _id: "EEE",
         assessor: "user01",
-        representations : {
+        representations: {
           a: "repr14",
           b: "repr11"
         },
-        data:{selection: "repr11" }
+        data: { selection: "repr11" }
       },
       {
         _id: "EEE",
         assessor: "user01",
-        representations : {
+        representations: {
           a: "repr14",
           b: "repr06"
         },
-        data:{selection: "repr14" }
+        data: { selection: "repr14" }
       },
       {
         _id: "EEE",
         assessor: "user01",
-        representations : {
+        representations: {
           a: "repr01",
           b: "repr07"
         },
-        data:{selection: undefined }
+        data: { selection: undefined }
       }
     ],
     assessor: "user01",
@@ -997,7 +997,7 @@ module.exports = {
       stage: 1,
       comparisonsNum: {
         total: 10,
-        stage: [5]
+        stage: [ 5 ]
       }
     }
   }

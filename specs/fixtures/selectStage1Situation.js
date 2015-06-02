@@ -12,7 +12,7 @@ module.exports = {
     _id: "assessment01",
     stage: 0,
     comparisonsNum: {
-      stage: [5]
+      stage: [ 5 ]
     }
   },
 
@@ -24,39 +24,40 @@ module.exports = {
         a: "rep01",
         b: "rep02"
       },
-      data: {selection: undefined}
+      data: { selection: undefined }
     }
   ],
 
-  comparisons2: [{
-    _id: "AAA",
-    assessor: "user01",
-    representations: {
-      a: "rep08",
-      b: "rep04"
-    },
-    data: {selection: undefined}
-  }, {
-    _id: "ZZZ",
-    assessor: "user11",
-    representations: {
-      a: "rep01",
-      b: "rep02"
-    },
-    data: {selection: undefined}
-  }],
-
+  comparisons2: [
+    {
+      _id: "AAA",
+      assessor: "user01",
+      representations: {
+        a: "rep08",
+        b: "rep04"
+      },
+      data: { selection: undefined }
+    }, {
+      _id: "ZZZ",
+      assessor: "user11",
+      representations: {
+        a: "rep01",
+        b: "rep02"
+      },
+      data: { selection: undefined }
+    }
+  ],
 
   representations: [
     {
       _id: "rep01",
       rankType: "to rank",
-      compared: ["rep02"],
+      compared: [ "rep02" ],
       closeTo: null
     }, {
       _id: "rep02",
       rankType: "ranked",
-      compared: ["rep01"],
+      compared: [ "rep01" ],
       closeTo: "rep03"
     }, {
       _id: "rep03",
@@ -77,153 +78,159 @@ module.exports = {
     }
   ],
 
-  representations2: [{
-    _id: "rep01",
-    rankType: "to rank",
-    compared: ["rep02"],
-    closeTo: null
-  }, {
-    _id: "rep02",
-    rankType: "ranked",
-    compared: ["rep01"],
-    closeTo: "rep03"
-  }, {
-    _id: "rep03",
-    rankType: "benchmark",
-    closeTo: null
-  }, {
-    _id: "rep04",
-    rankType: "ranked",
-    compared: ["rep08"],
-    closeTo: "rep05"
-  }, {
-    _id: "rep05",
-    rankType: "benchmark",
-    closeTo: null
-  }, {
-    _id: "rep08",
-    rankType: "to rank",
-    compared: ["rep04"],
-    closeTo: null
-  }],
-
-  comparisons3: [{
-    _id: "AAA",
-    assessor: "user01",
-    representations : {
-      a: "rep08",
-      b: "rep04"
-    },
-    data:{selection: undefined }
-  },{
-    _id: "ZZZ",
-    assessor: "user11",
-    representations : {
-      a : "rep01",
-      b :"rep02"
-    },
-    data:{selection: undefined}
-  }
+  representations2: [
+    {
+      _id: "rep01",
+      rankType: "to rank",
+      compared: [ "rep02" ],
+      closeTo: null
+    }, {
+      _id: "rep02",
+      rankType: "ranked",
+      compared: [ "rep01" ],
+      closeTo: "rep03"
+    }, {
+      _id: "rep03",
+      rankType: "benchmark",
+      closeTo: null
+    }, {
+      _id: "rep04",
+      rankType: "ranked",
+      compared: [ "rep08" ],
+      closeTo: "rep05"
+    }, {
+      _id: "rep05",
+      rankType: "benchmark",
+      closeTo: null
+    }, {
+      _id: "rep08",
+      rankType: "to rank",
+      compared: [ "rep04" ],
+      closeTo: null
+    }
   ],
-  comparisons4: [{
-    _id: "AAA",
-    assessor: "user01",
-    representations : {
-      a: "rep01",
-      b: "rep04"
+
+  comparisons3: [
+    {
+      _id: "AAA",
+      assessor: "user01",
+      representations: {
+        a: "rep08",
+        b: "rep04"
+      },
+      data: { selection: undefined }
+    }, {
+      _id: "ZZZ",
+      assessor: "user11",
+      representations: {
+        a: "rep01",
+        b: "rep02"
+      },
+      data: { selection: undefined }
+    }
+  ],
+  comparisons4: [
+    {
+      _id: "AAA",
+      assessor: "user01",
+      representations: {
+        a: "rep01",
+        b: "rep04"
+      },
+      data: { selection: "rep04" }
+    }, {
+      _id: "BBB",
+      assessor: "user04",
+      representations: {
+        a: "rep01",
+        b: "rep02"
+      },
+      data: { selection: "rep02" }
     },
-    data:{selection: "rep04" }
-  },{
-    _id: "BBB",
-    assessor: "user04",
-    representations : {
-      a : "rep01",
-      b :"rep02"
-    },
-    data:{selection: "rep02"}
-  },
-    { _id: "DDD",
-  assessor: "user01",
-  representations : {
-  a: "rep08",
-    b: "rep04"
-},
-data:{selection: "rep04" }
-}, {
+    {
+      _id: "DDD",
+      assessor: "user01",
+      representations: {
+        a: "rep08",
+        b: "rep04"
+      },
+      data: { selection: "rep04" }
+    }, {
       _id: "EEE",
       assessor: "user04",
       representations: {
         a: "rep08",
         b: "rep02"
       },
-      data: {selection: "rep02"}
-    }],
-
+      data: { selection: "rep02" }
+    }
+  ],
 
   representations3: [
-    {   _id: "rep01",
-  rankType: "to rank",
-  compared: ["rep02"] ,
-  closeTo: null
-},{
-  _id: "rep02",
-    rankType: "ranked",
-    compared: [ "rep01"],
-    closeTo: "rep03"
-},{
-  _id: "rep03",
-    rankType: "benchmark",
-    closeTo: null
-},{
-  _id: "rep04",
-    rankType: "ranked",
-    compared: [ "rep08"],
-    closeTo: "rep05"
-},{
-  _id: "rep05",
-    rankType: "benchmark",
-    closeTo: null
-},{
-  _id: "rep08",
-    rankType: "to rank",
-    compared: ["rep04"] ,
-    closeTo: null
-},{
-  _id: "rep09",
-    rankType: "ranked",
-    closeTo: "rep03"
-}
+    {
+      _id: "rep01",
+      rankType: "to rank",
+      compared: [ "rep02" ],
+      closeTo: null
+    }, {
+      _id: "rep02",
+      rankType: "ranked",
+      compared: [ "rep01" ],
+      closeTo: "rep03"
+    }, {
+      _id: "rep03",
+      rankType: "benchmark",
+      closeTo: null
+    }, {
+      _id: "rep04",
+      rankType: "ranked",
+      compared: [ "rep08" ],
+      closeTo: "rep05"
+    }, {
+      _id: "rep05",
+      rankType: "benchmark",
+      closeTo: null
+    }, {
+      _id: "rep08",
+      rankType: "to rank",
+      compared: [ "rep04" ],
+      closeTo: null
+    }, {
+      _id: "rep09",
+      rankType: "ranked",
+      closeTo: "rep03"
+    }
   ],
 
   representations4: [
     {
       _id: "rep01",
       rankType: "to rank",
-      compared: [ "rep04", "rep02"],
+      compared: [ "rep04", "rep02" ],
       closeTo: null
-    },{
+    }, {
       _id: "rep02",
       rankType: "ranked",
-      compared: [ "rep01", "rep08"],
+      compared: [ "rep01", "rep08" ],
       closeTo: "rep03"
-    },{
+    }, {
       _id: "rep03",
       rankType: "benchmark",
       closeTo: null
-    },{
+    }, {
       _id: "rep04",
       rankType: "ranked",
-      compared: [ "rep01", "rep08"],
+      compared: [ "rep01", "rep08" ],
       closeTo: "rep05"
-    },{
+    }, {
       _id: "rep05",
       rankType: "benchmark",
       closeTo: null
-    },{
+    }, {
       _id: "rep06",
       rankType: "ranked",
       closeTo: "rep03"
-    },{
+    }, {
       _id: "rep07",
       rankType: "ranked",
       closeTo: "rep05"
@@ -231,154 +238,159 @@ data:{selection: "rep04" }
     {
       _id: "rep08",
       rankType: "to rank",
-      compared: ["rep04", "rep02"] ,
+      compared: [ "rep04", "rep02" ],
       closeTo: null
     }
 
   ],
-  oneSentOutRepresentation3toRank: [{
-    _id: "rep01",
-    rankType: "to rank",
-    compared: ["rep02"] ,
-    closeTo: null
-  },{
-    _id: "rep02",
-    rankType: "ranked",
-    compared: [ "rep01"],
-    closeTo: "rep03"
-  },{
-    _id: "rep03",
-    rankType: "benchmark",
-    closeTo: null
-  },{
-    _id: "rep04",
-    rankType: "ranked",
-    compared: [ "rep01"],
-    closeTo: "rep05"
-  },{
-    _id: "rep05",
-    rankType: "benchmark",
-    closeTo: null
-  },
+  oneSentOutRepresentation3toRank: [
     {
-    _id: "rep08",
-    rankType: "to rank",
-    closeTo: null
-  },{
-    _id: "rep09",
-    rankType: "to rank",
-    closeTo: null
-  }
+      _id: "rep01",
+      rankType: "to rank",
+      compared: [ "rep02" ],
+      closeTo: null
+    }, {
+      _id: "rep02",
+      rankType: "ranked",
+      compared: [ "rep01" ],
+      closeTo: "rep03"
+    }, {
+      _id: "rep03",
+      rankType: "benchmark",
+      closeTo: null
+    }, {
+      _id: "rep04",
+      rankType: "ranked",
+      compared: [ "rep01" ],
+      closeTo: "rep05"
+    }, {
+      _id: "rep05",
+      rankType: "benchmark",
+      closeTo: null
+    },
+    {
+      _id: "rep08",
+      rankType: "to rank",
+      closeTo: null
+    }, {
+      _id: "rep09",
+      rankType: "to rank",
+      closeTo: null
+    }
   ],
 
-  equalSentOutButSeenMoreRepresentation: [{
-  _id: "rep01",
-  rankType: "to rank",
-  compared: ["rep02"] ,
-  closeTo: null
-},{
-  _id: "rep02",
-  rankType: "ranked",
-  compared: [ "rep01"],
-  closeTo: "rep03"
-},{
-  _id: "rep03",
-  rankType: "benchmark",
-  closeTo: null
-},{
-  _id: "rep04",
-  rankType: "ranked",
-  compared: [ "rep08"],
-  closeTo: "rep05"
-},{
-  _id: "rep05",
-  rankType: "benchmark",
-  closeTo: null
-},{
-  _id: "rep08",
-  rankType: "to rank",
-  compared: ["rep04"] ,
-  closeTo: null
+  equalSentOutButSeenMoreRepresentation: [
+    {
+      _id: "rep01",
+      rankType: "to rank",
+      compared: [ "rep02" ],
+      closeTo: null
+    }, {
+      _id: "rep02",
+      rankType: "ranked",
+      compared: [ "rep01" ],
+      closeTo: "rep03"
+    }, {
+      _id: "rep03",
+      rankType: "benchmark",
+      closeTo: null
+    }, {
+      _id: "rep04",
+      rankType: "ranked",
+      compared: [ "rep08" ],
+      closeTo: "rep05"
+    }, {
+      _id: "rep05",
+      rankType: "benchmark",
+      closeTo: null
+    }, {
+      _id: "rep08",
+      rankType: "to rank",
+      compared: [ "rep04" ],
+      closeTo: null
 
-}],
+    }
+  ],
   equalSentOutButSeenMoreComparisons: [
-  {  _id: "AAA",
-    assessor: "user01",
-    representations : {
-      a: "rep08",
-      b: "rep04"
-    },
-    data:{selection: undefined }
-  },{
-    _id: "ZZZ",
-    assessor: "user11",
-    representations : {
-      a : "rep01",
-      b :"rep02"
-    },
-    data:{selection: undefined}
-  }
+    {
+      _id: "AAA",
+      assessor: "user01",
+      representations: {
+        a: "rep08",
+        b: "rep04"
+      },
+      data: { selection: undefined }
+    }, {
+      _id: "ZZZ",
+      assessor: "user11",
+      representations: {
+        a: "rep01",
+        b: "rep02"
+      },
+      data: { selection: undefined }
+    }
   ],
 
   representations5: [
-  { _id: "rep01",
-    rankType: "to rank",
-    compared: [ "rep04", "rep02", "rep06"],
-    closeTo: null
-  },{
-    _id: "rep02",
-    rankType: "ranked",
-    compared: [ "rep01", "rep08"],
-    closeTo: "rep03"
-  },{
-    _id: "rep03",
-    rankType: "benchmark",
-    closeTo: null
-  },{
-    _id: "rep04",
-    rankType: "ranked",
-    compared: [ "rep01", "rep08"],
-    closeTo: "rep05"
-  },{
-    _id: "rep05",
-    rankType: "benchmark",
-    closeTo: null
-  },{
-    _id: "rep06",
-    rankType: "ranked",
-    compared: [ "rep01", "rep08"],
-    closeTo: "rep03"
-  },{
-    _id: "rep07",
-    rankType: "ranked",
-      compared: [  "rep08"],
-    closeTo: "rep05"
-    },{
+    {
+      _id: "rep01",
+      rankType: "to rank",
+      compared: [ "rep04", "rep02", "rep06" ],
+      closeTo: null
+    }, {
+      _id: "rep02",
+      rankType: "ranked",
+      compared: [ "rep01", "rep08" ],
+      closeTo: "rep03"
+    }, {
+      _id: "rep03",
+      rankType: "benchmark",
+      closeTo: null
+    }, {
+      _id: "rep04",
+      rankType: "ranked",
+      compared: [ "rep01", "rep08" ],
+      closeTo: "rep05"
+    }, {
+      _id: "rep05",
+      rankType: "benchmark",
+      closeTo: null
+    }, {
+      _id: "rep06",
+      rankType: "ranked",
+      compared: [ "rep01", "rep08" ],
+      closeTo: "rep03"
+    }, {
+      _id: "rep07",
+      rankType: "ranked",
+      compared: [ "rep08" ],
+      closeTo: "rep05"
+    }, {
       _id: "rep08",
       rankType: "to rank",
-      compared: ["rep04", "rep02", "rep06", "rep07"] ,
+      compared: [ "rep04", "rep02", "rep06", "rep07" ],
       closeTo: null
-  }
-    ],
+    }
+  ],
 
-
-  comparisons5: [{
-  _id: "AAA",
-  assessor: "user01",
-  representations: {
-    a: "rep08",
-    b: "rep04"
-  },
-  data: {selection: undefined}
-}, {
-  _id: "ZZZ",
-  assessor: "user11",
-  representations: {
-    a: "rep01",
-    b: "rep02"
-  },
-  data: {selection: undefined}
-}
+  comparisons5: [
+    {
+      _id: "AAA",
+      assessor: "user01",
+      representations: {
+        a: "rep08",
+        b: "rep04"
+      },
+      data: { selection: undefined }
+    }, {
+      _id: "ZZZ",
+      assessor: "user11",
+      representations: {
+        a: "rep01",
+        b: "rep02"
+      },
+      data: { selection: undefined }
+    }
     , {
       _id: "CCC",
       assessor: "user01",
@@ -386,7 +398,7 @@ data:{selection: "rep04" }
         a: "rep01",
         b: "rep04"
       },
-      data: {selection: undefined}
+      data: { selection: undefined }
     }
     , {
       _id: "DDD",
@@ -395,7 +407,7 @@ data:{selection: "rep04" }
         a: "rep01",
         b: "rep06"
       },
-      data: {selection: undefined}
+      data: { selection: undefined }
     }
     , {
       _id: "EEE",
@@ -404,7 +416,7 @@ data:{selection: "rep04" }
         a: "rep08",
         b: "rep02"
       },
-      data: {selection: undefined}
+      data: { selection: undefined }
     }
     , {
       _id: "FFF",
@@ -413,7 +425,7 @@ data:{selection: "rep04" }
         a: "rep08",
         b: "rep06"
       },
-      data: {selection: undefined}
+      data: { selection: undefined }
     }, {
       _id: "GGG",
       assessor: "user01",
@@ -421,114 +433,114 @@ data:{selection: "rep04" }
         a: "rep08",
         b: "rep07"
       },
-      data: {selection: undefined}
+      data: { selection: undefined }
     }
   ]
   ,
 
-
   representations6: [
-  { _id: "rep01",
-    rankType: "to rank",
-    compared: [ "rep02", "rep06", "rep04"],
-    closeTo: null
-  },{
-    _id: "rep02",
-    rankType: "ranked",
-    compared: [ "rep01", "rep08"],
-    closeTo: "rep03"
-  },{
-    _id: "rep03",
-    rankType: "benchmark",
-    closeTo: null
-  },{
-    _id: "rep04",
-    rankType: "ranked",
-    compared: [ "rep01", "rep08"],
-    closeTo: "rep05"
-  },{
-    _id: "rep05",
-    rankType: "benchmark",
-    closeTo: null
-  },{
-    _id: "rep06",
-    rankType: "ranked",
-    compared: [  "rep08"],
-    closeTo: "rep03"
-  },{
-    _id: "rep07",
-    rankType: "ranked",
-    compared: [  "rep08"],
-    closeTo: "rep05"
-  },{
-    _id: "rep08",
-    rankType: "to rank",
-    compared: ["rep04", "rep02", "rep06", "rep07"] ,
-    closeTo: null
-  }
-],
+    {
+      _id: "rep01",
+      rankType: "to rank",
+      compared: [ "rep02", "rep06", "rep04" ],
+      closeTo: null
+    }, {
+      _id: "rep02",
+      rankType: "ranked",
+      compared: [ "rep01", "rep08" ],
+      closeTo: "rep03"
+    }, {
+      _id: "rep03",
+      rankType: "benchmark",
+      closeTo: null
+    }, {
+      _id: "rep04",
+      rankType: "ranked",
+      compared: [ "rep01", "rep08" ],
+      closeTo: "rep05"
+    }, {
+      _id: "rep05",
+      rankType: "benchmark",
+      closeTo: null
+    }, {
+      _id: "rep06",
+      rankType: "ranked",
+      compared: [ "rep08" ],
+      closeTo: "rep03"
+    }, {
+      _id: "rep07",
+      rankType: "ranked",
+      compared: [ "rep08" ],
+      closeTo: "rep05"
+    }, {
+      _id: "rep08",
+      rankType: "to rank",
+      compared: [ "rep04", "rep02", "rep06", "rep07" ],
+      closeTo: null
+    }
+  ],
 
-
-  comparisons6: [{
-  _id: "AAA",
-  assessor: "user01",
-  representations: {
-    a: "rep08",
-    b: "rep04"
-  },
-  data: {selection: undefined }
-}, {
-  _id: "ZZZ",
-  assessor: "user11",
-  representations: {
-    a: "rep01",
-    b: "rep02"
-  },
-  data: {selection: "rep04"}
-}
-  , {
-    _id: "CCC",
-    assessor: "user01",
-    representations: {
-      a: "rep01",
-      b: "rep04"
-    },
-    data: {selection: undefined}
-  }
-  , {
-    _id: "DDD",
-    assessor: "user11",
-    representations: {
-      a: "rep01",
-      b: "rep06"
-    },
-    data: {selection: undefined}
-  }
-  , {
-    _id: "EEE",
-    assessor: "user01",
-    representations: {
-      a: "rep08",
-      b: "rep02"
-    },
-    data: {selection: undefined}
-  }
-  , {
-    _id: "FFF",
-    assessor: "user11",
-    representations: {
-      a: "rep08",
-      b: "rep06"
-    },
-    data: {selection: undefined}
-  }, {
-    _id: "GGG",
-    assessor: "user01",
-    representations: {
-      a: "rep08",
-      b: "rep07"
-    },
-    data: {selection: undefined}
-  }
-]
+  comparisons6: [
+    {
+      _id: "AAA",
+      assessor: "user01",
+      representations: {
+        a: "rep08",
+        b: "rep04"
+      },
+      data: { selection: undefined }
+    }, {
+      _id: "ZZZ",
+      assessor: "user11",
+      representations: {
+        a: "rep01",
+        b: "rep02"
+      },
+      data: { selection: "rep04" }
+    }
+    , {
+      _id: "CCC",
+      assessor: "user01",
+      representations: {
+        a: "rep01",
+        b: "rep04"
+      },
+      data: { selection: undefined }
+    }
+    , {
+      _id: "DDD",
+      assessor: "user11",
+      representations: {
+        a: "rep01",
+        b: "rep06"
+      },
+      data: { selection: undefined }
+    }
+    , {
+      _id: "EEE",
+      assessor: "user01",
+      representations: {
+        a: "rep08",
+        b: "rep02"
+      },
+      data: { selection: undefined }
+    }
+    , {
+      _id: "FFF",
+      assessor: "user11",
+      representations: {
+        a: "rep08",
+        b: "rep06"
+      },
+      data: { selection: undefined }
+    }, {
+      _id: "GGG",
+      assessor: "user01",
+      representations: {
+        a: "rep08",
+        b: "rep07"
+      },
+      data: { selection: undefined }
+    }
+  ]
 };
