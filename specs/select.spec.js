@@ -223,12 +223,33 @@ describe( "select", function(){
       expect( result.messages ).to.be.an.array();
       expect( result.messages[ 0 ] ).to.equal( constants.messages.ASSESSMENT_COMPLETED );
     } );
-    it( "should return a message the assessor has reached the max comparisons for stage 0", function(){
-      var result = select.select( fx.select.representations, fx.select.maxComparisons, fx.select.assessment, fx.select.assessor );
+    it( "should return a message the assessor has reached the default max comparisons for stage 0", function(){
+      var result = select.select( fx.select.representations, fx.select.assessorMaxComparisonsStageA, fx.select.assessment4, fx.select.assessor );
       expect( result ).to.not.be.null();
       expect( result ).to.be.an.object();
       expect( result.messages ).to.be.an.array();
       expect( result.messages[ 0 ] ).to.equal( constants.messages.ASSESSOR_STAGE_COMPLETED );
+    } );
+    it( "should return a message the assessor has reached the set max comparisons for stage 0", function(){
+      var result = select.select( fx.select.representations, fx.select.assessorMaxComparisonsStageB, fx.select.assessment, fx.select.assessor );
+      expect( result ).to.not.be.null();
+      expect( result ).to.be.an.object();
+      expect( result.messages ).to.be.an.array();
+      expect( result.messages[ 0 ] ).to.equal( constants.messages.ASSESSOR_STAGE_COMPLETED );
+    } );
+    it( "should return a message the assessor has reached the default max comparisons for this assessment", function(){
+      var result = select.select( fx.select.representations, fx.select.AssessorMaxComparisonsTotalA, fx.select.assessment2, fx.select.assessor );
+      expect( result ).to.not.be.null();
+      expect( result ).to.be.an.object();
+      expect( result.messages ).to.be.an.array();
+      expect( result.messages[ 0 ] ).to.equal( constants.messages.ASSESSOR_ASSESSMENT_COMPLETED );
+    } );
+    it( "should return a message the assessor has reached the set max comparisons for this assessment", function(){
+      var result = select.select( fx.select.representations, fx.select.AssessorMaxComparisonsTotalB, fx.select.assessment3, fx.select.assessor );
+      expect( result ).to.not.be.null();
+      expect( result ).to.be.an.object();
+      expect( result.messages ).to.be.an.array();
+      expect( result.messages[ 0 ] ).to.equal( constants.messages.ASSESSOR_ASSESSMENT_COMPLETED );
     } );
     it( "should not return a message when all comparisons have been finished because we started stage1", function(){
       var result = select.select( fx.select.stage1NoMessage.representations, fx.select.stage1NoMessage.comparisons,

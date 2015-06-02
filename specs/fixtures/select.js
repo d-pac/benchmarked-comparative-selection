@@ -7,7 +7,7 @@ module.exports = {
     stage: 0,
     comparisonsNum: {
       total: 10,
-      stage: [ 5 ]
+      stage: [ 7 ]
     }
   },
   assessment2: {
@@ -16,6 +16,22 @@ module.exports = {
     comparisonsNum: {
       total: 10,
       stage: [ 5 ]
+    }
+  },
+  assessment3: {
+    _id: "assessment01",
+    stage: 1,
+    comparisonsNum: {
+      total: 10,
+      stage: [ 5, 14 ]
+    }
+  },
+  assessment4: {
+    _id: "assessment01",
+    stage: 0,
+    comparisonsNum: {
+      total: 10,
+      stage: [ ]
     }
   },
   comparisons: [
@@ -29,7 +45,7 @@ module.exports = {
       data: { selection: undefined }
     }
   ],
-  maxComparisons: [
+  assessorMaxComparisonsStageA: [
     {
       _id: "AAA",
       assessor: "user01",
@@ -68,6 +84,444 @@ module.exports = {
     },
     {
       _id: "DDD",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    }
+  ],
+  assessorMaxComparisonsStageB: [
+    {
+      _id: "AAA",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "ZZZ",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "BBB",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "CCC",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "DDD",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "EEE",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "FFF",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    }
+  ],
+  AssessorMaxComparisonsTotalA: [
+    {
+      _id: "AAA",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "ZZZ",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "BBB",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "CCC",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "DDD",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "EEE",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "FFF",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "GGG",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "HHH",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "III",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "JJJ",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "KKK",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "LLL",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "MMM",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "NNN",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "OOO",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "PPP",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "QQQ",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "RRR",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "SSS",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "TTT",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "UUU",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    }
+  ],
+  AssessorMaxComparisonsTotalB: [
+    {
+      _id: "AAA",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "ZZZ",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "BBB",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "CCC",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "DDD",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "EEE",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "FFF",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "GGG",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "HHH",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "III",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "JJJ",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "KKK",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "LLL",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "MMM",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "NNN",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "OOO",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "PPP",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "QQQ",
+      assessor: "user01",
+      representations: {
+        a: "rep02",
+        b: "rep03"
+      },
+      data: { selection: undefined }
+    },
+    {
+      _id: "RRR",
       assessor: "user01",
       representations: {
         a: "rep02",
