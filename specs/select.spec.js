@@ -2,6 +2,7 @@
 
 var expect = require( 'must' );
 var select = require( '../lib/select' );
+var constants = require('../lib/constants');
 var _ = require('lodash'),
     fx = require('./fixtures/index');
 
@@ -110,19 +111,17 @@ describe( "select", function(){
     });
     it( "should return a message when all comparisons have been made", function(){
       var result = select.select(fx.select.reprNoMoreComparisons, fx.select.comparisons, fx.select.assessment, fx.select.assessor);
-      var message = "All comparisons have been made";
       expect(result).to.not.be.null();
       expect(result).to.be.an.object();
       expect(result.messages).to.be.an.array();
-      expect(result.messages[0]).to.equal(message);
+      expect(result.messages[0]).to.equal(constants.messages.ASSESSMENT_COMPLETED);
     });
     it( "should return a message the assessor has reached the max comparisons for stage 0", function(){
       var result = select.select(fx.select.representations, fx.select.maxComparisons, fx.select.assessment, fx.select.assessor);
-      var message = "You can't make any more comparisons at the moment.";
       expect(result).to.not.be.null();
       expect(result).to.be.an.object();
       expect(result.messages).to.be.an.array();
-      expect(result.messages[0]).to.equal(message);
+      expect(result.messages[0]).to.equal(constants.messages.ASSESSOR_STAGE_COMPLETED);
     });
     it("should not return a message when all comparisons have been finished because we started stage1", function(){
       var result = select.select(fx.select.stage1NoMessage.representations,fx.select.stage1NoMessage.comparisons,
@@ -383,11 +382,10 @@ describe( "select", function(){
 //stage0 should be done, but keeps on generating pairs?
     it( "should give a message  if all stage0 comparisons are done", function() {
       var result = select.select(fx.selectStage1Situation.representations4, fx.selectStage1Situation.comparisons4, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId2);
-      var message = "You can't make any more comparisons at the moment.";
       expect(result).to.not.be.null();
       expect(result).to.be.an.object();
       expect(result.messages).to.be.an.array();
-      expect(result.messages[0]).to.equal(message);
+      expect(result.messages[0]).to.equal(constants.messages.STAGE_COMPLETED);
     });
 
     //testing situations stage 1
