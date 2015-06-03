@@ -166,7 +166,7 @@ module.exports = {
         a: "rep01",
         b: "rep02"
       },
-      data: { selection: undefined }
+      data: { selection: "rep01" }
     }
   ],
   oneSentOutRepresentation3toRank: [
@@ -259,7 +259,7 @@ module.exports = {
         a: "rep08",
         b: "rep04"
       },
-      data: { selection: undefined }
+      data: { selection: "rep08" }
     }, {
       _id: "ZZZ",
       assessor: "user11",
@@ -267,7 +267,7 @@ module.exports = {
         a: "rep01",
         b: "rep02"
       },
-      data: { selection: undefined }
+      data: { selection: "rep01" }
     }
   ],
   equalSentOutAndSeenRepresentation: [

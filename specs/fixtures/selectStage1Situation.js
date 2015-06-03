@@ -496,7 +496,7 @@ module.exports = {
         a: "rep01",
         b: "rep02"
       },
-      data: { selection: "rep04" }
+      data: { selection: undefined }
     }
     , {
       _id: "CCC",
@@ -539,6 +539,42 @@ module.exports = {
       representations: {
         a: "rep08",
         b: "rep07"
+      },
+      data: { selection: undefined }
+    }
+  ],
+  comparisonsTerras: [
+    {
+      _id: "AAA",
+      assessor: "user01",
+      representations: {
+        a: "rep01",
+        b: "rep04"
+      },
+      data: { selection: "rep04" }
+    }, {
+      _id: "BBB",
+      assessor: "user04",
+      representations: {
+        a: "rep01",
+        b: "rep02"
+      },
+      data: { selection: "rep02" }
+    },
+    {
+      _id: "DDD",
+      assessor: "user01",
+      representations: {
+        a: "rep08",
+        b: "rep04"
+      },
+      data: { selection: "rep04" }
+    }, {
+      _id: "EEE",
+      assessor: "user04",
+      representations: {
+        a: "rep08",
+        b: "rep02"
       },
       data: { selection: undefined }
     }
