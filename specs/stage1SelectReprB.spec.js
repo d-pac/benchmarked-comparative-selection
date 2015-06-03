@@ -39,7 +39,7 @@ describe( "select representation B", function(){
     expect( ids.indexOf( 'rep05' ) ).to.be.below( 0 );
     expect( ids.indexOf( 'rep02' ) ).to.be.least( 0 );
     expect( ids.indexOf( 'rep04' ) ).to.be.least( 0 );
-    console.log( ids );
+    //console.log( ids );
   } );
 
   it( "should select other BM if one BMcomparison has been sent out, ie rep02", function(){
@@ -53,7 +53,7 @@ describe( "select representation B", function(){
     expect( ids.indexOf( 'rep03' ) ).to.be.below( 0 );
     expect( ids.indexOf( 'rep04' ) ).to.be.below( 0 );
     expect( ids.indexOf( 'rep05' ) ).to.be.below( 0 );
-    console.log( ids );
+    //console.log( ids );
   } );
 
   it( "should select other random BM if one BMcomparison has been sent out, ie rep02 or rep06", function(){
@@ -68,7 +68,7 @@ describe( "select representation B", function(){
     expect( ids.indexOf( 'rep04' ) ).to.be.below( 0 );
     expect( ids.indexOf( 'rep05' ) ).to.be.below( 0 );
     expect( ids.indexOf( 'rep06' ) ).to.be.least( 0 );
-    console.log( ids );
+    //console.log( ids );
   } );
 
   it( "if all benchmarks have been selected, it should select paper from BM least chosen, ie rep07", function(){
@@ -84,7 +84,7 @@ describe( "select representation B", function(){
     expect( ids.indexOf( 'rep05' ) ).to.be.below( 0 );
     expect( ids.indexOf( 'rep06' ) ).to.be.below( 0 );
     expect( ids.indexOf( 'rep07' ) ).to.be.least( 0 );
-    console.log( ids );
+    //console.log( ids );
   } );
 
   it( "if one comparison is completed, then the other one should be sent out, ie rep02 or rep06", function(){
@@ -100,7 +100,7 @@ describe( "select representation B", function(){
     expect( ids.indexOf( 'rep05' ) ).to.be.below( 0 );
     expect( ids.indexOf( 'rep06' ) ).to.be.least( 0 );
     expect( ids.indexOf( 'rep07' ) ).to.be.below( 0 );
-    console.log( ids );
+    //console.log( ids );
   } );
 
   // not the correct test yet
@@ -117,7 +117,7 @@ describe( "select representation B", function(){
     expect( ids.indexOf( 'rep05' ) ).to.be.below( 0 );
     expect( ids.indexOf( 'rep06' ) ).to.be.least( 0 );
     expect( ids.indexOf( 'rep07' ) ).to.be.below( 0 );
-    console.log( ids );
+    //console.log( ids );
   } );
 
 } );

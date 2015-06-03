@@ -440,9 +440,9 @@ describe( "select", function(){
         results.push( select.select( fx.selectStage1Situation.representations2, fx.selectStage1Situation.comparisons2, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId1 ) );
       }
 
-      console.log( "Count B: " + JSON.stringify( _.countBy( results, function( rep ){
-          return rep.result[ 1 ]._id;
-        } ) ) );
+      //console.log( "Count B: " + JSON.stringify( _.countBy( results, function( rep ){
+      //    return rep.result[ 1 ]._id;
+      //  } ) ) );
 
       expect( _.find( results, function( result ){
         return _.get( result.result[ 0 ], "_id" ) !== "rep01";
@@ -458,9 +458,9 @@ describe( "select", function(){
         results.push( select.select( fx.selectStage1Situation.representations2, fx.selectStage1Situation.comparisons2, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId2 ) );
       }
 
-      console.log( "Count B: " + JSON.stringify( _.countBy( results, function( rep ){
-          return rep.result[ 1 ]._id;
-        } ) ) );
+      //console.log( "Count B: " + JSON.stringify( _.countBy( results, function( rep ){
+      //    return rep.result[ 1 ]._id;
+      //  } ) ) );
 
       expect( _.find( results, function( result ){
         return _.get( result.result[ 0 ], "_id" ) !== "rep08";
@@ -477,9 +477,9 @@ describe( "select", function(){
         results.push( select.select( fx.selectStage1Situation.representations3, fx.selectStage1Situation.comparisons3, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId2 ) );
       }
 
-      console.log( "Count B: " + JSON.stringify( _.countBy( results, function( rep ){
-          return rep.result[ 1 ]._id;
-        } ) ) );
+      //console.log( "Count B: " + JSON.stringify( _.countBy( results, function( rep ){
+      //    return rep.result[ 1 ]._id;
+      //  } ) ) );
 
       expect( _.find( results, function( result ){
         return _.get( result.result[ 0 ], "_id" ) !== "rep08";
@@ -496,9 +496,9 @@ describe( "select", function(){
         results.push( select.select( fx.selectStage1Situation.representations3, fx.selectStage1Situation.comparisons3, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId2 ) );
       }
 
-      console.log( "Count B: " + JSON.stringify( _.countBy( results, function( rep ){
-          return rep.result[ 1 ]._id;
-        } ) ) );
+      //console.log( "Count B: " + JSON.stringify( _.countBy( results, function( rep ){
+      //    return rep.result[ 1 ]._id;
+      //  } ) ) );
 
       expect( _.find( results, function( result ){
         return _.get( result.result[ 0 ], "_id" ) !== "rep08";

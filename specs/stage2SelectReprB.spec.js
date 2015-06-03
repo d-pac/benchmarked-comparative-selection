@@ -64,7 +64,7 @@ describe( "Stage2: Select representation B", function(){
       expect( results ).not.an.array();
     } );
     it( "should return an object containing an _id field which is a non-empty string", function(){
-      console.log( fx.stage2SelectReprB.tenOppos.repr.orderedUp );
+      //console.log( fx.stage2SelectReprB.tenOppos.repr.orderedUp );
       var results = selectB( fx.stage2SelectReprB.tenOppos.repr.orderedUp, fx.stage2SelectReprB.tenOppos.abil );
       expect( results ).to.have.ownProperty( "_id" );
       expect( typeof results._id ).to.be( "string" );

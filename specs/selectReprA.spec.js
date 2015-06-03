@@ -144,7 +144,7 @@ describe( "select representation A", function(){
       expect( ids.indexOf( 'rep07' ) ).to.be.below( 0 );
       expect( ids.indexOf( 'rep08' ) ).to.be.below( 0 );
       expect( ids.indexOf( 'rep01' ) ).to.be.least( 0 );
-      console.log( ids );
+      //console.log( ids );
     } );
 
     it( "when toRank representation have been sent out & seen by judge, randomly select", function(){
@@ -161,7 +161,7 @@ describe( "select representation A", function(){
       expect( ids.indexOf( 'rep07' ) ).to.be.below( 0 );
       expect( ids.indexOf( 'rep08' ) ).to.be.least( 0 );
       expect( ids.indexOf( 'rep01' ) ).to.be.least( 0 );
-      console.log( ids );
+      //console.log( ids );
     } );
 
   } );
