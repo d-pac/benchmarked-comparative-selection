@@ -30,7 +30,7 @@
       "name": "benchmarked-comparative-selection",
       "description": "Two-phased benchmarked comparative selection algorithm",
       "type": "select",
-      "compatibility": "0.6.0"
+      "compatibility": "^0.6.0"
     }
   ],
   "devDependencies": {
