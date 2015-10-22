@@ -4,8 +4,7 @@
   "description": " Benchmarked comparative selection algorithm plugin for d-pac platform",
   "main": "lib/select.js",
   "scripts": {
-    "test": "mocha specs/*.spec.js",
-    "lint": "jshint lib tests; jscs lib tests"
+    "test": "mocha specs/*.spec.js"
   },
   "repository": {
     "type": "git",
@@ -34,8 +33,6 @@
     }
   ],
   "devDependencies": {
-    "jscs": "^1.12.0",
-    "jshint": "^2.7.0",
     "mocha": "^2.2.4",
     "must": "^0.12.0",
     "require-directory": "^2.1.0"
