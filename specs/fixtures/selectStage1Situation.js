@@ -12,7 +12,7 @@ module.exports = {
     _id: "assessment01",
     stage: 0,
     comparisonsNum: {
-      stage: [ 5 ]
+      perAssessor: [ 5 ]
     }
   },
 

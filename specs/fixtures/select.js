@@ -6,32 +6,32 @@ module.exports = {
     _id: "assessment01",
     stage: 0,
     comparisonsNum: {
-      total: 10,
-      stage: [ 7 ]
+      perRepresentation: 10,
+      perAssessor: [ 7 ]
     }
   },
   assessment2: {
     _id: "assessment01",
     stage: 1,
     comparisonsNum: {
-      total: 10,
-      stage: [ 5 ]
+      perRepresentation: 10,
+      perAssessor: [ 5 ]
     }
   },
   assessment3: {
     _id: "assessment01",
     stage: 1,
     comparisonsNum: {
-      total: 10,
-      stage: [ 5, 14 ]
+      perRepresentation: 10,
+      perAssessor: [ 5, 14 ]
     }
   },
   assessment4: {
     _id: "assessment01",
     stage: 0,
     comparisonsNum: {
-      total: 10,
-      stage: []
+      perRepresentation: 10,
+      perAssessor: []
     }
   },
   comparisons: [
@@ -1119,8 +1119,8 @@ module.exports = {
       _id: "assessment01",
       stage: 0,
       comparisonsNum: {
-        total: 10,
-        stage: [ 5 ]
+        perRepresentation: 10,
+        perAssessor: [ 5 ]
       }
     }
   },
@@ -1332,8 +1332,8 @@ module.exports = {
       _id: "assessment01",
       stage: 0,
       comparisonsNum: {
-        total: 10,
-        stage: [ 5 ]
+        perRepresentation: 10,
+        perAssessor: [ 5 ]
       }
     }
   },
@@ -1545,8 +1545,8 @@ module.exports = {
       _id: "assessment01",
       stage: 1,
       comparisonsNum: {
-        total: 10,
-        stage: [ 5 ]
+        perRepresentation: 10,
+        perAssessor: [ 5 ]
       }
     }
   }

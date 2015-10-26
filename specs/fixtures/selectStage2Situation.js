@@ -789,8 +789,8 @@ module.exports = {
     _id: "assessment01",
     stage: 1,
     comparisonsNum: {
-      total: 10,
-      stage: [ 5 ]
+      perRepresentation: 10,
+      perAssessor: [ 5 ]
     }
   },
   reprNegAPosB: {

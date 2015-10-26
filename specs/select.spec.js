@@ -205,8 +205,8 @@ describe( "select", function(){
           assessment: {
             _id: "assessment01",
             comparisonsNum: {
-              total: 10,
-              stage: [ 7 ]
+              perRepresentation: 10,
+              perAssessor: [ 7 ]
             }
           },
           assessor: fx.select.assessor
@@ -219,14 +219,14 @@ describe( "select", function(){
           assessment: {
             _id: "assessment01",
             comparisonsNum: {
-              total: 10,
-              stage: [ 7 ]
+              perRepresentation: 10,
+              perAssessor: [ 7 ]
             },
             stage: -1
           },
           assessor: fx.select.assessor
         } );
-      } ).to.throw( /An error occurred: payload.assessment.stage doesn't have a correct value/ );
+      } ).to.throw( /An error occurred: payload.assessment referenced schema does not match/ );
       expect( function(){
         select.select( {
           representations: fx.select.representations,
@@ -234,14 +234,14 @@ describe( "select", function(){
           assessment: {
             _id: "assessment01",
             comparisonsNum: {
-              total: 10,
-              stage: [ 7 ]
+              perRepresentation: 10,
+              perAssessor: [ 7 ]
             },
             stage: 2
           },
           assessor: fx.select.assessor
         } );
-      } ).to.throw( /An error occurred: payload.assessment.stage doesn't have a correct value/ );
+      } ).to.throw( /An error occurred: payload.assessment referenced schema does not match/ );
     } );
     it( "should not return a message when all comparisons have been sent out but not finished in stage0", function(){
       var result = select.select( {
