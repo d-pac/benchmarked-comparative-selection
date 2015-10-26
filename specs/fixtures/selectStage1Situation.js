@@ -53,27 +53,37 @@ module.exports = {
       _id: "rep01",
       rankType: "to rank",
       compared: [ "rep02" ],
+      ability: {},
       closeTo: null
     }, {
       _id: "rep02",
       rankType: "ranked",
       compared: [ "rep01" ],
+      ability: {},
       closeTo: "rep03"
     }, {
       _id: "rep03",
       rankType: "benchmark",
+      compared: [],
+      ability: {},
       closeTo: null
     }, {
       _id: "rep04",
       rankType: "ranked",
+      compared: [],
+      ability: {},
       closeTo: "rep05"
     }, {
       _id: "rep05",
       rankType: "benchmark",
+      compared: [],
+      ability: {},
       closeTo: null
     }, {
       _id: "rep08",
       rankType: "to rank",
+      compared: [],
+      ability: {},
       closeTo: null
     }
   ],
@@ -83,29 +93,37 @@ module.exports = {
       _id: "rep01",
       rankType: "to rank",
       compared: [ "rep02" ],
+      ability: {},
       closeTo: null
     }, {
       _id: "rep02",
       rankType: "ranked",
+      ability: {},
       compared: [ "rep01" ],
       closeTo: "rep03"
     }, {
       _id: "rep03",
       rankType: "benchmark",
+      ability: {},
+      compared: [],
       closeTo: null
     }, {
       _id: "rep04",
       rankType: "ranked",
       compared: [ "rep08" ],
+      ability: {},
       closeTo: "rep05"
     }, {
       _id: "rep05",
       rankType: "benchmark",
+      ability: {},
+      compared: [],
       closeTo: null
     }, {
       _id: "rep08",
       rankType: "to rank",
       compared: [ "rep04" ],
+      ability: {},
       closeTo: null
     }
   ],
@@ -171,33 +189,43 @@ module.exports = {
       _id: "rep01",
       rankType: "to rank",
       compared: [ "rep02" ],
+      ability: {},
       closeTo: null
     }, {
       _id: "rep02",
       rankType: "ranked",
       compared: [ "rep01" ],
+      ability: {},
       closeTo: "rep03"
     }, {
       _id: "rep03",
       rankType: "benchmark",
+      ability: {},
+      compared : [],
       closeTo: null
     }, {
       _id: "rep04",
       rankType: "ranked",
       compared: [ "rep08" ],
+      ability: {},
       closeTo: "rep05"
     }, {
       _id: "rep05",
       rankType: "benchmark",
+      ability: {},
+      compared : [],
       closeTo: null
     }, {
       _id: "rep08",
       rankType: "to rank",
       compared: [ "rep04" ],
+      ability: {},
       closeTo: null
     }, {
       _id: "rep09",
       rankType: "ranked",
+      ability: {},
+      compared : [],
       closeTo: "rep03"
     }
   ],
@@ -207,38 +235,50 @@ module.exports = {
       _id: "rep01",
       rankType: "to rank",
       compared: [ "rep04", "rep02" ],
+      ability: {},
       closeTo: null
     }, {
       _id: "rep02",
       rankType: "ranked",
       compared: [ "rep01", "rep08" ],
+      ability: {},
       closeTo: "rep03"
     }, {
       _id: "rep03",
       rankType: "benchmark",
+      compared: [],
+      ability: {},
       closeTo: null
     }, {
       _id: "rep04",
       rankType: "ranked",
       compared: [ "rep01", "rep08" ],
+      ability: {},
       closeTo: "rep05"
     }, {
       _id: "rep05",
       rankType: "benchmark",
+      ability: {},
+      compared: [],
       closeTo: null
     }, {
       _id: "rep06",
       rankType: "ranked",
+      ability: {},
+      compared: [],
       closeTo: "rep03"
     }, {
       _id: "rep07",
       rankType: "ranked",
+      ability: {},
+      compared: [],
       closeTo: "rep05"
     },
     {
       _id: "rep08",
       rankType: "to rank",
       compared: [ "rep04", "rep02" ],
+      ability: {},
       closeTo: null
     }
 
@@ -248,33 +288,44 @@ module.exports = {
       _id: "rep01",
       rankType: "to rank",
       compared: [ "rep02" ],
+      ability: {},
       closeTo: null
     }, {
       _id: "rep02",
       rankType: "ranked",
       compared: [ "rep01" ],
+      ability: {},
       closeTo: "rep03"
     }, {
       _id: "rep03",
       rankType: "benchmark",
+      ability: {},
+      compared: [],
       closeTo: null
     }, {
       _id: "rep04",
       rankType: "ranked",
       compared: [ "rep01" ],
+      ability: {},
       closeTo: "rep05"
     }, {
       _id: "rep05",
       rankType: "benchmark",
+      ability: {},
+      compared: [],
       closeTo: null
     },
     {
       _id: "rep08",
       rankType: "to rank",
+      ability: {},
+      compared: [],
       closeTo: null
     }, {
       _id: "rep09",
       rankType: "to rank",
+      ability: {},
+      compared: [],
       closeTo: null
     }
   ],
@@ -284,29 +335,37 @@ module.exports = {
       _id: "rep01",
       rankType: "to rank",
       compared: [ "rep02" ],
+      ability: {},
       closeTo: null
     }, {
       _id: "rep02",
       rankType: "ranked",
       compared: [ "rep01" ],
+      ability: {},
       closeTo: "rep03"
     }, {
       _id: "rep03",
       rankType: "benchmark",
+      ability: {},
+      compared: [],
       closeTo: null
     }, {
       _id: "rep04",
       rankType: "ranked",
       compared: [ "rep08" ],
+      ability: {},
       closeTo: "rep05"
     }, {
       _id: "rep05",
       rankType: "benchmark",
+      ability: {},
+      compared: [],
       closeTo: null
     }, {
       _id: "rep08",
       rankType: "to rank",
       compared: [ "rep04" ],
+      ability: {},
       closeTo: null
 
     }
@@ -336,39 +395,49 @@ module.exports = {
       _id: "rep01",
       rankType: "to rank",
       compared: [ "rep04", "rep02", "rep06" ],
+      ability: {},
       closeTo: null
     }, {
       _id: "rep02",
       rankType: "ranked",
       compared: [ "rep01", "rep08" ],
+      ability: {},
       closeTo: "rep03"
     }, {
       _id: "rep03",
       rankType: "benchmark",
+      ability: {},
+      compared: [],
       closeTo: null
     }, {
       _id: "rep04",
       rankType: "ranked",
       compared: [ "rep01", "rep08" ],
+      ability: {},
       closeTo: "rep05"
     }, {
       _id: "rep05",
       rankType: "benchmark",
+      ability: {},
+      compared: [],
       closeTo: null
     }, {
       _id: "rep06",
       rankType: "ranked",
       compared: [ "rep01", "rep08" ],
+      ability: {},
       closeTo: "rep03"
     }, {
       _id: "rep07",
       rankType: "ranked",
       compared: [ "rep08" ],
+      ability: {},
       closeTo: "rep05"
     }, {
       _id: "rep08",
       rankType: "to rank",
       compared: [ "rep04", "rep02", "rep06", "rep07" ],
+      ability: {},
       closeTo: null
     }
   ],
@@ -443,39 +512,49 @@ module.exports = {
       _id: "rep01",
       rankType: "to rank",
       compared: [ "rep02", "rep06", "rep04" ],
+      ability: {},
       closeTo: null
     }, {
       _id: "rep02",
       rankType: "ranked",
       compared: [ "rep01", "rep08" ],
+      ability: {},
       closeTo: "rep03"
     }, {
       _id: "rep03",
       rankType: "benchmark",
+      compared: [],
+      ability: {},
       closeTo: null
     }, {
       _id: "rep04",
       rankType: "ranked",
       compared: [ "rep01", "rep08" ],
+      ability: {},
       closeTo: "rep05"
     }, {
       _id: "rep05",
       rankType: "benchmark",
+      compared: [],
+      ability: {},
       closeTo: null
     }, {
       _id: "rep06",
       rankType: "ranked",
       compared: [ "rep08" ],
+      ability: {},
       closeTo: "rep03"
     }, {
       _id: "rep07",
       rankType: "ranked",
       compared: [ "rep08" ],
+      ability: {},
       closeTo: "rep05"
     }, {
       _id: "rep08",
       rankType: "to rank",
       compared: [ "rep04", "rep02", "rep06", "rep07" ],
+      ability: {},
       closeTo: null
     }
   ],

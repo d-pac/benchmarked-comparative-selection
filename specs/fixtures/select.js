@@ -31,7 +31,7 @@ module.exports = {
     stage: 0,
     comparisonsNum: {
       total: 10,
-      stage: [ ]
+      stage: []
     }
   },
   comparisons: [
@@ -42,7 +42,8 @@ module.exports = {
         a: "rep01",
         b: "rep02"
       },
-      data: { selection: undefined }
+      data: { selection: undefined },
+      assessment: "assessment01"
     }
   ],
   assessorMaxComparisonsStageA: [
@@ -535,28 +536,98 @@ module.exports = {
       _id: "rep01",
       rankType: "to rank",
       compared: [ "rep02" ],
-      closeTo: null
+      closeTo: null,
+      ability: {}
     }, {
       _id: "rep02",
       rankType: "ranked",
       compared: [ "rep01" ],
-      closeTo: "rep03"
+      closeTo: "rep03",
+      ability: {}
     }, {
       _id: "rep03",
       rankType: "benchmark",
-      closeTo: null
+      compared: [],
+      closeTo: null,
+      ability: {}
     }, {
       _id: "rep04",
       rankType: "ranked",
-      closeTo: "rep05"
+      compared: [],
+      closeTo: "rep05",
+      ability: {}
     }, {
       _id: "rep05",
       rankType: "benchmark",
-      closeTo: null
+      compared: [],
+      closeTo: null,
+      ability: {}
     }, {
       _id: "rep08",
       rankType: "to rank",
-      closeTo: null
+      compared: [],
+      closeTo: null,
+      ability: {}
+    }
+  ],
+  representationsMissingToRank: [
+    {
+      _id: "rep01",
+      rankType: "ranked",
+      compared: [ "rep02" ],
+      closeTo: null,
+      ability: {
+        value: null,
+        se: null
+      }
+    }, {
+      _id: "rep02",
+      rankType: "ranked",
+      compared: [ "rep01" ],
+      closeTo: "rep03",
+      ability: {
+        value: null,
+        se: null
+      }
+    }, {
+      _id: "rep03",
+      rankType: "benchmark",
+      compared: [],
+      closeTo: null,
+      ability: {
+        value: null,
+        se: null
+      }
+    }
+  ],
+  representationsMissingBenchmark: [
+    {
+      _id: "rep01",
+      rankType: "to rank",
+      compared: [ "rep02" ],
+      closeTo: null,
+      ability: {
+        value: null,
+        se: null
+      }
+    }, {
+      _id: "rep02",
+      rankType: "ranked",
+      compared: [ "rep01" ],
+      closeTo: "rep03",
+      ability: {
+        value: null,
+        se: null
+      }
+    }, {
+      _id: "rep03",
+      rankType: "ranked",
+      compared: [],
+      closeTo: null,
+      ability: {
+        value: null,
+        se: null
+      }
     }
   ],
   reprMissingAbility: [
@@ -581,7 +652,8 @@ module.exports = {
     {
       _id: "rep04",
       rankType: "benchmark",
-      closeTo: null
+      closeTo: null,
+      compared: []
     },
     {
       _id: "rep05",
@@ -589,7 +661,8 @@ module.exports = {
       closeTo: "rep04",
       ability: {
         value: 0.3
-      }
+      },
+      compared: []
     },
     {
       _id: "rep06",
@@ -597,7 +670,8 @@ module.exports = {
       closeTo: "rep07",
       ability: {
         value: 0.5
-      }
+      },
+      compared: []
     },
     {
       _id: "rep07",
@@ -605,7 +679,8 @@ module.exports = {
       closeTo: null,
       ability: {
         value: 0.4
-      }
+      },
+      compared: []
     },
     {
       _id: "rep10",
@@ -613,7 +688,8 @@ module.exports = {
       closeTo: "rep07",
       ability: {
         value: 0.5
-      }
+      },
+      compared: []
     },
     {
       _id: "rep08",
@@ -621,7 +697,8 @@ module.exports = {
       closeTo: "rep03",
       ability: {
         value: 0.6
-      }
+      },
+      compared: []
     },
     {
       _id: "rep09",
@@ -629,7 +706,8 @@ module.exports = {
       closeTo: "rep04",
       ability: {
         value: 2.2
-      }
+      },
+      compared: []
     }
   ],
   reprMissingAbilityValue: [
@@ -657,7 +735,8 @@ module.exports = {
       closeTo: null,
       ability: {
         value: 2
-      }
+      },
+      compared: []
     },
     {
       _id: "rep05",
@@ -665,13 +744,15 @@ module.exports = {
       closeTo: "rep04",
       ability: {
         value: 0.3
-      }
+      },
+      compared: []
     },
     {
       _id: "rep06",
       rankType: "ranked",
       closeTo: "rep07",
-      ability: 0.5
+      ability: {},
+      compared: []
     },
     {
       _id: "rep07",
@@ -679,7 +760,8 @@ module.exports = {
       closeTo: null,
       ability: {
         value: 0.4
-      }
+      },
+      compared: []
     },
     {
       _id: "rep10",
@@ -687,7 +769,8 @@ module.exports = {
       closeTo: "rep07",
       ability: {
         value: 0.5
-      }
+      },
+      compared: []
     },
     {
       _id: "rep08",
@@ -695,7 +778,8 @@ module.exports = {
       closeTo: "rep03",
       ability: {
         value: 0.6
-      }
+      },
+      compared: []
     },
     {
       _id: "rep09",
@@ -703,7 +787,8 @@ module.exports = {
       closeTo: "rep04",
       ability: {
         value: 2.2
-      }
+      },
+      compared: []
     }
   ],
   reprAbilityValueNA: [
@@ -787,33 +872,43 @@ module.exports = {
       _id: "rep02",
       rankType: "to rank",
       closeTo: null,
-      compared: [ "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla" ]
+      compared: [ "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla" ],
+      ability: {}
     },
     {
       _id: "rep03",
       rankType: "to rank",
       closeTo: null,
-      compared: [ "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla" ]
+      compared: [ "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla" ],
+      ability: {}
     },
     {
       _id: "rep04",
       rankType: "benchmark",
-      closeTo: null
+      closeTo: null,
+      compared: [],
+      ability: {}
     },
     {
       _id: "rep05",
       rankType: "ranked",
-      closeTo: "rep04"
+      closeTo: "rep04",
+      compared: [],
+      ability: {}
     },
     {
       _id: "rep06",
       rankType: "ranked",
-      closeTo: "rep07"
+      closeTo: "rep07",
+      compared: [],
+      ability: {}
     },
     {
       _id: "rep07",
       rankType: "benchmark",
-      closeTo: null
+      closeTo: null,
+      compared: [],
+      ability: {}
     }
   ],
   notFinishedNoMessage: {
@@ -834,7 +929,7 @@ module.exports = {
         ability: {
           value: -1
         },
-        compared: undefined
+        compared: []
       },
       {
         _id: "repr03",
@@ -843,7 +938,7 @@ module.exports = {
         ability: {
           value: 2.5
         },
-        compared: undefined
+        compared: []
       },
       {
         _id: "repr04",
@@ -1047,7 +1142,7 @@ module.exports = {
         ability: {
           value: -1
         },
-        compared: undefined
+        compared: []
       },
       {
         _id: "repr03",
@@ -1056,7 +1151,7 @@ module.exports = {
         ability: {
           value: 2.5
         },
-        compared: undefined
+        compared: []
       },
       {
         _id: "repr04",
@@ -1260,7 +1355,7 @@ module.exports = {
         ability: {
           value: -1
         },
-        compared: undefined
+        compared: []
       },
       {
         _id: "repr03",
@@ -1269,7 +1364,7 @@ module.exports = {
         ability: {
           value: 2.5
         },
-        compared: undefined
+        compared: []
       },
       {
         _id: "repr04",

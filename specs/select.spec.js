@@ -33,267 +33,333 @@ describe( "select", function(){
     var inputErrorE = /2 objects that are ranked and close to a benchmark/;
     var inputErrorF = /assessment stage doesn't have a correct value/;
     var inputErrorG = /should have an ability.value/;
-    it( "should throw a error when one of the parameters is undefined", function(){
+    it( "should throw an error when `payload` is undefined", function(){
       expect( function(){
-        select.select()
-      } ).to.throw( inputErrorA );
-      expect( function(){
-        select.select()
-      } ).to.throw( inputErrorA );
+        select.select();
+      } ).to.throw( /An error occurred: payload is required/i );
     } );
-    it( "should throw a error when representations is not a array and does not contain 4 elements", function(){
+    it( "should throw an error when `payload.representations` is not a array", function(){
       expect( function(){
-        select.select( { _id: "representations: invalid input" }, [ { _id: "comparisons" } ], { _id: "assessment" }, { _id: "assessor" } )
-      } ).to.throw( inputErrorB );
+        select.select( {
+          representations: { _id: "representations: invalid input" },
+          comparisons: fx.select.comparisons,
+          assessment: fx.select.assessment,
+          assessor: fx.select.assessor
+        } );
+      } ).to.throw( /An error occurred: payload.representations is the wrong type/i );
+    } );
+    it( "should throw an error when `payload.representations` does not contain at least 3 elements", function(){
       expect( function(){
-        select.select( [
-            { _id: "representations: invalid input" }, { _id: "invalid input" }
-          ], [ { _id: "comparisons" } ],
-          { _id: "assessment" }, { _id: "assessor" } )
-      } ).to.throw( inputErrorB );
+        select.select( {
+          representations: fx.select.representations.slice( 0, 2 ),
+          comparisons: fx.select.comparisons,
+          assessment: fx.select.assessment,
+          assessor: fx.select.assessor
+        } );
+      } ).to.throw( /An error occurred: payload.representations has less items than allowed/i );
     } );
     it( "should throw an error when representations does not contain a representation to rank", function(){
       expect( function(){
-        select.select( [
-            { _id: "representations: invalid input" }, { _id: "invalid input" }, { _id: "invalid input" }
-          ],
-          [ { _id: "comparisons" } ], { _id: "assessment" }, { _id: "assessor" } )
-      } ).to.throw( inputErrorC );
+        select.select( {
+          representations: fx.select.representationsMissingToRank,
+          comparisons: fx.select.comparisons,
+          assessment: fx.select.assessment,
+          assessor: fx.select.assessor
+        } );
+      } ).to.throw( /An error occurred: payload.representations should contain at least one representation that is to rank/i );
     } );
     it( "should throw an error when representations does not contain a benchmark", function(){
       expect( function(){
-        select.select( [
-            {
-              _id: "to rank",
-              rankType: "to rank"
-            }, {
-              _id: "to rank",
-              rankType: "to rank"
-            },
-            {
-              _id: "to rank",
-              rankType: "to rank"
-            }
-          ],
-          [ { _id: "comparisons" } ], { _id: "assessment" }, { _id: "assessor" } );
-      } ).to.throw( inputErrorD );
+        select.select( {
+          representations: fx.select.representationsMissingBenchmark,
+          comparisons: fx.select.comparisons,
+          assessment: fx.select.assessment,
+          assessor: fx.select.assessor
+        } );
+      } ).to.throw( /An error occurred: payload.representations should contain at least one benchmark/i );
     } );
     it( "should throw an error when representations does not contain an object that is ranked and close to benchmark",
       function(){
         expect( function(){
-          select.select( [
+          select.select( {
+            representations: [
               {
-                _id: "to rank",
-                rankType: "to rank"
+                _id: "to rank 1",
+                rankType: "to rank",
+                compared: [],
+                ability: {
+                  value: null,
+                  se: null
+                }
               }, {
                 _id: "benchmark",
-                rankType: "benchmark"
+                rankType: "benchmark",
+                compared: [],
+                ability: {
+                  value: null,
+                  se: null
+                }
               },
               {
-                _id: "to rank",
-                rankType: "to rank"
+                _id: "to rank 2",
+                rankType: "to rank",
+                compared: [],
+                ability: {
+                  value: null,
+                  se: null
+                }
               }
-            ], [ { _id: "comparisons" } ],
-            { _id: "assessment" }, { _id: "assessor" } );
-        } ).to.throw( inputErrorE );
+            ],
+            comparisons: fx.select.comparisons,
+            assessment: fx.select.assessment,
+            assessor: fx.select.assessor
+          } );
+        } ).to.throw( /An error occurred: payload.representations should contain at least 2 objects that are ranked and close to a benchmark/i );
         expect( function(){
-          select.select( [
+          select.select( {
+            representations: [
               {
                 _id: "to rank",
-                rankType: "to rank"
+                rankType: "to rank",
+                compared: [],
+                ability: {
+                  value: null,
+                  se: null
+                }
               }, {
                 _id: "benchmark",
-                rankType: "benchmark"
-              },
-              {
-                _id: "ranked",
-                rankType: "ranked"
-              }
-            ], [ { _id: "comparisons" } ],
-            { _id: "assessment" }, { _id: "assessor" } );
-        } ).to.throw( inputErrorE );
-        expect( function(){
-          select.select( [
-              {
-                _id: "to rank",
-                rankType: "to rank"
-              }, {
-                _id: "benchmark",
-                rankType: "benchmark"
+                rankType: "benchmark",
+                compared: [],
+                ability: {
+                  value: null,
+                  se: null
+                }
               },
               {
                 _id: "ranked",
                 rankType: "ranked",
-                closeTo: "invalid"
+                compared: [],
+                ability: {
+                  value: null,
+                  se: null
+                }
               }
             ],
-            [ { _id: "comparisons" } ], { _id: "assessment" }, { _id: "assessor" } );
-        } ).to.throw( inputErrorE );
+            comparisons: fx.select.comparisons,
+            assessment: fx.select.assessment,
+            assessor: fx.select.assessor
+          } );
+        } ).to.throw( /An error occurred: payload.representations should contain at least 2 objects that are ranked and close to a benchmark/i );
+        expect( function(){
+          select.select( {
+            representations: [
+              {
+                _id: "to rank",
+                rankType: "to rank",
+                compared: [],
+                ability: {
+                  value: null,
+                  se: null
+                }
+              }, {
+                _id: "benchmark",
+                rankType: "benchmark",
+                compared: [],
+                ability: {
+                  value: null,
+                  se: null
+                }
+              },
+              {
+                _id: "ranked",
+                rankType: "ranked",
+                compared: [],
+                ability: {
+                  value: null,
+                  se: null
+                },
+                closeTo: "invalid"
+              },
+              {
+                _id: "ranked 2",
+                rankType: "ranked",
+                compared: [],
+                ability: {
+                  value: null,
+                  se: null
+                },
+                closeTo: "benchmark"
+              }
+            ],
+            comparisons: fx.select.comparisons,
+            assessment: fx.select.assessment,
+            assessor: fx.select.assessor
+          } );
+        } ).to.throw( /An error occurred: payload.representations should contain at least 2 objects that are ranked and close to a benchmark/i );
       } );
     it( "should throw an error when assessment does not contain a stage field equal to 0 or 1", function(){
       expect( function(){
-        select.select( [
-            {
-              _id: "to rank",
-              rankType: "to rank"
-            }, {
-              _id: "benchmark",
-              rankType: "benchmark"
-            },
-            {
-              _id: "ranked",
-              rankType: "ranked",
-              closeTo: "benchmark"
-            }, {
-              _id: "ranked2",
-              rankType: "ranked",
-              closeTo: "benchmark"
+        select.select( {
+          representations: fx.select.representations,
+          comparisons: fx.select.comparisons,
+          assessment: {
+            _id: "assessment01",
+            comparisonsNum: {
+              total: 10,
+              stage: [ 7 ]
             }
-          ],
-          [ { _id: "comparisons" } ], { _id: "assessment" }, { _id: "assessor" } );
-      } ).to.throw( inputErrorF );
+          },
+          assessor: fx.select.assessor
+        } );
+      } ).to.throw( /An error occurred: payload.assessment referenced schema does not match/ );
       expect( function(){
-        select.select( [
-            {
-              _id: "to rank",
-              rankType: "to rank"
-            }, {
-              _id: "benchmark",
-              rankType: "benchmark"
+        select.select( {
+          representations: fx.select.representations,
+          comparisons: fx.select.comparisons,
+          assessment: {
+            _id: "assessment01",
+            comparisonsNum: {
+              total: 10,
+              stage: [ 7 ]
             },
-            {
-              _id: "ranked",
-              rankType: "ranked",
-              closeTo: "benchmark"
-            }, {
-              _id: "ranked2",
-              rankType: "ranked",
-              closeTo: "benchmark"
-            }
-          ],
-          [ { _id: "comparisons" } ], {
-            _id: "assessment",
             stage: -1
-          }, { _id: "assessor" } );
-      } ).to.throw( inputErrorF );
+          },
+          assessor: fx.select.assessor
+        } );
+      } ).to.throw( /An error occurred: payload.assessment.stage doesn't have a correct value/ );
       expect( function(){
-        select.select( [
-            {
-              _id: "to rank",
-              rankType: "to rank"
-            }, {
-              _id: "benchmark",
-              rankType: "benchmark"
+        select.select( {
+          representations: fx.select.representations,
+          comparisons: fx.select.comparisons,
+          assessment: {
+            _id: "assessment01",
+            comparisonsNum: {
+              total: 10,
+              stage: [ 7 ]
             },
-            {
-              _id: "ranked",
-              rankType: "ranked",
-              closeTo: "benchmark"
-            }, {
-              _id: "ranked2",
-              rankType: "ranked",
-              closeTo: "benchmark"
-            }
-          ],
-          [ { _id: "comparisons" } ], {
-            _id: "assessment",
             stage: 2
-          }, { _id: "assessor" } );
-      } ).to.throw( inputErrorF );
+          },
+          assessor: fx.select.assessor
+        } );
+      } ).to.throw( /An error occurred: payload.assessment.stage doesn't have a correct value/ );
     } );
     it( "should not return a message when all comparisons have been sent out but not finished in stage0", function(){
-      var result = select.select( fx.select.notFinishedNoMessage.representations, fx.select.notFinishedNoMessage.comparisons,
-        fx.select.notFinishedNoMessage.assessment, fx.select.notFinishedNoMessage.assessor );
-      var message = "All comparisons have been made";
+      var result = select.select( {
+        representations: fx.select.notFinishedNoMessage.representations,
+        comparisons: fx.select.notFinishedNoMessage.comparisons,
+        assessment: fx.select.notFinishedNoMessage.assessment,
+        assessor: fx.select.notFinishedNoMessage.assessor
+      } );
       expect( result ).to.not.be.null();
       expect( result ).to.be.an.object();
       expect( result.messages ).to.be.undefined();
     } );
     it( "should not return a message when all comparisons but one have been finished in stage0", function(){
-      var result = select.select( fx.select.oneNotFinishedNoMessage.representations, fx.select.oneNotFinishedNoMessage.comparisons,
-        fx.select.oneNotFinishedNoMessage.assessment, fx.select.oneNotFinishedNoMessage.assessor );
+      var result = select.select( {
+        representations: fx.select.oneNotFinishedNoMessage.representations,
+        comparisons: fx.select.oneNotFinishedNoMessage.comparisons,
+        assessment: fx.select.oneNotFinishedNoMessage.assessment,
+        assessor: fx.select.oneNotFinishedNoMessage.assessor
+      } );
       expect( result ).to.not.be.null();
       expect( result ).to.be.an.object();
       expect( result.messages ).to.be.undefined();
     } );
     it( "should return a message when all comparisons have been made", function(){
-      var result = select.select( fx.select.reprNoMoreComparisons, fx.select.comparisons, fx.select.assessment, fx.select.assessor );
-      expect( result ).to.not.be.null();
-      expect( result ).to.be.an.object();
-      expect( result.messages ).to.be.an.array();
+      var result = select.select( {
+        representations: fx.select.reprNoMoreComparisons,
+        comparisons: fx.select.comparisons,
+        assessment: fx.select.assessment,
+        assessor: fx.select.assessor
+      } );
       expect( result.messages[ 0 ] ).to.equal( constants.messages.ASSESSMENT_COMPLETED );
     } );
     it( "should return a message the assessor has reached the default max comparisons for stage 0", function(){
-      var result = select.select( fx.select.representations, fx.select.assessorMaxComparisonsStageA, fx.select.assessment4, fx.select.assessor );
-      expect( result ).to.not.be.null();
-      expect( result ).to.be.an.object();
-      expect( result.messages ).to.be.an.array();
+      var result = select.select( {
+        representations: fx.select.representations,
+        comparisons: fx.select.assessorMaxComparisonsStageA,
+        assessment: fx.select.assessment4,
+        assessor: fx.select.assessor
+      } );
       expect( result.messages[ 0 ] ).to.equal( constants.messages.ASSESSOR_STAGE_COMPLETED );
     } );
     it( "should return a message the assessor has reached the set max comparisons for stage 0", function(){
-      var result = select.select( fx.select.representations, fx.select.assessorMaxComparisonsStageB, fx.select.assessment, fx.select.assessor );
-      expect( result ).to.not.be.null();
-      expect( result ).to.be.an.object();
-      expect( result.messages ).to.be.an.array();
+      var result = select.select( {
+        representations: fx.select.representations,
+        comparisons: fx.select.assessorMaxComparisonsStageB,
+        assessment: fx.select.assessment,
+        assessor: fx.select.assessor
+      } );
       expect( result.messages[ 0 ] ).to.equal( constants.messages.ASSESSOR_STAGE_COMPLETED );
     } );
     it( "should return a message the assessor has reached the default max comparisons for this assessment", function(){
-      var result = select.select( fx.select.representations, fx.select.AssessorMaxComparisonsTotalA, fx.select.assessment2, fx.select.assessor );
-      expect( result ).to.not.be.null();
-      expect( result ).to.be.an.object();
-      expect( result.messages ).to.be.an.array();
+      var result = select.select( {
+        representations: fx.select.representations,
+        comparisons: fx.select.AssessorMaxComparisonsTotalA,
+        assessment: fx.select.assessment2,
+        assessor: fx.select.assessor
+      } );
       expect( result.messages[ 0 ] ).to.equal( constants.messages.ASSESSOR_ASSESSMENT_COMPLETED );
     } );
     it( "should return a message the assessor has reached the set max comparisons for this assessment", function(){
-      var result = select.select( fx.select.representations, fx.select.AssessorMaxComparisonsTotalB, fx.select.assessment3, fx.select.assessor );
-      expect( result ).to.not.be.null();
-      expect( result ).to.be.an.object();
-      expect( result.messages ).to.be.an.array();
+      var result = select.select( {
+        representations: fx.select.representations,
+        comparisons: fx.select.AssessorMaxComparisonsTotalB,
+        assessment: fx.select.assessment3,
+        assessor: fx.select.assessor
+      } );
       expect( result.messages[ 0 ] ).to.equal( constants.messages.ASSESSOR_ASSESSMENT_COMPLETED );
     } );
     it( "should not return a message when all comparisons have been finished because we started stage1", function(){
-      var result = select.select( fx.select.stage1NoMessage.representations, fx.select.stage1NoMessage.comparisons,
-        fx.select.stage1NoMessage.assessment, fx.select.stage1NoMessage.assessor );
-      var message = "All comparisons have been made";
+      var result = select.select( {
+        representations: fx.select.stage1NoMessage.representations,
+        comparisons: fx.select.stage1NoMessage.comparisons,
+        assessment: fx.select.stage1NoMessage.assessment,
+        assessor: fx.select.stage1NoMessage.assessor
+      } );
       expect( result ).to.not.be.null();
       expect( result ).to.be.an.object();
       expect( result.messages ).to.be.undefined();
     } );
     it( "should throw an error in stage 2 when at least one representation does not have an ability field", function(){
       expect( function(){
-        select.select( fx.select.reprMissingAbility, fx.select.comparisons,
-          fx.select.assessment2, fx.select.assessor )
-      } ).to.throw( inputErrorG );
+        var result = select.select( {
+          representations: fx.select.reprMissingAbility,
+          comparisons: fx.select.comparisons,
+          assessment: fx.select.assessment2,
+          assessor: fx.select.assessor
+        } );
+      } ).to.throw( /An error occurred: payload.representations.2 referenced schema does not match/i );
     } );
     it( "should throw an error in stage 2 when at least one representation does not have an ability.value field", function(){
       expect( function(){
-        select.select( fx.select.reprMissingAbilityValue, fx.select.comparisons,
-          fx.select.assessment2, fx.select.assessor )
-      } ).to.throw( inputErrorG );
-    } );
-    it( "should throw an error in stage 2 when at least one representation has an ability value NaN", function(){
-      expect( function(){
-        select.select( fx.select.reprMissingAbility, fx.select.comparisons,
-          fx.select.assessment2, fx.select.assessor )
-      } ).to.throw( inputErrorG );
+        var result = select.select( {
+          representations: fx.select.reprMissingAbilityValue,
+          comparisons: fx.select.comparisons,
+          assessment: fx.select.assessment2,
+          assessor: fx.select.assessor
+        } );
+      } ).to.throw( /An error occurred: payload.representations should all have an ability.value field that is not NA/i );
     } );
     it( "should return an object with a result property 2 different representations in stage 1", function(){
-      var reps = select.select( fx.select.representations, fx.select.comparisons, fx.select.assessment, fx.select.assessor );
-      expect( reps ).to.not.be.null();
-      expect( reps ).to.be.an.object();
-      expect( reps.result ).to.be.an.array();
-      expect( reps.result ).to.not.be.null();
+      var reps = select.select( {
+        representations: fx.select.representations,
+        comparisons: fx.select.comparisons,
+        assessment: fx.select.assessment,
+        assessor: fx.select.assessor
+      } );
       expect( reps.result.length ).to.equal( 2 );
       expect( _.get( reps.result[ 0 ], "_id" ) ).to.not.be.null();
       expect( _.get( reps.result[ 1 ], "_id" ) ).to.not.be.null();
       expect( _.get( reps.result[ 0 ], "_id" ) ).must.not.equal( _.get( reps.result[ 1 ], "_id" ) );
     } );
     it( "should return an object with a result property with 2 different representations in stage 2", function(){
-      var reps = select.select( fx.selectStage2Situation.reprNegAPosB.closeA.pos, fx.selectStage2Situation.comparisonsA, fx.selectStage2Situation.assessment2, fx.selectStage2Situation.assessor );
-      expect( reps ).to.not.be.null();
-      expect( reps ).to.be.an.object();
-      expect( reps.result ).to.be.an.array();
-      expect( reps.result ).to.not.be.null();
+      var reps = select.select( {
+        representations: fx.selectStage2Situation.reprNegAPosB.closeA.pos,
+        comparisons: fx.selectStage2Situation.comparisonsA,
+        assessment: fx.selectStage2Situation.assessment2,
+        assessor: fx.selectStage2Situation.assessor
+      } );
       expect( reps.result.length ).to.equal( 2 );
       expect( _.get( reps.result[ 0 ], "_id" ) ).to.not.be.null();
       expect( _.get( reps.result[ 1 ], "_id" ) ).to.not.be.null();
@@ -307,7 +373,12 @@ describe( "select", function(){
     it( "should give rep08 as A & rep02 or rep04 as B, regardless of which user", function(){
       var results = [];
       for( var i = 0; i < 2000; i++ ){
-        results.push( select.select( fx.selectStage1Situation.representations, fx.selectStage1Situation.comparisons, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId1 ) );
+        results.push( select.select( {
+          representations: fx.selectStage1Situation.representations,
+          comparisons: fx.selectStage1Situation.comparisons,
+          assessment: fx.selectStage1Situation.assessment1,
+          assessor: fx.selectStage1Situation.assessorId1
+        } ) );
       }
       expect( _.find( results, function( result ){
         return _.get( result.result[ 1 ], "_id" ) !== "rep02" && _.get( result.result[ 1 ], "_id" ) !== "rep04";
@@ -317,7 +388,12 @@ describe( "select", function(){
       } ) ).to.be.undefined();
 
       for( var i = 0; i < 2000; i++ ){
-        results.push( select.select( fx.selectStage1Situation.representations, fx.selectStage1Situation.comparisons, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId2 ) );
+        results.push( select.select( {
+          representations: fx.selectStage1Situation.representations,
+          comparisons: fx.selectStage1Situation.comparisons,
+          assessment: fx.selectStage1Situation.assessment1,
+          assessor: fx.selectStage1Situation.assessorId2
+        } ) );
       }
       expect( _.find( results, function( result ){
         return _.get( result.result[ 1 ], "_id" ) !== "rep02" && _.get( result.result[ 1 ], "_id" ) !== "rep04";
@@ -332,7 +408,12 @@ describe( "select", function(){
     it( "should give rep08 or rep09 as A & rep02 or rep04 as B, regardless of which user", function(){
       var results = [];
       for( var i = 0; i < 2000; i++ ){
-        results.push( select.select( fx.selectStage1Situation.oneSentOutRepresentation3toRank, fx.selectStage1Situation.comparisons, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId1 ) );
+        results.push( select.select( {
+          representations: fx.selectStage1Situation.oneSentOutRepresentation3toRank,
+          comparisons: fx.selectStage1Situation.comparisons,
+          assessment: fx.selectStage1Situation.assessment1,
+          assessor: fx.selectStage1Situation.assessorId1
+        } ) );
       }
       expect( _.find( results, function( result ){
         return _.get( result.result[ 0 ], "_id" ) !== "rep08" && _.get( result.result[ 0 ], "_id" ) !== "rep09";
@@ -342,7 +423,12 @@ describe( "select", function(){
       } ) ).to.be.undefined();
 
       for( var i = 0; i < 2000; i++ ){
-        results.push( select.select( fx.selectStage1Situation.oneSentOutRepresentation3toRank, fx.selectStage1Situation.comparisons, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId2 ) );
+        results.push( select.select( {
+          representations: fx.selectStage1Situation.oneSentOutRepresentation3toRank,
+          comparisons: fx.selectStage1Situation.comparisons,
+          assessment: fx.selectStage1Situation.assessment1,
+          assessor: fx.selectStage1Situation.assessorId2
+        } ) );
       }
       expect( _.find( results, function( result ){
         return _.get( result.result[ 0 ], "_id" ) !== "rep08" && _.get( result.result[ 0 ], "_id" ) !== "rep09";
@@ -358,7 +444,12 @@ describe( "select", function(){
     it( "should give rep08  as A & rep02 as B for assessorId2 & rep01 as A & rep04  as B for assessorId1", function(){
       var results = [];
       for( var i = 0; i < 2000; i++ ){
-        results.push( select.select( fx.selectStage1Situation.equalSentOutButSeenMoreRepresentation, fx.selectStage1Situation.equalSentOutButSeenMoreComparisons, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId2 ) );
+        results.push( select.select( {
+          representations: fx.selectStage1Situation.equalSentOutButSeenMoreRepresentation,
+          comparisons: fx.selectStage1Situation.equalSentOutButSeenMoreComparisons,
+          assessment: fx.selectStage1Situation.assessment1,
+          assessor: fx.selectStage1Situation.assessorId2
+        } ) );
       }
       expect( _.find( results, function( result ){
         return _.get( result.result[ 0 ], "_id" ) !== "rep08";
@@ -369,7 +460,12 @@ describe( "select", function(){
 
       results = [];
       for( var i = 0; i < 2000; i++ ){
-        results.push( select.select( fx.selectStage1Situation.equalSentOutButSeenMoreRepresentation, fx.selectStage1Situation.equalSentOutButSeenMoreComparisons, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId1 ) );
+        results.push( select.select( {
+          representations: fx.selectStage1Situation.equalSentOutButSeenMoreRepresentation,
+          comparisons: fx.selectStage1Situation.equalSentOutButSeenMoreComparisons,
+          assessment: fx.selectStage1Situation.assessment1,
+          assessor: fx.selectStage1Situation.assessorId1
+        } ) );
       }
       expect( _.find( results, function( result ){
         return _.get( result.result[ 0 ], "_id" ) !== "rep01";
@@ -385,7 +481,12 @@ describe( "select", function(){
     it( "should give rep01 as A & rep07 as B", function(){
       var results = [];
       for( var i = 0; i < 2000; i++ ){
-        results.push( select.select( fx.selectStage1Situation.representations5, fx.selectStage1Situation.comparisons5, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId1 ) );
+        results.push( select.select( {
+          representations: fx.selectStage1Situation.representations5,
+          comparisons: fx.selectStage1Situation.comparisons5,
+          assessment: fx.selectStage1Situation.assessment1,
+          assessor: fx.selectStage1Situation.assessorId1
+        } ) );
       }
       expect( _.find( results, function( result ){
         return _.get( result.result[ 0 ], "_id" ) !== "rep01";
@@ -396,7 +497,12 @@ describe( "select", function(){
 
       results = [];
       for( var i = 0; i < 2000; i++ ){
-        results.push( select.select( fx.selectStage1Situation.representations5, fx.selectStage1Situation.comparisons5, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId2 ) );
+        results.push( select.select( {
+          representations: fx.selectStage1Situation.representations5,
+          comparisons: fx.selectStage1Situation.comparisons5,
+          assessment: fx.selectStage1Situation.assessment1,
+          assessor: fx.selectStage1Situation.assessorId2
+        } ) );
       }
       expect( _.find( results, function( result ){
         return _.get( result.result[ 0 ], "_id" ) !== "rep01";
@@ -411,7 +517,12 @@ describe( "select", function(){
     it( "situation B: should give rep01 as A & rep07 as B", function(){
       var results = [];
       for( var i = 0; i < 2000; i++ ){
-        results.push( select.select( fx.selectStage1Situation.representations6, fx.selectStage1Situation.comparisons6, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId1 ) );
+        results.push( select.select( {
+          representations: fx.selectStage1Situation.representations6,
+          comparisons: fx.selectStage1Situation.comparisons6,
+          assessment: fx.selectStage1Situation.assessment1,
+          assessor: fx.selectStage1Situation.assessorId1
+        } ) );
       }
       expect( _.find( results, function( result ){
         return _.get( result.result[ 0 ], "_id" ) !== "rep01";
@@ -422,7 +533,12 @@ describe( "select", function(){
 
       results = [];
       for( var i = 0; i < 2000; i++ ){
-        results.push( select.select( fx.selectStage1Situation.representations5, fx.selectStage1Situation.comparisons6, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId2 ) );
+        results.push( select.select( {
+          representations: fx.selectStage1Situation.representations5,
+          comparisons: fx.selectStage1Situation.comparisons6,
+          assessment: fx.selectStage1Situation.assessment1,
+          assessor: fx.selectStage1Situation.assessorId2
+        } ) );
       }
       expect( _.find( results, function( result ){
         return _.get( result.result[ 0 ], "_id" ) !== "rep01";
@@ -437,12 +553,17 @@ describe( "select", function(){
     it( "rep01 as A and rep04 as B for user01", function(){
       var results = [];
       for( var i = 0; i < 2000; i++ ){
-        results.push( select.select( fx.selectStage1Situation.representations2, fx.selectStage1Situation.comparisons2, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId1 ) );
+        results.push( select.select( {
+          representations: fx.selectStage1Situation.representations2,
+          comparisons: fx.selectStage1Situation.comparisons2,
+          assessment: fx.selectStage1Situation.assessment1,
+          assessor: fx.selectStage1Situation.assessorId1
+        } ) );
       }
 
       /*console.log( "Count B: " + JSON.stringify( _.countBy( results, function( rep ){
-          return rep.result[ 1 ]._id;
-        } ) ) );*/
+       return rep.result[ 1 ]._id;
+       } ) ) );*/
 
       expect( _.find( results, function( result ){
         return _.get( result.result[ 0 ], "_id" ) !== "rep01";
@@ -455,7 +576,12 @@ describe( "select", function(){
     it( "should give rep08 as A and rep02 as B for user11", function(){
       var results = [];
       for( var i = 0; i < 2000; i++ ){
-        results.push( select.select( fx.selectStage1Situation.representations2, fx.selectStage1Situation.comparisons2, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId2 ) );
+        results.push( select.select( {
+          representations: fx.selectStage1Situation.representations2,
+          comparisons: fx.selectStage1Situation.comparisons2,
+          assessment: fx.selectStage1Situation.assessment1,
+          assessor: fx.selectStage1Situation.assessorId2
+        } ) );
       }
 
       //console.log( "Count B: " + JSON.stringify( _.countBy( results, function( rep ){
@@ -474,12 +600,17 @@ describe( "select", function(){
     it( "should give rep08 as A and rep02 or rep09 as B for user11", function(){
       var results = [];
       for( var i = 0; i < 2000; i++ ){
-        results.push( select.select( fx.selectStage1Situation.representations3, fx.selectStage1Situation.comparisons3, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId2 ) );
+        results.push( select.select( {
+          representations: fx.selectStage1Situation.representations3,
+          comparisons: fx.selectStage1Situation.comparisons3,
+          assessment: fx.selectStage1Situation.assessment1,
+          assessor: fx.selectStage1Situation.assessorId2
+        } ) );
       }
 
-     /* console.log( "Count B: " + JSON.stringify( _.countBy( results, function( rep ){
-          return rep.result[ 1 ]._id;
-        } ) ) );*/
+      /* console.log( "Count B: " + JSON.stringify( _.countBy( results, function( rep ){
+       return rep.result[ 1 ]._id;
+       } ) ) );*/
 
       expect( _.find( results, function( result ){
         return _.get( result.result[ 0 ], "_id" ) !== "rep08";
@@ -493,12 +624,17 @@ describe( "select", function(){
     it( "should give rep08 as A and rep02 or rep09 as B for user11", function(){
       var results = [];
       for( var i = 0; i < 2000; i++ ){
-        results.push( select.select( fx.selectStage1Situation.representations3, fx.selectStage1Situation.comparisons3, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId2 ) );
+        results.push( select.select( {
+          representations: fx.selectStage1Situation.representations3,
+          comparisons: fx.selectStage1Situation.comparisons3,
+          assessment: fx.selectStage1Situation.assessment1,
+          assessor: fx.selectStage1Situation.assessorId2
+        } ) );
       }
 
       /*console.log( "Count B: " + JSON.stringify( _.countBy( results, function( rep ){
-          return rep.result[ 1 ]._id;
-        } ) ) );*/
+       return rep.result[ 1 ]._id;
+       } ) ) );*/
 
       expect( _.find( results, function( result ){
         return _.get( result.result[ 0 ], "_id" ) !== "rep08";
@@ -510,31 +646,48 @@ describe( "select", function(){
 
 //stage0 should be done, but keeps on generating pairs?
     it( "should give a message  if all stage0 comparisons are done", function(){
-      var result = select.select( fx.selectStage1Situation.representations4, fx.selectStage1Situation.comparisons4, fx.selectStage1Situation.assessment1, fx.selectStage1Situation.assessorId2 );
-      expect( result ).to.not.be.null();
-      expect( result ).to.be.an.object();
-      expect( result.messages ).to.be.an.array();
+      var result = select.select( {
+        representations: fx.selectStage1Situation.representations4,
+        comparisons: fx.selectStage1Situation.comparisons4,
+        assessment: fx.selectStage1Situation.assessment1,
+        assessor: fx.selectStage1Situation.assessorId2
+      } );
       expect( result.messages[ 0 ] ).to.equal( constants.messages.STAGE_COMPLETED );
     } );
 
     //testing situations stage 1
     describe( "condition benchmarkA<0, benchmarkB>0, selectedA close to bmA and selectedB>0", function(){
       it( "should give selectA as first and selectB as second", function(){
-        var results = select.select( fx.selectStage2Situation.reprNegAPosB.closeA.pos, fx.selectStage2Situation.comparisonsA, fx.selectStage2Situation.assessment2, fx.selectStage2Situation.assessor );
+        var results = select.select( {
+          representations: fx.selectStage2Situation.reprNegAPosB.closeA.pos,
+          comparisons: fx.selectStage2Situation.comparisonsA,
+          assessment: fx.selectStage2Situation.assessment2,
+          assessor: fx.selectStage2Situation.assessor
+        } );
         expect( results.result[ 0 ]._id ).to.equal( "selectA" );
         expect( results.result[ 1 ]._id ).to.equal( "selectB" );
       } );
     } );
     describe( "condition benchmarkA<0, benchmarkB>0, selectedA<0 and close to and > bmA and selectedB<0", function(){
       it( "should give selectA as first and selectB as second", function(){
-        var results = select.select( fx.selectStage2Situation.reprNegAPosB.closeA.neg.above.negAbil, fx.selectStage2Situation.comparisonsA, fx.selectStage2Situation.assessment2, fx.selectStage2Situation.assessor );
+        var results = select.select( {
+          representations: fx.selectStage2Situation.reprNegAPosB.closeA.neg.above.negAbil,
+          comparisons: fx.selectStage2Situation.comparisonsA,
+          assessment: fx.selectStage2Situation.assessment2,
+          assessor: fx.selectStage2Situation.assessor
+        } );
         expect( results.result[ 0 ]._id ).to.equal( "selectA" );
         expect( results.result[ 1 ]._id ).to.equal( "selectB" );
       } );
     } );
     describe( "condition benchmarkA<0, benchmarkB>0, selectedA<0 and close to and < bmA, selectedB<0 and different number of comparisons", function(){
       it( "should give selectA as first and selectB as second", function(){
-        var results = select.select( fx.selectStage2Situation.reprNegAPosB.closeA.neg.below.negAbil.diffComp, fx.selectStage2Situation.comparisonsC, fx.selectStage2Situation.assessment2, fx.selectStage2Situation.assessor );
+        var results = select.select( {
+          representations: fx.selectStage2Situation.reprNegAPosB.closeA.neg.below.negAbil.diffComp,
+          comparisons: fx.selectStage2Situation.comparisonsC,
+          assessment: fx.selectStage2Situation.assessment2,
+          assessor: fx.selectStage2Situation.assessor
+        } );
         expect( results.result[ 0 ]._id ).to.equal( "selectA" );
         expect( results.result[ 1 ]._id ).to.equal( "selectB" );
       } );
@@ -543,11 +696,15 @@ describe( "select", function(){
       it( "should give selectA as first and selectB1 to selectB4 as second", function(){
         var results1 = [], results2 = [];
         for( var i = 0; i < 100; i++ ){
-          var tempStore = select.select( fx.selectStage2Situation.reprNegAPosB.closeA.neg.below.negAbil.equalComp, fx.selectStage2Situation.comparisonsD, fx.selectStage2Situation.assessment2, fx.selectStage2Situation.assessor );
+          var tempStore = select.select( {
+            representations: fx.selectStage2Situation.reprNegAPosB.closeA.neg.below.negAbil.equalComp,
+            comparisons: fx.selectStage2Situation.comparisonsD,
+            assessment: fx.selectStage2Situation.assessment2,
+            assessor: fx.selectStage2Situation.assessor
+          } );
           results1.push( tempStore.result[ 0 ]._id );
           results2.push( tempStore.result[ 1 ]._id )
         }
-        ;
         var counted = _.sum( results1, function( result ){
           if( result === "selectA" ){
             return 1
@@ -562,21 +719,36 @@ describe( "select", function(){
     } );
     describe( "condition benchmarkA<0, benchmarkB>0, selectedA>0 and close to and > bmA, selectedB<0", function(){
       it( "should give selectA as first and selectB as second", function(){
-        var results = select.select( fx.selectStage2Situation.reprNegAPosB.closeA.neg.above.posAbil, fx.selectStage2Situation.comparisonsA, fx.selectStage2Situation.assessment2, fx.selectStage2Situation.assessor );
+        var results = select.select( {
+          representations: fx.selectStage2Situation.reprNegAPosB.closeA.neg.above.posAbil,
+          comparisons: fx.selectStage2Situation.comparisonsA,
+          assessment: fx.selectStage2Situation.assessment2,
+          assessor: fx.selectStage2Situation.assessor
+        } );
         expect( results.result[ 0 ]._id ).to.equal( "selectA" );
         expect( results.result[ 1 ]._id ).to.equal( "selectB" );
       } );
     } );
     describe( "condition benchmarkA<0, benchmarkB>0, selectedA<0 and close to and > bmA, selectedB=0", function(){
       it( "should give selectA as first and selectB as second", function(){
-        var results = select.select( fx.selectStage2Situation.reprNegAPosB.closeA.neg.above.zero, fx.selectStage2Situation.comparisonsA, fx.selectStage2Situation.assessment2, fx.selectStage2Situation.assessor );
+        var results = select.select( {
+          representations: fx.selectStage2Situation.reprNegAPosB.closeA.neg.above.zero,
+          comparisons: fx.selectStage2Situation.comparisonsA,
+          assessment: fx.selectStage2Situation.assessment2,
+          assessor: fx.selectStage2Situation.assessor
+        } );
         expect( results.result[ 0 ]._id ).to.equal( "selectA" );
         expect( results.result[ 1 ]._id ).to.equal( "selectB" );
       } );
     } );
     describe( "condition benchmarkA<0, benchmarkB>0, selectedA<0 and close to and > bmA, selectedB=bmA", function(){
       it( "should give selectA as first and selectB as second", function(){
-        var results = select.select( fx.selectStage2Situation.reprNegAPosB.closeA.neg.above.equal, fx.selectStage2Situation.comparisonsA, fx.selectStage2Situation.assessment2, fx.selectStage2Situation.assessor );
+        var results = select.select( {
+          representations: fx.selectStage2Situation.reprNegAPosB.closeA.neg.above.equal,
+          comparisons: fx.selectStage2Situation.comparisonsA,
+          assessment: fx.selectStage2Situation.assessment2,
+          assessor: fx.selectStage2Situation.assessor
+        } );
         expect( results.result[ 0 ]._id ).to.equal( "selectA" );
         expect( results.result[ 1 ]._id ).to.equal( "selectB" );
       } );
@@ -585,11 +757,15 @@ describe( "select", function(){
       it( "should give selectA as first and selectB1 to selectB2 as second", function(){
         var results1 = [], results2 = [];
         for( var i = 0; i < 100; i++ ){
-          var tempStore = select.select( fx.selectStage2Situation.reprNegAPosB.closeA.neg.above.twoEqual, fx.selectStage2Situation.comparisonsB, fx.selectStage2Situation.assessment2, fx.selectStage2Situation.assessor );
+          var tempStore = select.select( {
+            representations: fx.selectStage2Situation.reprNegAPosB.closeA.neg.above.twoEqual,
+            comparisons: fx.selectStage2Situation.comparisonsB,
+            assessment: fx.selectStage2Situation.assessment2,
+            assessor: fx.selectStage2Situation.assessor
+          } );
           results1.push( tempStore.result[ 0 ]._id );
           results2.push( tempStore.result[ 1 ]._id )
         }
-        ;
         var counted = _.sum( results1, function( result ){
           if( result === "selectA" ){
             return 1
@@ -602,14 +778,24 @@ describe( "select", function(){
     } );
     describe( "condition benchmarkA<0, benchmarkB>0, selectedA>0 and close to bmB, selectedB>0", function(){
       it( "should give selectA as first and selectB as second", function(){
-        var results = select.select( fx.selectStage2Situation.reprNegAPosB.closeB.pos, fx.selectStage2Situation.comparisonsA, fx.selectStage2Situation.assessment2, fx.selectStage2Situation.assessor );
+        var results = select.select( {
+          representations: fx.selectStage2Situation.reprNegAPosB.closeB.pos,
+          comparisons: fx.selectStage2Situation.comparisonsA,
+          assessment: fx.selectStage2Situation.assessment2,
+          assessor: fx.selectStage2Situation.assessor
+        } );
         expect( results.result[ 0 ]._id ).to.equal( "selectA" );
         expect( results.result[ 1 ]._id ).to.equal( "selectB" );
       } );
     } );
     describe( "condition benchmarkA<0, benchmarkB>0, selectedA<0 and close to bmB, selectedB>0", function(){
       it( "should give selectA as first and selectB as second", function(){
-        var results = select.select( fx.selectStage2Situation.reprNegAPosB.closeB.neg, fx.selectStage2Situation.comparisonsA, fx.selectStage2Situation.assessment2, fx.selectStage2Situation.assessor );
+        var results = select.select( {
+          representations: fx.selectStage2Situation.reprNegAPosB.closeB.neg,
+          comparisons: fx.selectStage2Situation.comparisonsA,
+          assessment: fx.selectStage2Situation.assessment2,
+          assessor: fx.selectStage2Situation.assessor
+        } );
         expect( results.result[ 0 ]._id ).to.equal( "selectA" );
         expect( results.result[ 1 ]._id ).to.equal( "selectB" );
       } );
@@ -618,11 +804,15 @@ describe( "select", function(){
       it( "should give selectA as first and selectB1 to selectB2 as second", function(){
         var results1 = [], results2 = [];
         for( var i = 0; i < 100; i++ ){
-          var tempStore = select.select( fx.selectStage2Situation.reprNegAPosB.middle.pos, fx.selectStage2Situation.comparisonsE, fx.selectStage2Situation.assessment2, fx.selectStage2Situation.assessor );
+          var tempStore = select.select( {
+            representations: fx.selectStage2Situation.reprNegAPosB.middle.pos,
+            comparisons: fx.selectStage2Situation.comparisonsE,
+            assessment: fx.selectStage2Situation.assessment2,
+            assessor: fx.selectStage2Situation.assessor
+          } );
           results1.push( tempStore.result[ 0 ]._id );
           results2.push( tempStore.result[ 1 ]._id )
         }
-        ;
         var counted = _.sum( results1, function( result ){
           if( result === "selectA" ){
             return 1
@@ -637,11 +827,15 @@ describe( "select", function(){
       it( "should give selectA as first and selectB1 to selectB2 as second", function(){
         var results1 = [], results2 = [];
         for( var i = 0; i < 100; i++ ){
-          var tempStore = select.select( fx.selectStage2Situation.reprNegAPosB.middle.neg, fx.selectStage2Situation.comparisonsE, fx.selectStage2Situation.assessment2, fx.selectStage2Situation.assessor );
+          var tempStore = select.select( {
+            representations: fx.selectStage2Situation.reprNegAPosB.middle.neg,
+            comparisons: fx.selectStage2Situation.comparisonsE,
+            assessment: fx.selectStage2Situation.assessment2,
+            assessor: fx.selectStage2Situation.assessor
+          } );
           results1.push( tempStore.result[ 0 ]._id );
           results2.push( tempStore.result[ 1 ]._id )
         }
-        ;
         var counted = _.sum( results1, function( result ){
           if( result === "selectA" ){
             return 1
@@ -654,7 +848,12 @@ describe( "select", function(){
     } );
     describe( "condition benchmarkA<0, benchmarkB>0, selectedA=0 and close to bmA, selectedB>0", function(){
       it( "should give selectA as first and selectB as second", function(){
-        var results = select.select( fx.selectStage2Situation.reprNegAPosB.closeA.zero, fx.selectStage2Situation.comparisonsA, fx.selectStage2Situation.assessment2, fx.selectStage2Situation.assessor );
+        var results = select.select( {
+          representations: fx.selectStage2Situation.reprNegAPosB.closeA.zero,
+          comparisons: fx.selectStage2Situation.comparisonsA,
+          assessment: fx.selectStage2Situation.assessment2,
+          assessor: fx.selectStage2Situation.assessor
+        } );
         expect( results.result[ 0 ]._id ).to.equal( "selectA" );
         expect( results.result[ 1 ]._id ).to.equal( "selectB" );
       } );

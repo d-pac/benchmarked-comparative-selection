@@ -320,7 +320,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "FFF",
       assessor: "user01",
       representations: {
         a: "skip8",
@@ -329,7 +329,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "GGG",
       assessor: "user01",
       representations: {
         a: "skip8",
@@ -338,7 +338,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "HHH",
       assessor: "user01",
       representations: {
         a: "skip10",
@@ -347,7 +347,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "III",
       assessor: "user01",
       representations: {
         a: "skip10",
@@ -356,7 +356,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "JJJ",
       assessor: "user01",
       representations: {
         a: "skip10",
@@ -365,7 +365,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "KKK",
       assessor: "user01",
       representations: {
         a: "selectA",
@@ -374,7 +374,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "LLL",
       assessor: "user01",
       representations: {
         a: "selectA",
@@ -383,7 +383,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "MMM",
       assessor: "user01",
       representations: {
         a: "skip8",
@@ -392,7 +392,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "NNN",
       assessor: "user01",
       representations: {
         a: "skip9",
@@ -401,7 +401,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "OOO",
       assessor: "user01",
       representations: {
         a: "skip10",
@@ -410,7 +410,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "PPP",
       assessor: "user01",
       representations: {
         a: "bla",
@@ -419,7 +419,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "QQQ",
       assessor: "user01",
       representations: {
         a: "bla",
@@ -428,7 +428,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "RRR",
       assessor: "user01",
       representations: {
         a: "bla",
@@ -437,7 +437,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "SSS",
       assessor: "user01",
       representations: {
         a: "bla",
@@ -446,7 +446,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "TTT",
       assessor: "user01",
       representations: {
         a: "bla",
@@ -455,7 +455,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "UUU",
       assessor: "user01",
       representations: {
         a: "bla",
@@ -511,7 +511,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "FFF",
       assessor: "user01",
       representations: {
         a: "skip8",
@@ -520,7 +520,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "G",
       assessor: "user01",
       representations: {
         a: "skip8",
@@ -529,7 +529,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "H",
       assessor: "user01",
       representations: {
         a: "skip10",
@@ -538,7 +538,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "I",
       assessor: "user01",
       representations: {
         a: "skip10",
@@ -547,7 +547,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "J",
       assessor: "user01",
       representations: {
         a: "skip10",
@@ -556,7 +556,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "K",
       assessor: "user01",
       representations: {
         a: "selectA",
@@ -565,7 +565,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "L",
       assessor: "user01",
       representations: {
         a: "selectA",
@@ -574,7 +574,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "M",
       assessor: "user01",
       representations: {
         a: "skip8",
@@ -583,7 +583,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "N",
       assessor: "user01",
       representations: {
         a: "skip9",
@@ -592,7 +592,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "O",
       assessor: "user01",
       representations: {
         a: "skip10",
@@ -601,7 +601,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "P",
       assessor: "user01",
       representations: {
         a: "skip8",
@@ -611,7 +611,7 @@ module.exports = {
     }
     ,
     {
-      _id: "EEE",
+      _id: "Q",
       assessor: "user01",
       representations: {
         a: "skip8",
@@ -620,7 +620,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "R",
       assessor: "user01",
       representations: {
         a: "skip9",
@@ -629,7 +629,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "S",
       assessor: "user01",
       representations: {
         a: "skip10",
@@ -638,7 +638,7 @@ module.exports = {
       data: { selection: undefined }
     },
     {
-      _id: "EEE",
+      _id: "T",
       assessor: "user01",
       representations: {
         a: "skip10",
@@ -812,7 +812,7 @@ module.exports = {
           ability: {
             value: -1
           },
-          compared: undefined
+          compared: []
         },
         {
           _id: "benchmarkB",
@@ -821,7 +821,7 @@ module.exports = {
           ability: {
             value: 2.5
           },
-          compared: undefined
+          compared: []
         },
         {
           _id: "selectB",
@@ -942,7 +942,7 @@ module.exports = {
               ability: {
                 value: -1
               },
-              compared: undefined
+              compared: []
             },
             {
               _id: "benchmarkB",
@@ -951,7 +951,7 @@ module.exports = {
               ability: {
                 value: 2.5
               },
-              compared: undefined
+              compared: []
             },
             {
               _id: "selectB",
@@ -1071,7 +1071,7 @@ module.exports = {
               ability: {
                 value: -1
               },
-              compared: undefined
+              compared: []
             },
             {
               _id: "benchmarkB",
@@ -1080,7 +1080,7 @@ module.exports = {
               ability: {
                 value: 2.5
               },
-              compared: undefined
+              compared: []
             },
             {
               _id: "selectB",
@@ -1199,7 +1199,7 @@ module.exports = {
               ability: {
                 value: -1
               },
-              compared: undefined
+              compared: []
             },
             {
               _id: "benchmarkB",
@@ -1208,7 +1208,7 @@ module.exports = {
               ability: {
                 value: 2.5
               },
-              compared: undefined
+              compared: []
             },
             {
               _id: "selectB",
@@ -1328,7 +1328,7 @@ module.exports = {
               ability: {
                 value: -1
               },
-              compared: undefined
+              compared: []
             },
             {
               _id: "benchmarkB",
@@ -1337,7 +1337,7 @@ module.exports = {
               ability: {
                 value: 2.5
               },
-              compared: undefined
+              compared: []
             },
             {
               _id: "selectB",
@@ -1457,7 +1457,7 @@ module.exports = {
               ability: {
                 value: -1
               },
-              compared: undefined
+              compared: []
             },
             {
               _id: "benchmarkB",
@@ -1466,7 +1466,7 @@ module.exports = {
               ability: {
                 value: 2.5
               },
-              compared: undefined
+              compared: []
             },
             {
               _id: "selectB1",
@@ -1598,7 +1598,7 @@ module.exports = {
                 ability: {
                   value: -1
                 },
-                compared: undefined
+                compared: []
               },
               {
                 _id: "benchmarkB",
@@ -1607,7 +1607,7 @@ module.exports = {
                 ability: {
                   value: 2.5
                 },
-                compared: undefined
+                compared: []
               },
               {
                 _id: "selectB",
@@ -1735,7 +1735,7 @@ module.exports = {
                 ability: {
                   value: -1
                 },
-                compared: undefined
+                compared: []
               },
               {
                 _id: "benchmarkB",
@@ -1744,7 +1744,7 @@ module.exports = {
                 ability: {
                   value: 2.5
                 },
-                compared: undefined
+                compared: []
               },
               {
                 _id: "selectB1",
@@ -1867,7 +1867,7 @@ module.exports = {
           ability: {
             value: -1
           },
-          compared: undefined
+          compared: []
         },
         {
           _id: "benchmarkB",
@@ -1876,7 +1876,7 @@ module.exports = {
           ability: {
             value: 2.5
           },
-          compared: undefined
+          compared: []
         },
         {
           _id: "selectB",
@@ -1997,7 +1997,7 @@ module.exports = {
           ability: {
             value: -1
           },
-          compared: undefined
+          compared: []
         },
         {
           _id: "benchmarkB",
@@ -2006,7 +2006,7 @@ module.exports = {
           ability: {
             value: 2.5
           },
-          compared: undefined
+          compared: []
         },
         {
           _id: "selectB",
@@ -2126,7 +2126,7 @@ module.exports = {
           ability: {
             value: -2.5
           },
-          compared: undefined
+          compared: []
         },
         {
           _id: "benchmarkB",
@@ -2135,7 +2135,7 @@ module.exports = {
           ability: {
             value: 1
           },
-          compared: undefined
+          compared: []
         },
         {
           _id: "selectB",
@@ -2257,7 +2257,7 @@ module.exports = {
           ability: {
             value: -1
           },
-          compared: undefined
+          compared: []
         },
         {
           _id: "benchmarkB",
@@ -2266,7 +2266,7 @@ module.exports = {
           ability: {
             value: 2.5
           },
-          compared: undefined
+          compared: []
         },
         {
           _id: "selectB1",
@@ -2385,7 +2385,7 @@ module.exports = {
           ability: {
             value: -2.5
           },
-          compared: undefined
+          compared: []
         },
         {
           _id: "benchmarkB",
@@ -2394,7 +2394,7 @@ module.exports = {
           ability: {
             value: 1
           },
-          compared: undefined
+          compared: []
         },
         {
           _id: "selectB1",
