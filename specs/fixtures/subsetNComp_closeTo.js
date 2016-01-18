@@ -71,8 +71,8 @@ oneNotOneCP.push( tempNot );
 oneNotOneCP.push( tempCPA );
 CPTwoNot.push( tempNot );
 CPTwoNot.push( tempNot );
-answerAll = _.pluck( allCP, '_id' );
-answerTwo = _.pluck( CPTwoNot, '_id' );
+answerAll = _.map( allCP, '_id' );
+answerTwo = _.map( CPTwoNot, '_id' );
 
 module.exports = {
   twoRepr: {

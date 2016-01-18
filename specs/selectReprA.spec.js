@@ -66,7 +66,7 @@ describe( "select representation A", function(){
       for( var i = 0; i < 2000; i++ ){
         results.push( selectReprA( fx.selectReprA.nonComparedRepresentations, fx.selectReprA.comparisons, fx.selectReprA.asserorId1 ) );
       }
-      var ids = _.pluck( results, "_id" );
+      var ids = _.map( results, "_id" );
       expect( ids.indexOf( 'rep02' ) ).to.be.below( 0 );
       expect( ids.indexOf( 'rep03' ) ).to.be.below( 0 );
       expect( ids.indexOf( 'rep04' ) ).to.be.below( 0 );
@@ -83,7 +83,7 @@ describe( "select representation A", function(){
       for( var i = 0; i < 2000; i++ ){
         results.push( selectReprA( fx.selectReprA.oneSentOutRepresentation, fx.selectReprA.oneSentOutComparisons, fx.selectReprA.asserorId1 ) );
       }
-      var ids = _.pluck( results, "_id" );
+      var ids = _.map( results, "_id" );
       expect( ids.indexOf( 'rep02' ) ).to.be.below( 0 );
       expect( ids.indexOf( 'rep03' ) ).to.be.below( 0 );
       expect( ids.indexOf( 'rep04' ) ).to.be.below( 0 );
@@ -100,7 +100,7 @@ describe( "select representation A", function(){
       for( var i = 0; i < 2000; i++ ){
         results.push( selectReprA( fx.selectReprA.oneSentOutRepresentation3toRank, fx.selectReprA.oneSentOutComparisons, fx.selectReprA.asserorId1 ) );
       }
-      var ids = _.pluck( results, "_id" );
+      var ids = _.map( results, "_id" );
       expect( ids.indexOf( 'rep02' ) ).to.be.below( 0 );
       expect( ids.indexOf( 'rep03' ) ).to.be.below( 0 );
       expect( ids.indexOf( 'rep04' ) ).to.be.below( 0 );
@@ -118,7 +118,7 @@ describe( "select representation A", function(){
       for( var i = 0; i < 2000; i++ ){
         results.push( selectReprA( fx.selectReprA.equalSentOutButSeenMoreRepresentation, fx.selectReprA.equalSentOutButSeenMoreComparisons, fx.selectReprA.asserorId2 ) );
       }
-      var ids = _.pluck( results, "_id" );
+      var ids = _.map( results, "_id" );
       expect( ids.indexOf( 'rep02' ) ).to.be.below( 0 );
       expect( ids.indexOf( 'rep03' ) ).to.be.below( 0 );
       expect( ids.indexOf( 'rep04' ) ).to.be.below( 0 );
@@ -135,7 +135,7 @@ describe( "select representation A", function(){
       for( var i = 0; i < 2000; i++ ){
         results.push( selectReprA( fx.selectReprA.equalSentOutButSeenMoreRepresentation, fx.selectReprA.equalSentOutButSeenMoreComparisons, fx.selectReprA.asserorId1 ) );
       }
-      var ids = _.pluck( results, "_id" );
+      var ids = _.map( results, "_id" );
       expect( ids.indexOf( 'rep02' ) ).to.be.below( 0 );
       expect( ids.indexOf( 'rep03' ) ).to.be.below( 0 );
       expect( ids.indexOf( 'rep04' ) ).to.be.below( 0 );
@@ -152,7 +152,7 @@ describe( "select representation A", function(){
       for( var i = 0; i < 2000; i++ ){
         results.push( selectReprA( fx.selectReprA.equalSentOutButSeenMoreRepresentation, fx.selectReprA.equalSentOutAndSeenComparisons, fx.selectReprA.asserorId1 ) );
       }
-      var ids = _.pluck( results, "_id" );
+      var ids = _.map( results, "_id" );
       expect( ids.indexOf( 'rep02' ) ).to.be.below( 0 );
       expect( ids.indexOf( 'rep03' ) ).to.be.below( 0 );
       expect( ids.indexOf( 'rep04' ) ).to.be.below( 0 );

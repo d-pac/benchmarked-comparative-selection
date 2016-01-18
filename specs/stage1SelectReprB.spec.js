@@ -33,7 +33,7 @@ describe( "select representation B", function(){
     for( var i = 0; i < 2000; i++ ){
       results.push( selectBM( fx.stage1SelectReprB.representations, fx.stage1SelectReprB.comparisons, fx.stage1SelectReprB.representationA1 ) );
     }
-    var ids = _.pluck( results, "_id" );
+    var ids = _.map( results, "_id" );
     expect( ids.indexOf( 'rep01' ) ).to.be.below( 0 );
     expect( ids.indexOf( 'rep03' ) ).to.be.below( 0 );
     expect( ids.indexOf( 'rep05' ) ).to.be.below( 0 );
@@ -47,7 +47,7 @@ describe( "select representation B", function(){
     for( var i = 0; i < 2000; i++ ){
       results.push( selectBM( fx.stage1SelectReprB.representations2, fx.stage1SelectReprB.comparisons, fx.stage1SelectReprB.representationA2 ) );
     }
-    var ids = _.pluck( results, "_id" );
+    var ids = _.map( results, "_id" );
     expect( ids.indexOf( 'rep01' ) ).to.be.below( 0 );
     expect( ids.indexOf( 'rep02' ) ).to.be.least( 0 );
     expect( ids.indexOf( 'rep03' ) ).to.be.below( 0 );
@@ -61,7 +61,7 @@ describe( "select representation B", function(){
     for( var i = 0; i < 2000; i++ ){
       results.push( selectBM( fx.stage1SelectReprB.representations3, fx.stage1SelectReprB.comparisons, fx.stage1SelectReprB.representationA2 ) );
     }
-    var ids = _.pluck( results, "_id" );
+    var ids = _.map( results, "_id" );
     expect( ids.indexOf( 'rep01' ) ).to.be.below( 0 );
     expect( ids.indexOf( 'rep02' ) ).to.be.least( 0 );
     expect( ids.indexOf( 'rep03' ) ).to.be.below( 0 );
@@ -76,7 +76,7 @@ describe( "select representation B", function(){
     for( var i = 0; i < 2000; i++ ){
       results.push( selectBM( fx.stage1SelectReprB.representations4, fx.stage1SelectReprB.comparisons2, fx.stage1SelectReprB.representationA3 ) );
     }
-    var ids = _.pluck( results, "_id" );
+    var ids = _.map( results, "_id" );
     expect( ids.indexOf( 'rep01' ) ).to.be.below( 0 );
     expect( ids.indexOf( 'rep02' ) ).to.be.below( 0 );
     expect( ids.indexOf( 'rep03' ) ).to.be.below( 0 );
@@ -92,7 +92,7 @@ describe( "select representation B", function(){
     for( var i = 0; i < 2000; i++ ){
       results.push( selectBM( fx.stage1SelectReprB.representations5, fx.stage1SelectReprB.comparisons3, fx.stage1SelectReprB.representationA2 ) );
     }
-    var ids = _.pluck( results, "_id" );
+    var ids = _.map( results, "_id" );
     expect( ids.indexOf( 'rep01' ) ).to.be.below( 0 );
     expect( ids.indexOf( 'rep02' ) ).to.be.least( 0 );
     expect( ids.indexOf( 'rep03' ) ).to.be.below( 0 );
@@ -109,7 +109,7 @@ describe( "select representation B", function(){
     for( var i = 0; i < 2000; i++ ){
       results.push( selectBM( fx.stage1SelectReprB.representations6, fx.stage1SelectReprB.comparisons3, fx.stage1SelectReprB.representationA4 ) );
     }
-    var ids = _.pluck( results, "_id" );
+    var ids = _.map( results, "_id" );
     expect( ids.indexOf( 'rep01' ) ).to.be.below( 0 );
     expect( ids.indexOf( 'rep02' ) ).to.be.below( 0 );
     expect( ids.indexOf( 'rep03' ) ).to.be.below( 0 );

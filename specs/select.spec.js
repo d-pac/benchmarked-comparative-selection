@@ -705,7 +705,7 @@ describe( "select", function(){
           results1.push( tempStore.result[ 0 ]._id );
           results2.push( tempStore.result[ 1 ]._id )
         }
-        var counted = _.sum( results1, function( result ){
+        var counted = _.sumBy( results1, function( result ){
           if( result === "selectA" ){
             return 1
           }
@@ -766,7 +766,7 @@ describe( "select", function(){
           results1.push( tempStore.result[ 0 ]._id );
           results2.push( tempStore.result[ 1 ]._id )
         }
-        var counted = _.sum( results1, function( result ){
+        var counted = _.sumBy( results1, function( result ){
           if( result === "selectA" ){
             return 1
           }
@@ -813,7 +813,7 @@ describe( "select", function(){
           results1.push( tempStore.result[ 0 ]._id );
           results2.push( tempStore.result[ 1 ]._id )
         }
-        var counted = _.sum( results1, function( result ){
+        var counted = _.sumBy( results1, function( result ){
           if( result === "selectA" ){
             return 1
           }
@@ -836,7 +836,7 @@ describe( "select", function(){
           results1.push( tempStore.result[ 0 ]._id );
           results2.push( tempStore.result[ 1 ]._id )
         }
-        var counted = _.sum( results1, function( result ){
+        var counted = _.sumBy( results1, function( result ){
           if( result === "selectA" ){
             return 1
           }

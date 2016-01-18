@@ -75,7 +75,7 @@ describe( "subset number of comparisons", function(){
               conditionText = conditionText.concat( " the correct answer should be given" );
               it( conditionText, function(){
                 var subset = subsetNcomp.subsetCloseTo( cond_value.Repr, fx.subsetNComp_closeTo.CP );
-                var whatComesOut = _.pluck( subset, '_id' );
+                var whatComesOut = _.map( subset, '_id' );
                 if( !cond_value.answer ){
                   expect( typeof whatComesOut ).not.equal( 'undefined' );
                   expect( whatComesOut.length ).to.be.equal( 0 );
@@ -138,7 +138,7 @@ describe( "subset number of comparisons", function(){
         var results;
         var resultsIds;
         results = subsetNcomp.subsetNcomp( fx.subsetNComp_Ncomp.noneCompared.Representations );
-        resultsIds = _.pluck( results, '_id' );
+        resultsIds = _.map( results, '_id' );
         it( "it should return an array", function(){
           expect( results ).to.be.an.array();
         } );
@@ -150,7 +150,7 @@ describe( "subset number of comparisons", function(){
         var results;
         var resultsIds;
         results = subsetNcomp.subsetNcomp( fx.subsetNComp_Ncomp.oneCompared.Representations );
-        resultsIds = _.pluck( results, '_id' );
+        resultsIds = _.map( results, '_id' );
         it( "it should return an array", function(){
           expect( results ).to.be.an.array();
         } );
@@ -165,7 +165,7 @@ describe( "subset number of comparisons", function(){
         var results;
         var resultsIds;
         results = subsetNcomp.subsetNcomp( fx.subsetNComp_Ncomp.fiveCompared.Representations );
-        resultsIds = _.pluck( results, '_id' );
+        resultsIds = _.map( results, '_id' );
         it( "it should return an array", function(){
           expect( results ).to.be.an.array();
         } );
@@ -180,7 +180,7 @@ describe( "subset number of comparisons", function(){
         var results;
         var resultsIds;
         results = subsetNcomp.subsetNcomp( fx.subsetNComp_Ncomp.allCompared.Representations );
-        resultsIds = _.pluck( results, '_id' );
+        resultsIds = _.map( results, '_id' );
         it( "it should return an array", function(){
           expect( results ).to.be.an.array();
         } );
@@ -195,7 +195,7 @@ describe( "subset number of comparisons", function(){
         var results;
         var resultsIds;
         results = subsetNcomp.subsetNcomp( fx.subsetNComp_Ncomp.nineDifferent.Representations );
-        resultsIds = _.pluck( results, '_id' );
+        resultsIds = _.map( results, '_id' );
         it( "it should return an array", function(){
           expect( results ).to.be.an.array();
         } );
@@ -210,7 +210,7 @@ describe( "subset number of comparisons", function(){
         var results;
         var resultsIds;
         results = subsetNcomp.subsetNcomp( fx.subsetNComp_Ncomp.fiveComparedEqualNot.Representations );
-        resultsIds = _.pluck( results, '_id' );
+        resultsIds = _.map( results, '_id' );
         it( "it should return an array", function(){
           expect( results ).to.be.an.array();
         } );
@@ -225,7 +225,7 @@ describe( "subset number of comparisons", function(){
         var results;
         var resultsIds;
         results = subsetNcomp.subsetNcomp( fx.subsetNComp_Ncomp.fiveCompared9v10.Representations );
-        resultsIds = _.pluck( results, '_id' );
+        resultsIds = _.map( results, '_id' );
         it( "it should return an array", function(){
           expect( results ).to.be.an.array();
         } );
