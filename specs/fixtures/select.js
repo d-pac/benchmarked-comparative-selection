@@ -5,33 +5,42 @@ module.exports = {
   assessment: {
     _id: "assessment01",
     stage: 0,
-    comparisonsNum: {
-      perRepresentation: 10,
-      perAssessor: [ 7 ]
+    limits: {
+      comparisonsNum: {
+        perRepresentation: 10,
+        perAssessor: 7
+      }
     }
   },
   assessment2: {
     _id: "assessment01",
     stage: 1,
-    comparisonsNum: {
-      perRepresentation: 10,
-      perAssessor: [ 5 ]
+    limits: {
+      comparisonsNum: {
+        perRepresentation: 10,
+        perAssessor: 5
+      }
     }
   },
   assessment3: {
     _id: "assessment01",
     stage: 1,
-    comparisonsNum: {
-      perRepresentation: 10,
-      perAssessor: [ 5, 14 ]
+    limits: {
+      comparisonsNum: {
+        perRepresentation: 10,
+        perAssessor: 19
+      },
+      assessorsNum: 4
     }
   },
   assessment4: {
     _id: "assessment01",
     stage: 0,
-    comparisonsNum: {
-      perRepresentation: 10,
-      perAssessor: []
+    limits: {
+      comparisonsNum: {
+        perRepresentation: 10,
+        perAssessor: 0
+      }
     }
   },
   comparisons: [
@@ -1118,9 +1127,11 @@ module.exports = {
     assessment: {
       _id: "assessment01",
       stage: 0,
-      comparisonsNum: {
-        perRepresentation: 10,
-        perAssessor: [ 5 ]
+      limits: {
+        comparisonsNum: {
+          perRepresentation: 10,
+          perAssessor: 5
+        }
       }
     }
   },
@@ -1331,9 +1342,11 @@ module.exports = {
     assessment: {
       _id: "assessment01",
       stage: 0,
-      comparisonsNum: {
-        perRepresentation: 10,
-        perAssessor: [ 5 ]
+      limits: {
+        comparisonsNum: {
+          perRepresentation: 10,
+          perAssessor: 5
+        }
       }
     }
   },
@@ -1544,9 +1557,11 @@ module.exports = {
     assessment: {
       _id: "assessment01",
       stage: 1,
-      comparisonsNum: {
-        perRepresentation: 10,
-        perAssessor: [ 5 ]
+      limits: {
+        comparisonsNum: {
+          perRepresentation: 10,
+          perAssessor: 10
+        }
       }
     }
   }

@@ -46,7 +46,7 @@ describe( "select", function(){
           assessment: fx.select.assessment,
           assessor: fx.select.assessor
         } );
-      } ).to.throw( /An error occurred: payload.representations is the wrong type/i );
+      } ).to.throw( /payload.representations is the wrong type/i );
     } );
     it( "should throw an error when `payload.representations` does not contain at least 3 elements", function(){
       expect( function(){
@@ -56,7 +56,7 @@ describe( "select", function(){
           assessment: fx.select.assessment,
           assessor: fx.select.assessor
         } );
-      } ).to.throw( /An error occurred: payload.representations has less items than allowed/i );
+      } ).to.throw( /payload.representations has less items than allowed/i );
     } );
     it( "should throw an error when representations does not contain a representation to rank", function(){
       expect( function(){
@@ -66,7 +66,7 @@ describe( "select", function(){
           assessment: fx.select.assessment,
           assessor: fx.select.assessor
         } );
-      } ).to.throw( /An error occurred: payload.representations should contain at least one representation that is to rank/i );
+      } ).to.throw( /payload.representations should contain at least one representation that is to rank/i );
     } );
     it( "should throw an error when representations does not contain a benchmark", function(){
       expect( function(){
@@ -204,9 +204,11 @@ describe( "select", function(){
           comparisons: fx.select.comparisons,
           assessment: {
             _id: "assessment01",
-            comparisonsNum: {
-              perRepresentation: 10,
-              perAssessor: [ 7 ]
+            limits: {
+              comparisonsNum: {
+                perRepresentation: 10,
+                perAssessor: 7
+              }
             }
           },
           assessor: fx.select.assessor
@@ -218,9 +220,11 @@ describe( "select", function(){
           comparisons: fx.select.comparisons,
           assessment: {
             _id: "assessment01",
-            comparisonsNum: {
-              perRepresentation: 10,
-              perAssessor: [ 7 ]
+            limits: {
+              comparisonsNum: {
+                perRepresentation: 10,
+                perAssessor: 7
+              }
             },
             stage: -1
           },
@@ -233,9 +237,11 @@ describe( "select", function(){
           comparisons: fx.select.comparisons,
           assessment: {
             _id: "assessment01",
-            comparisonsNum: {
-              perRepresentation: 10,
-              perAssessor: [ 7 ]
+            limits: {
+              comparisonsNum: {
+                perRepresentation: 10,
+                perAssessor: 7
+              }
             },
             stage: 2
           },
@@ -387,6 +393,7 @@ describe( "select", function(){
         return _.get( result.result[ 0 ], "_id" ) !== "rep08";
       } ) ).to.be.undefined();
 
+      var results = [];
       for( var i = 0; i < 2000; i++ ){
         results.push( select.select( {
           representations: fx.selectStage1Situation.representations,
@@ -395,7 +402,8 @@ describe( "select", function(){
           assessor: fx.selectStage1Situation.assessorId2
         } ) );
       }
-      expect( _.find( results, function( result ){
+      expect( _.find( results, function( result,
+                                         i ){
         return _.get( result.result[ 1 ], "_id" ) !== "rep02" && _.get( result.result[ 1 ], "_id" ) !== "rep04";
       } ) ).to.be.undefined();
       expect( _.find( results, function( result ){
@@ -495,7 +503,7 @@ describe( "select", function(){
         return _.get( result.result[ 1 ], "_id" ) !== "rep07";
       } ) ).to.be.undefined();
 
-      results = [];
+      var results = [];
       for( var i = 0; i < 2000; i++ ){
         results.push( select.select( {
           representations: fx.selectStage1Situation.representations5,

@@ -11,8 +11,11 @@ module.exports = {
   assessment1: {
     _id: "assessment01",
     stage: 0,
-    comparisonsNum: {
-      perAssessor: [ 5 ]
+    limits: {
+      comparisonsNum: {
+        perAssessor: 5
+      },
+      assessorsNum: 0
     }
   },
 
@@ -201,7 +204,7 @@ module.exports = {
       _id: "rep03",
       rankType: "benchmark",
       ability: {},
-      compared : [],
+      compared: [],
       closeTo: null
     }, {
       _id: "rep04",
@@ -213,7 +216,7 @@ module.exports = {
       _id: "rep05",
       rankType: "benchmark",
       ability: {},
-      compared : [],
+      compared: [],
       closeTo: null
     }, {
       _id: "rep08",
@@ -225,7 +228,7 @@ module.exports = {
       _id: "rep09",
       rankType: "ranked",
       ability: {},
-      compared : [],
+      compared: [],
       closeTo: "rep03"
     }
   ],

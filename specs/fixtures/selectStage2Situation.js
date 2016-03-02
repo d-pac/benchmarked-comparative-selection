@@ -788,9 +788,12 @@ module.exports = {
   assessment2: {
     _id: "assessment01",
     stage: 1,
-    comparisonsNum: {
-      perRepresentation: 10,
-      perAssessor: [ 5 ]
+    limits: {
+      comparisonsNum: {
+        perRepresentation: 10,
+        perAssessor: 22
+      },
+      assessorsNum: 0
     }
   },
   reprNegAPosB: {
