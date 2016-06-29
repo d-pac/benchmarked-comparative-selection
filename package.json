@@ -34,6 +34,8 @@
   ],
   "devDependencies": {
     "deepmerge": "^0.2.10",
+    "eslint": "^2.13.1",
+    "eslint-config-prototypers": "^0.2.0",
     "mocha": "^2.2.4",
     "must": "^0.13.1",
     "require-directory": "^2.1.0"
